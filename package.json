@@ -1,0 +1,25 @@
+{
+  "name": "stylelint-config-ccb",
+  "version": "1.0.0",
+  "description": "Stylelint config which extends stylelint-config-standard",
+  "keywords": [
+    "stylelint",
+    "stylelint-config"
+  ],
+  "author": "Carlos Jeurissen",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/carlosjeurissen/stylelint-config-ccb.git"
+  },
+  "main": "index.js",
+  "files": [
+    "index.js"
+  ],
+  "dependencies": {
+    "stylelint-config-standard": "^20.0.0"
+  },
+  "peerDependencies": {
+    "stylelint": ">=10.1.0"
+  }
+}
