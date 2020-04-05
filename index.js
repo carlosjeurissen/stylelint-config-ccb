@@ -22,7 +22,7 @@ module.exports = {
       }
     ],
     "selector-type-no-unknown": [
-      "always",
+      true,
       {
         "ignore": ["custom-elements"]
       }
