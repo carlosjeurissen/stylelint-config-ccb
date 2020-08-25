@@ -3,9 +3,9 @@
 module.exports = {
   extends: 'stylelint-config-standard',
   rules: {
-    'color-function-notation': 'modern',
+    'color-function-notation': 'legacy',
     'alpha-value-notation': 'number',
-    'hue-degree-notation': 'angle',
+    'hue-degree-notation': 'number',
     'selector-max-universal': 1,
     'font-weight-notation': [
       'numeric',
