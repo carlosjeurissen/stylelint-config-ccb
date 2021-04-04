@@ -1,1 +1,20 @@
+# Yarn and npm
+yarn-error.log
+npm-debug.log
 node_modules
+
+# Webstorm files
+.idea/*
+
+# Vim swap files
+*.swp
+*.swo
+
+# Sublime files
+*.sublime-workspace
+*.sublime-project
+
+# Mac and windows files
+__MACOSX
+.DS_Store
+.tmp
