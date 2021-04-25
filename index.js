@@ -8,7 +8,7 @@ module.exports = {
     'no-invalid-position-at-import-rule': true,
     'named-grid-areas-no-invalid': true,
     'declaration-block-no-duplicate-custom-properties': true,
-    'comment-pattern': '(?: |\\*)[.\n]+(?: |\t|\n)',
+    'comment-pattern': '(?: |\\*)[.\\n]+(?: |\t|\n)',
     'color-function-notation': 'legacy',
     'alpha-value-notation': 'number',
     'hue-degree-notation': 'number',
