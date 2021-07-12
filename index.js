@@ -248,6 +248,7 @@ module.exports = {
         'font-stretch',
         'font-size',
         'font-family',
+        'font-display',
         'src',
         'line-height',
         'letter-spacing',
