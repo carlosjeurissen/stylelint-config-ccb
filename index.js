@@ -4,12 +4,10 @@ module.exports = {
   extends: 'stylelint-config-standard',
   plugins: [
     'stylelint-order',
-    'stylelint-no-indistinguishable-colors',
     'stylelint-selector-no-empty',
     'stylelint-selector-tag-no-without-class'
   ],
   rules: {
-    'plugin/stylelint-no-indistinguishable-colors': true,
     'plugin/stylelint-selector-no-empty': true,
     'plugin/selector-tag-no-without-class': ['div', 'span'],
 
