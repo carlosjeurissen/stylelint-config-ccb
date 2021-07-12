@@ -241,16 +241,31 @@ module.exports = {
 
         //
         'font',
-        'font-weight',
+
         'font-style',
         'font-variant',
-        'font-size-adjust',
+        'font-weight',
         'font-stretch',
         'font-size',
-        'font-family',
-        'font-display',
-        'src',
         'line-height',
+        'font-family',
+
+        'font-kerning',
+        'font-size-adjust',
+
+        'font-display',
+        'font-language-override',
+        'font-optical-sizing',
+        'font-synthesis',
+        'font-variant-alternates',
+        'font-variant-caps',
+        'font-variant-east-asian',
+        'font-variant-ligatures',
+        'font-variant-numeric',
+        'font-variant-position',
+        'font-variation-settings',
+
+        'src',
         'letter-spacing',
         'quotes',
         'counter-increment',
