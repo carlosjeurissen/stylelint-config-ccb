@@ -158,16 +158,19 @@ module.exports = {
         'height',
         'min-height',
         'max-height',
+
         'margin',
         'margin-top',
         'margin-right',
         'margin-bottom',
         'margin-left',
+
         'padding',
         'padding-top',
         'padding-right',
         'padding-bottom',
         'padding-left',
+
         'border',
         'border-spacing',
         'border-collapse',
@@ -215,15 +218,20 @@ module.exports = {
         'background',
         'background-color',
         'background-image',
-        'background-attachment',
         'background-position',
         'background-position-x',
         'background-position-y',
-        'background-clip',
-        'background-origin',
         'background-size',
         'background-repeat',
+        'background-attachment',
+
+        'background-blend-mode',
+        'background-clip',
+        'background-origin',
+
         'color',
+        'fill',
+        'stroke',
         'box-decoration-break',
         'box-shadow',
         'outline',
@@ -331,8 +339,6 @@ module.exports = {
         'min-zoom',
         'user-zoom',
         'orientation',
-        'fill',
-        'stroke',
 
         //
         'transition',
@@ -342,6 +348,7 @@ module.exports = {
         'transition-property',
         'transform',
         'transform-origin',
+
         'animation',
         'animation-name',
         'animation-duration',
