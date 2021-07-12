@@ -4,7 +4,6 @@ module.exports = {
   extends: 'stylelint-config-standard',
   plugins: [
     'stylelint-order',
-    'stylelint-no-browser-hacks',
     'stylelint-no-indistinguishable-colors',
     'stylelint-selector-no-empty',
     'stylelint-selector-tag-no-without-class'
@@ -14,7 +13,6 @@ module.exports = {
     'plugin/selector-no-empty': true,
     'plugin/selector-tag-no-without-class': ['div', 'span'],
 
-    'selector-attribute-quotes': 'always',
     'no-irregular-whitespace': true,
     'no-invalid-position-at-import-rule': true,
     'named-grid-areas-no-invalid': true,
