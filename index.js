@@ -9,8 +9,8 @@ module.exports = {
     'stylelint-selector-tag-no-without-class'
   ],
   rules: {
-    'plugin/no-indistinguishable-colors': true,
-    'plugin/selector-no-empty': true,
+    'plugin/stylelint-no-indistinguishable-colors': true,
+    'plugin/stylelint-selector-no-empty': true,
     'plugin/selector-tag-no-without-class': ['div', 'span'],
 
     'no-irregular-whitespace': true,
