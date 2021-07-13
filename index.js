@@ -98,7 +98,6 @@ module.exports = {
     'order/properties-order': [
       [
         'all',
-        'touch-action',
         'contain',
         'will-change',
         'appearance',
@@ -456,6 +455,7 @@ module.exports = {
         'resize',
         'cursor',
         'pointer-events',
+        'touch-action',
         'user-select',
 
         //
@@ -512,11 +512,11 @@ module.exports = {
         'animation-fill-mode',
 
         'offset',
-        'offset-anchor',
-        'offset-distance',
-        'offset-path',
         'offset-position',
-        'offset-rotate'
+        'offset-path',
+        'offset-distance',
+        'offset-rotate',
+        'offset-anchor'
       ],
       {
         unspecified: 'bottom',
