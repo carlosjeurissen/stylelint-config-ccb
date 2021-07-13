@@ -97,6 +97,7 @@ module.exports = {
     ],
     'order/properties-order': [
       [
+        'all',
         'content',
         'position',
         'top',
