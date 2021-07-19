@@ -380,13 +380,13 @@ module.exports = {
         //
         'font',
 
+        'font-family',
         'font-style',
         'font-variant',
         'font-weight',
         'font-stretch',
         'font-size',
         'line-height',
-        'font-family',
 
         'font-kerning',
         'font-size-adjust',
