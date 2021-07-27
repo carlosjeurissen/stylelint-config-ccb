@@ -4,14 +4,12 @@ module.exports = {
   extends: 'stylelint-config-standard',
   plugins: [
     'stylelint-order',
-    'stylelint-selector-no-empty',
-    'stylelint-selector-tag-no-without-class'
+    'stylelint-selector-no-empty'
   ],
   rules: {
     'plugin/stylelint-selector-no-empty': true,
-    'plugin/selector-tag-no-without-class': ['div', 'span'],
 
-    'at-rule-allowed-list': ['media', 'keyframes', 'charset', 'font-face', 'page'],
+    'at-rule-allowed-list': ['media', 'keyframes', 'charset', 'font-face', 'page', 'supports'],
     'at-rule-disallowed-list': ['custom-selector', '-moz-document'],
     'at-rule-property-required-list': {
       'font-face': ['font-display', 'font-family', 'font-style', 'src']
@@ -24,7 +22,7 @@ module.exports = {
       'aka', 'allowlisting', 'allowlisted', 'authN', 'authZ', 'autoupdate',
       'blackhat', 'black-hat', 'blackhole', 'blackholed', 'blacklist',
       'black-list', 'blacklisted', 'black-listed', 'blacklisting',
-      'black-listing', 'chubby', 'comprise', 'cons', 'crazy', 'bonkers',
+      'black-listing', 'chubby', 'comprise', 'crazy', 'bonkers',
       'mad', 'lunatic', 'insane', 'loony', 'cripple', 'cripples', 'dead-letter',
       'denylisted', 'denylisting', 'desire', 'desired', 'first-class',
       'ghetto', 'grandfather', 'grandfathered', 'grand-father', 'grayhat',
