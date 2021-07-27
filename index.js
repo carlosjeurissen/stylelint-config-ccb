@@ -12,7 +12,7 @@ module.exports = {
     'plugin/selector-tag-no-without-class': ['div', 'span'],
 
     'at-rule-allowed-list': ['media', 'keyframes', 'charset', 'font-face'],
-    'at-rule-disallow-list': ['custom-selector'],
+    'at-rule-disallowed-list': ['custom-selector'],
     'at-rule-property-required-list': {
       'font-face': ['font-display', 'font-family', 'font-style', 'src']
     },
@@ -21,7 +21,8 @@ module.exports = {
     'declaration-block-no-redundant-longhand-properties': true,
     'declaration-property-unit-allowed-list': {
       'font-size': ['rem'],
-      animation: ['s'],
+      'transition-delay': ['ms'],
+      animation: ['ms'],
       'line-height': [],
       'letter-spacing': ['em']
     },
@@ -39,13 +40,13 @@ module.exports = {
     'keyframes-name-pattern': '[a-z-]{4,40}',
     'custom-media-pattern': '[a-z-]{4,40}',
     'custom-property-pattern': '[a-z-]{4,40}',
-    'selector-class-pattern': '[a-z-_]{4,40}',
-    'selector-id-pattern': '[a-z-_]{4,40}',
+    'selector-class-pattern': '[a-z-_]{3,40}',
+    'selector-id-pattern': '[a-z-_]{2,40}',
     linebreaks: 'unix',
     'no-empty-first-line': true,
     'number-max-precision': 5,
     'property-disallowed-list': [
-      '-webkit-font-smoothing', '-moz-osx-font-smoothing', 'font-smooth'
+      '-webkit-font-smoothing', '-moz-osx-font-smoothing', 'font-smoothing', 'osx-font-smoothing', 'font-smooth'
     ],
     'unicode-bom': 'never',
     'time-min-milliseconds': 100,
@@ -58,7 +59,8 @@ module.exports = {
     'selector-pseudo-class-disallowed-list': [':scope', ':has', ':matches'],
     'unit-disallowed-list': [
       'cm', 'mm', 'Q', 'in', 'pc', 'pt',
-      'ex', 'ch'
+      'ex', 'ch',
+      's'
     ],
 
     'declaration-block-no-shorthand-property-overrides': true,
