@@ -49,7 +49,7 @@ module.exports = {
       '-webkit-font-smoothing', '-moz-osx-font-smoothing', 'font-smoothing', 'osx-font-smoothing', 'font-smooth'
     ],
     'unicode-bom': 'never',
-    'time-min-milliseconds': 100,
+    'time-min-milliseconds': 75,
     'selector-no-qualifying-type': true,
     'selector-max-attribute': 1,
     'selector-max-id': 1,
