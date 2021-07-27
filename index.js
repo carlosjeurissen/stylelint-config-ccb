@@ -11,8 +11,8 @@ module.exports = {
     'plugin/stylelint-selector-no-empty': true,
     'plugin/selector-tag-no-without-class': ['div', 'span'],
 
-    'at-rule-allowed-list': ['media', 'keyframes', 'charset', 'font-face'],
-    'at-rule-disallowed-list': ['custom-selector'],
+    'at-rule-allowed-list': ['media', 'keyframes', 'charset', 'font-face', 'page'],
+    'at-rule-disallowed-list': ['custom-selector', '-moz-document'],
     'at-rule-property-required-list': {
       'font-face': ['font-display', 'font-family', 'font-style', 'src']
     },
@@ -28,7 +28,8 @@ module.exports = {
     },
     'declaration-property-value-allowed-list': {
       all: ['initial'],
-      content: ['""', '/^attr\\(/']
+      content: ['""', '/^attr\\(/'],
+      font: ['inherit']
     },
     'declaration-property-value-disallowed-list': {
       color: ['rebeccapurple'],
@@ -46,7 +47,8 @@ module.exports = {
     'no-empty-first-line': true,
     'number-max-precision': 5,
     'property-disallowed-list': [
-      '-webkit-font-smoothing', '-moz-osx-font-smoothing', 'font-smoothing', 'osx-font-smoothing', 'font-smooth'
+      '-webkit-font-smoothing', '-moz-osx-font-smoothing',
+      'font-smoothing', 'osx-font-smoothing', 'font-smooth'
     ],
     'unicode-bom': 'never',
     'time-min-milliseconds': 75,
