@@ -21,18 +21,12 @@ module.exports = {
     'declaration-property-unit-allowed-list': {
       'font-size': ['rem'],
       animation: ['s'],
-      'line-height': []
+      'line-height': [],
+      'letter-spacing': ['em']
     },
     'declaration-property-value-allowed-list': {
       all: ['initial'],
       content: ['""']
-    },
-    'declaration-property-value-block-list': {
-      all: ['initial'],
-      content: ['""']
-    },
-    'declaration-property-value-disallowed-list': {
-
     },
     'function-url-scheme-allowed-list': ['data', 'https'],
     'keyframes-name-pattern': '[a-z-]{4,40}',
@@ -57,7 +51,7 @@ module.exports = {
     'selector-pseudo-class-disallowed-list': [':scope'],
     'unit-disallowed-list': [
       'cm', 'mm', 'Q', 'in', 'pc', 'pt',
-      'ex', 'em', 'ch'
+      'ex', 'ch'
     ],
 
     'declaration-block-no-shorthand-property-overrides': true,
