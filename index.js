@@ -151,16 +151,28 @@ module.exports = {
         'gap',
         'row-gap',
         'column-gap',
+
+        'place-content',
         'align-content',
-        'align-items',
-        'align-self',
         'justify-content',
+
+        'place-items',
+        'align-items',
         'justify-items',
+
+        'place-self',
+        'align-self',
         'justify-self',
+
+        'align-tracks',
+        'justify-tracks',
+
         'order',
         'float',
         'clear',
         'object-fit',
+
+        'scroll-behavior',
 
         'overflow',
         'overflow-x',
@@ -177,8 +189,6 @@ module.exports = {
         'overscroll-behavior-y',
         'overscroll-behavior-block',
         'overscroll-behavior-inline',
-
-        'clip',
 
         //
         'box-sizing',
@@ -332,15 +342,44 @@ module.exports = {
         'color',
         '-webkit-text-fill-color',
         'caret-color',
+
         'fill',
+        'fill-opacity',
+        'fill-rule',
+
         'stroke',
+        'stroke-dasharray',
+        'stroke-dashoffset',
+        'stroke-linecap',
+        'stroke-linejoin',
+        'stroke-miterlimit',
+        'stroke-opacity',
+        'stroke-width',
+
+        'stop-color',
+        'stop-opacity',
+
+        'flood-color',
+        'flood-opacity',
+
+        'marker',
+        'marker-end',
+        'marker-mid',
+        'marker-start',
+
         'color-adjust',
         'color-scheme',
+        'color-interpolation',
+        'color-interpolation-filters',
+        'color-profile',
+        'color-rendering',
+
         '-webkit-tap-highlight-color',
         'box-decoration-break',
 
         'scrollbar-color',
         'scrollbar-width',
+        'scrollbar-gutter',
 
         'outline',
         'outline-width',
@@ -355,6 +394,15 @@ module.exports = {
         'list-style-position',
         'list-style-type',
         'list-style-image',
+
+        // image
+        'image-orientation',
+        'image-rendering',
+        'image-resolution',
+
+        // clip
+        'clip',
+        'clip-path',
 
         // mask
         'mask',
@@ -411,6 +459,7 @@ module.exports = {
         '-ms-writing-mode',
         'text-align',
         'text-align-last',
+        'text-anchor',
 
         'text-decoration',
         'text-decoration-color',
@@ -419,6 +468,9 @@ module.exports = {
         'text-decoration-skip-ink',
         'text-decoration-style',
         'text-decoration-thickness',
+
+        'text-underline-offset',
+        'text-underline-position',
 
         'text-emphasis',
         'text-emphasis-position',
@@ -498,8 +550,15 @@ module.exports = {
         'transition-timing-function',
         'transition-duration',
         'transition-property',
+
+        'rotate',
+        'scale',
+        'translate',
+
         'transform',
         'transform-origin',
+        'transform-box',
+        'transform-style',
 
         'animation',
         'animation-name',
