@@ -12,6 +12,7 @@ module.exports = {
     'plugin/selector-tag-no-without-class': ['div', 'span'],
 
     'at-rule-allowed-list': ['media', 'keyframes', 'charset', 'font-face'],
+    'at-rule-disallow-list': ['custom-selector'],
     'at-rule-property-required-list': {
       'font-face': ['font-display', 'font-family', 'font-style', 'src']
     },
@@ -28,7 +29,13 @@ module.exports = {
       all: ['initial'],
       content: ['""']
     },
+    'declaration-property-value-disallowed-list': {
+      color: ['rebeccapurple'],
+      fill: ['rebeccapurple'],
+      'background-color': ['rebeccapurple']
+    },
     'function-url-scheme-allowed-list': ['data', 'https'],
+    'function-disallowed-list': ['gray', 'color-mod'],
     'keyframes-name-pattern': '[a-z-]{4,40}',
     'custom-media-pattern': '[a-z-]{4,40}',
     'custom-property-pattern': '[a-z-]{4,40}',
@@ -48,7 +55,7 @@ module.exports = {
     'selector-max-pseudo-class': 2,
     'selector-max-type': 3,
     'selector-disallowed-list': [':root'],
-    'selector-pseudo-class-disallowed-list': [':scope'],
+    'selector-pseudo-class-disallowed-list': [':scope', ':has', ':matches'],
     'unit-disallowed-list': [
       'cm', 'mm', 'Q', 'in', 'pc', 'pt',
       'ex', 'ch'
