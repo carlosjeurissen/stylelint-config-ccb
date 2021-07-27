@@ -28,7 +28,7 @@ module.exports = {
     },
     'declaration-property-value-allowed-list': {
       all: ['initial'],
-      content: ['""']
+      content: ['""', '/^attr(/']
     },
     'declaration-property-value-disallowed-list': {
       color: ['rebeccapurple'],
