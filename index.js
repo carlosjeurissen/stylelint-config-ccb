@@ -35,7 +35,7 @@ module.exports = {
       'whitehat', 'white-hat', 'whitelist', 'white-list', 'whitelisted',
       'white-listed', 'whitelisting', 'white-listing', 'ymmv'
     ],
-    'declaration-block-no-redundant-longhand-properties': false,
+    'declaration-block-no-redundant-longhand-properties': null,
     'declaration-property-unit-allowed-list': {
       'font-size': ['rem'],
       'transition-delay': ['ms'],
