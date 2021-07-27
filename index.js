@@ -11,6 +11,56 @@ module.exports = {
     'plugin/stylelint-selector-no-empty': true,
     'plugin/selector-tag-no-without-class': ['div', 'span'],
 
+    'at-rule-allowed-list': ['media', 'keyframes', 'charset', 'font-face'],
+    'at-rule-property-required-list': {
+      'font-face': ['font-display', 'font-family', 'font-style', 'src']
+    },
+    'color-hex-length': 'long',
+    'comment-word-disallowed-list': ['todo'],
+    'declaration-block-no-redundant-longhand-properties': true,
+    'declaration-property-unit-allowed-list': {
+      'font-size': ['rem'],
+      animation: ['s'],
+      'line-height': []
+    },
+    'declaration-property-value-allowed-list': {
+      all: ['initial'],
+      content: ['""']
+    },
+    'declaration-property-value-block-list': {
+      all: ['initial'],
+      content: ['""']
+    },
+    'declaration-property-value-disallowed-list': {
+
+    },
+    'function-url-scheme-allowed-list': ['data', 'https'],
+    'keyframes-name-pattern': '[a-z-]{4,40}',
+    'custom-media-pattern': '[a-z-]{4,40}',
+    'custom-property-pattern': '[a-z-]{4,40}',
+    'selector-class-pattern': '[a-z-_]{4,40}',
+    'selector-id-pattern': '[a-z-_]{4,40}',
+    linebreaks: 'unix',
+    'no-empty-first-line': true,
+    'number-max-precision': 5,
+    'property-disallowed-list': [
+      '-webkit-font-smoothing', '-moz-osx-font-smoothing', 'font-smooth'
+    ],
+    'unicode-bom': 'never',
+    'time-min-milliseconds': 100,
+    'selector-no-qualifying-type': true,
+    'selector-max-attribute': 1,
+    'selector-max-id': 1,
+    'selector-max-pseudo-class': 2,
+    'selector-max-type': 3,
+    'selector-disallowed-list': [':root'],
+    'selector-pseudo-class-disallowed-list': [':scope'],
+    'unit-disallowed-list': [
+      'cm', 'mm', 'Q', 'in', 'pc', 'pt',
+      'ex', 'em', 'ch'
+    ],
+
+    'declaration-block-no-shorthand-property-overrides': true,
     'no-irregular-whitespace': true,
     'no-invalid-position-at-import-rule': true,
     'named-grid-areas-no-invalid': true,
