@@ -28,7 +28,7 @@ module.exports = {
     },
     'declaration-property-value-allowed-list': {
       all: ['initial'],
-      content: ['""', '/^attr\\(/'],
+      content: ['""', '/^attr\\(/', 'none'],
       font: ['inherit']
     },
     'declaration-property-value-disallowed-list': {
