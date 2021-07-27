@@ -17,7 +17,24 @@ module.exports = {
       'font-face': ['font-display', 'font-family', 'font-style', 'src']
     },
     'color-hex-length': 'long',
-    'comment-word-disallowed-list': ['todo'],
+    'comment-word-disallowed-list': [
+      'todo',
+
+      /* list from https://developers.google.com/style/word-list */
+      'aka', 'allowlisting', 'allowlisted', 'authN', 'authZ', 'autoupdate',
+      'blackhat', 'black-hat', 'blackhole', 'blackholed', 'blacklist',
+      'black-list', 'blacklisted', 'black-listed', 'blacklisting',
+      'black-listing', 'chubby', 'comprise', 'cons', 'crazy', 'bonkers',
+      'mad', 'lunatic', 'insane', 'loony', 'cripple', 'cripples', 'dead-letter',
+      'denylisted', 'denylisting', 'desire', 'desired', 'first-class',
+      'ghetto', 'grandfather', 'grandfathered', 'grand-father', 'grayhat',
+      'housekeeping', 'male-adapter', 'female-adapter', 'fat',
+      'man-in-the-middle', 'manpower', 'master', 'monkey', 'ninja', 'outpost',
+      'retarded', 'sane', 'sanity-check', 'sexy', 'sherpa', 'slave',
+      'smartphone', 'tarball', 'textbox', 'tribal', 'voodoo', 'webmaster',
+      'whitehat', 'white-hat', 'whitelist', 'white-list', 'whitelisted',
+      'white-listed', 'whitelisting', 'white-listing', 'ymmv'
+    ],
     'declaration-block-no-redundant-longhand-properties': true,
     'declaration-property-unit-allowed-list': {
       'font-size': ['rem'],
