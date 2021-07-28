@@ -73,7 +73,7 @@ module.exports = {
     'selector-max-id': 0,
     'selector-max-universal': 0,
     'selector-max-pseudo-class': 2,
-    'selector-max-type': 1,
+    'selector-max-type': 2,
     'selector-disallowed-list': [':root'],
     'selector-pseudo-class-disallowed-list': [':scope', ':has', ':matches'],
     'unit-disallowed-list': [
