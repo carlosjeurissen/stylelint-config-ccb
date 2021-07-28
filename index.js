@@ -60,6 +60,7 @@ module.exports = {
     'selector-id-pattern': '[a-z-_]{2,40}',
     linebreaks: 'unix',
     'no-empty-first-line': true,
+    'declaration-no-important': true,
     'number-max-precision': 5,
     'property-disallowed-list': [
       '-webkit-font-smoothing', '-moz-osx-font-smoothing',
@@ -69,9 +70,10 @@ module.exports = {
     'time-min-milliseconds': 75,
     'selector-no-qualifying-type': true,
     'selector-max-attribute': 1,
-    'selector-max-id': 1,
+    'selector-max-id': 0,
+    'selector-max-universal': 0,
     'selector-max-pseudo-class': 2,
-    'selector-max-type': 3,
+    'selector-max-type': 1,
     'selector-disallowed-list': [':root'],
     'selector-pseudo-class-disallowed-list': [':scope', ':has', ':matches'],
     'unit-disallowed-list': [
@@ -88,7 +90,6 @@ module.exports = {
     'color-function-notation': 'legacy',
     'alpha-value-notation': 'number',
     'hue-degree-notation': 'number',
-    'selector-max-universal': 1,
     'font-weight-notation': [
       'numeric',
       {
