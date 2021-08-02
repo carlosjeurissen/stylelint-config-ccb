@@ -9,7 +9,7 @@ module.exports = {
   rules: {
     'plugin/stylelint-selector-no-empty': true,
 
-    'at-rule-allowed-list': ['media', 'keyframes', 'charset', 'font-face', 'page', 'supports'],
+    'at-rule-allowed-list': ['import', 'media', 'keyframes', 'charset', 'font-face', 'page', 'supports'],
     'at-rule-disallowed-list': ['custom-selector', '-moz-document'],
     'at-rule-property-required-list': {
       'font-face': ['font-display', 'font-family', 'font-style', 'src']
