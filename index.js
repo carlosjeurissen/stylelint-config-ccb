@@ -44,7 +44,8 @@ module.exports = {
     'declaration-property-value-allowed-list': {
       all: ['initial'],
       content: ['""', '/^attr\\(/', 'none'],
-      font: ['inherit']
+      font: ['inherit'],
+      fill: ['currentColor', 'inherit', 'none']
     },
     'declaration-property-value-disallowed-list': {
       color: ['rebeccapurple'],
