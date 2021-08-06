@@ -50,7 +50,10 @@ module.exports = {
       appearance: ['none'],
       content: ['""', '/^attr\\(/', 'none'],
       font: ['inherit'],
-      fill: ['currentColor', 'inherit', 'none']
+      fill: ['currentColor', 'inherit', 'none'],
+      overflow: ['hidden', 'clip', 'auto'],
+      overflowX: ['hidden', 'clip', 'auto'],
+      overflowY: ['hidden', 'clip', 'auto']
     },
     'declaration-property-value-disallowed-list': {
       color: ['rebeccapurple'],
