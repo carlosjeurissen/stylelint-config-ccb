@@ -44,9 +44,9 @@ module.exports = {
       'letter-spacing': ['em']
     },
     'declaration-property-value-allowed-list': {
-      'text-decoration': ['inherit', 'underline'],
+      'text-decoration': ['inherit', 'underline', 'none'],
       all: ['initial'],
-      position: ['fixed', 'absolute', 'relative'],
+      position: ['fixed', 'absolute', 'relative', 'sticky'],
       appearance: ['none'],
       content: ['""', '/^attr\\(/', 'none'],
       font: ['inherit'],
