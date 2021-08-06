@@ -39,10 +39,15 @@ module.exports = {
       'transition-delay': ['ms'],
       animation: ['ms'],
       'line-height': [],
+      'z-index': [],
+      opacity: [],
       'letter-spacing': ['em']
     },
     'declaration-property-value-allowed-list': {
+      'text-decoration': ['inherit', 'underline'],
       all: ['initial'],
+      position: ['fixed', 'absolute', 'relative'],
+      appearance: ['none'],
       content: ['""', '/^attr\\(/', 'none'],
       font: ['inherit'],
       fill: ['currentColor', 'inherit', 'none']
@@ -50,10 +55,10 @@ module.exports = {
     'declaration-property-value-disallowed-list': {
       color: ['rebeccapurple'],
       fill: ['rebeccapurple'],
-      'background-color': ['rebeccapurple']
+      'background-color': ['rebeccapurple', 'none']
     },
     'function-url-scheme-allowed-list': ['data', 'https'],
-    'function-disallowed-list': ['gray', 'color-mod'],
+    'function-disallowed-list': ['gray', 'color-mod', 'color'],
     'keyframes-name-pattern': '[a-z-]{4,40}',
     'custom-media-pattern': '[a-z-]{4,40}',
     'custom-property-pattern': '[a-z-]{4,40}',
