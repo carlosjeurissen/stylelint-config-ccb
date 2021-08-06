@@ -4,9 +4,14 @@ module.exports = {
   extends: 'stylelint-config-standard',
   plugins: [
     'stylelint-order',
-    'stylelint-selector-no-empty'
+    'stylelint-selector-no-empty',
+    'stylelint-color-format'
   ],
   rules: {
+    'color-format/format': {
+      format: 'rgb'
+    },
+
     'plugin/stylelint-selector-no-empty': true,
 
     'at-rule-allowed-list': ['import', 'media', 'keyframes', 'charset', 'font-face', 'page', 'supports'],
@@ -14,6 +19,7 @@ module.exports = {
     'at-rule-property-required-list': {
       'font-face': ['font-display', 'font-family', 'font-style', 'src']
     },
+    'color-no-hex': true,
     'color-hex-length': 'long',
     'comment-word-disallowed-list': [
       'todo',
@@ -61,7 +67,7 @@ module.exports = {
       'background-color': ['rebeccapurple', 'none']
     },
     'function-url-scheme-allowed-list': ['data', 'https'],
-    'function-disallowed-list': ['gray', 'color-mod', 'color'],
+    'function-disallowed-list': ['gray', 'color-mod', 'color', 'rgba', 'hsla'],
     'keyframes-name-pattern': '[a-z-]{4,40}',
     'custom-media-pattern': '[a-z-]{4,40}',
     'custom-property-pattern': '[a-z-]{4,40}',
@@ -96,7 +102,7 @@ module.exports = {
     'no-invalid-position-at-import-rule': true,
     'named-grid-areas-no-invalid': true,
     'declaration-block-no-duplicate-custom-properties': true,
-    'color-function-notation': 'legacy',
+    'color-function-notation': 'modern',
     'alpha-value-notation': 'number',
     'hue-degree-notation': 'number',
     'font-weight-notation': [
