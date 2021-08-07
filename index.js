@@ -21,6 +21,7 @@ module.exports = {
     },
     'color-no-hex': true,
     'color-hex-length': 'long',
+    'declaration-block-no-duplicate-properties': true,
     'comment-word-disallowed-list': [
       'todo',
 
@@ -57,9 +58,9 @@ module.exports = {
       content: ['""', '/^attr\\(/', 'none'],
       font: ['inherit'],
       fill: ['currentColor', 'inherit', 'none'],
-      overflow: ['hidden', 'clip', 'auto'],
-      overflowX: ['hidden', 'clip', 'auto'],
-      overflowY: ['hidden', 'clip', 'auto']
+      overflow: ['initial', 'hidden', 'clip', 'auto'],
+      overflowX: ['initial', 'hidden', 'clip', 'auto'],
+      overflowY: ['initial', 'hidden', 'clip', 'auto']
     },
     'declaration-property-value-disallowed-list': {
       color: ['rebeccapurple'],
