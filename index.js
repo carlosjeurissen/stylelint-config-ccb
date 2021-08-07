@@ -21,7 +21,6 @@ module.exports = {
     },
     'color-no-hex': true,
     'color-hex-length': 'long',
-    'declaration-block-no-duplicate-properties': true,
     'comment-word-disallowed-list': [
       'todo',
 
