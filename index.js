@@ -41,7 +41,7 @@ module.exports = {
     ],
     'declaration-block-no-redundant-longhand-properties': null,
     'declaration-property-unit-allowed-list': {
-      'font-size': ['rem'],
+      'font-size': ['rem', 'em'],
       'transition-delay': ['ms'],
       animation: ['ms'],
       'line-height': [],
@@ -54,7 +54,7 @@ module.exports = {
       all: ['initial'],
       position: ['fixed', 'absolute', 'relative', 'sticky'],
       appearance: ['none'],
-      content: ['""', '/^attr\\(/', 'none'],
+      content: ['""', '/^attr\\(/', '/^var\\(/', 'none'],
       font: ['inherit'],
       fill: ['currentColor', 'inherit', 'none'],
       overflow: ['initial', 'hidden', 'clip', 'auto'],
@@ -64,7 +64,8 @@ module.exports = {
     'declaration-property-value-disallowed-list': {
       color: ['rebeccapurple'],
       fill: ['rebeccapurple'],
-      'background-color': ['rebeccapurple', 'none']
+      'background-color': ['rebeccapurple', 'none'],
+      'font-size': ['0']
     },
     'function-url-scheme-allowed-list': ['data', 'https'],
     'function-disallowed-list': ['gray', 'color-mod', 'color', 'rgba', 'hsla'],
@@ -79,7 +80,8 @@ module.exports = {
     'number-max-precision': 5,
     'property-disallowed-list': [
       '-webkit-font-smoothing', '-moz-osx-font-smoothing',
-      'font-smoothing', 'osx-font-smoothing', 'font-smooth'
+      'font-smoothing', 'osx-font-smoothing', 'font-smooth',
+      'float'
     ],
     'unicode-bom': 'never',
     'time-min-milliseconds': 75,
