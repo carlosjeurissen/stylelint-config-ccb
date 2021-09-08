@@ -51,7 +51,7 @@ module.exports = {
     },
     'declaration-property-value-allowed-list': {
       'text-decoration': ['inherit', 'underline', 'none'],
-      all: ['initial'],
+      all: ['initial', 'revert'],
       position: ['fixed', 'absolute', 'relative', 'sticky'],
       appearance: ['none'],
       content: ['""', '/^attr\\(/', '/^var\\(/', 'none'],
