@@ -14,7 +14,7 @@ module.exports = {
 
     'plugin/stylelint-selector-no-empty': true,
 
-    'selector-property-disallowed-list': {
+    'rule-selector-property-disallowed-list': {
       html: ['background', 'background-color', 'background-image', /^background/]
     },
 
