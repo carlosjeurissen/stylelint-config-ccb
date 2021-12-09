@@ -66,6 +66,7 @@ module.exports = {
       overflowY: ['initial', 'hidden', 'clip', 'auto']
     },
     'declaration-property-value-disallowed-list': {
+      outline: ['none'],
       color: ['rebeccapurple'],
       fill: ['rebeccapurple'],
       'background-color': ['rebeccapurple', 'none'],
