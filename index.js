@@ -57,7 +57,7 @@ module.exports = {
       'text-decoration': ['inherit', 'underline', 'none'],
       all: ['initial', 'revert'],
       position: ['fixed', 'absolute', 'relative', 'sticky'],
-      appearance: ['none'],
+      appearance: ['none', 'auto'],
       content: ['""', '/^attr\\(/', '/^var\\(/', 'none'],
       font: ['inherit'],
       fill: ['currentColor', 'inherit', 'none'],
