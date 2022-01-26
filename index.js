@@ -150,7 +150,8 @@ module.exports = {
     'value-keyword-case': [
       'lower',
       {
-        ignoreProperties: 'unicode-range'
+        ignoreProperties: 'unicode-range',
+        camelCaseSvgKeywords: true
       }
     ],
     'unit-no-unknown': [
