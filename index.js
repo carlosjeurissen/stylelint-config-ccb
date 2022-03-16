@@ -9,7 +9,7 @@ module.exports = {
     'stylelint-prettier'
   ],
   rules: {
-    /* stylelint-config-ccb - overwrite on top of stylelint-config-standard */
+    /* stylelint-config-standard overwrites */
     'alpha-value-notation': 'number',
     'color-hex-length': 'long',
     'declaration-block-no-redundant-longhand-properties': null,
@@ -141,11 +141,9 @@ module.exports = {
     'color-named': 'never',
     'no-unknown-animations': true,
 
-    /* stylelint-config-ccb - prettier overlap, no conflict */
+    /* prettier-overlap */
     linebreaks: 'unix',
     'unicode-bom': 'never',
-
-    /* stylelint-config-ccb - prettier overlap, check todo */
     'at-rule-semicolon-space-before': 'never',
     'block-opening-brace-newline-before': 'never-single-line',
     'declaration-block-semicolon-newline-before': 'never-multi-line',
@@ -155,86 +153,20 @@ module.exports = {
     'selector-list-comma-space-after': 'always-single-line',
     'value-list-comma-newline-before': 'never-multi-line',
 
-    /* rules not included - prettier overlap, check todo
-    'at-rule-name-newline-after': null,
-    'block-closing-brace-space-after': null,
-    */
-
-    /* prettier rules in standard or recommended, no conflict
-    indentation: null,
-    'color-hex-case': null,
-    'string-quotes': null,
-    */
-
-    /* prettier rules in standard or recommended, has conflict
-    'max-line-length': null, // default is 120 max line length, prettier goes for 80
-    */
-
-    /* prettier rules in standard or recommended, check todo
-    'at-rule-empty-line-before': null,
-    'at-rule-name-case': null,
-    'at-rule-name-space-after': null,
-    'at-rule-semicolon-newline-after': null,
-    'block-closing-brace-empty-line-before': null,
-    'block-closing-brace-newline-after': null,
-    'block-closing-brace-newline-before': null,
-    'block-closing-brace-space-before': null,
-    'block-opening-brace-newline-after': null,
-    'block-opening-brace-space-after': null,
+    /* prettier-conflicts, prefer stylelint-config-standard
+    'max-line-length': 120,
     'block-opening-brace-space-before': null,
-    'declaration-bang-space-after': null,
-    'declaration-bang-space-before': null,
-    'declaration-block-semicolon-newline-after': null,
-    'declaration-block-semicolon-space-after': null,
-    'declaration-block-semicolon-space-before': null,
-    'declaration-block-trailing-semicolon': null,
     'declaration-colon-newline-after': null,
-    'declaration-colon-space-after': null,
-    'declaration-colon-space-before': null,
-    'function-comma-newline-after': null,
-    'function-comma-space-after': null,
-    'function-comma-space-before': null,
-    'function-max-empty-lines': null,
-    'function-parentheses-newline-inside': null,
-    'function-parentheses-space-inside': null,
-    'max-empty-lines': null,
-    'media-feature-colon-space-after': null,
-    'media-feature-colon-space-before': null,
-    'media-feature-name-case': null,
-    'media-feature-parentheses-space-inside': null,
-    'media-query-list-comma-newline-after': null,
-    'media-query-list-comma-space-after': null,
-    'media-query-list-comma-space-before': null,
-    'no-empty-first-line': null,
-    'no-eol-whitespace': null,
-    'no-extra-semicolons': null,
-    'no-missing-end-of-source-newline': null,
-    'number-leading-zero': null,
-    'number-no-trailing-zeros': null,
-    'property-case': null,
-    'selector-attribute-brackets-space-inside': null,
-    'selector-attribute-operator-space-after': null,
-    'selector-attribute-operator-space-before': null,
-    'selector-attribute-quotes': null,
-    'selector-combinator-space-after': null,
-    'selector-combinator-space-before': null,
-    'selector-descendant-combinator-no-non-space': null,
-    'selector-list-comma-newline-after': null,
-    'selector-list-comma-space-before': null,
-    'selector-max-empty-lines': null,
-    'selector-pseudo-class-case': null,
-    'selector-pseudo-class-parentheses-space-inside': null,
-    'selector-pseudo-element-case': null,
-    'unit-case': null,
     'value-list-comma-newline-after': null,
-    'value-list-comma-space-after': null,
-    'value-list-comma-space-before': null,
-    'value-list-max-empty-lines': null, */
+    'selector-descendant-combinator-no-non-space': null,
+    'selector-combinator-space-before': null
+    */
 
     'prettier/prettier': [
       true,
       {
-        preserve: true
+        quoteProps: 'preserve',
+        printWidth: 120
       }
     ],
 
