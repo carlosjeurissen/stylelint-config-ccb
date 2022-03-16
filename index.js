@@ -9,12 +9,39 @@ module.exports = {
     'stylelint-prettier'
   ],
   rules: {
-    'color-format/format': {
-      format: 'rgb'
-    },
+    /* stylelint-config-ccb - overwrite on top of stylelint-config-standard */
+    'alpha-value-notation': 'number',
+    'color-hex-length': 'long',
+    'declaration-block-no-redundant-longhand-properties': null,
+    'function-url-quotes': [
+      'always',
+      {
+        except: [
+          'empty'
+        ]
+      }
+    ],
+    'value-keyword-case': [
+      'lower',
+      {
+        ignoreProperties: ['unicode-range'],
+        camelCaseSvgKeywords: true
+      }
+    ],
+    'number-max-precision': 5,
+    /* todo update these based on 'selector-id-pattern': [
+      '^([a-z][a-z0-9]*)(-[a-z0-9]+)*$',
+      {
+        message: 'Expected id selector to be kebab-case'
+      }
+    ], */
+    'custom-media-pattern': '[a-z-]{4,40}',
+    'custom-property-pattern': '[a-z-]{4,40}',
+    'keyframes-name-pattern': '[a-z-]{4,40}',
+    'selector-class-pattern': '[a-z-_]{3,40}',
+    'selector-id-pattern': '[a-z-_]{2,40}',
 
-    'plugin/stylelint-selector-no-empty': true,
-
+    /* stylelint-config-ccb */
     'declaration-property-max-values': {
       'border-width': 2,
       border: 3,
@@ -32,7 +59,6 @@ module.exports = {
       'font-face': ['font-display', 'font-family', 'font-style', 'src']
     },
     'color-no-hex': true,
-    'color-hex-length': 'long',
     'comment-word-disallowed-list': [
       'todo',
 
@@ -51,7 +77,6 @@ module.exports = {
       'whitehat', 'white-hat', 'whitelist', 'white-list', 'whitelisted',
       'white-listed', 'whitelisting', 'white-listing', 'ymmv'
     ],
-    'declaration-block-no-redundant-longhand-properties': null,
     'declaration-property-unit-allowed-list': {
       'font-size': ['rem', 'em'],
       'transition-delay': ['ms'],
@@ -82,13 +107,7 @@ module.exports = {
     },
     'function-url-scheme-allowed-list': ['data', 'https'],
     'function-disallowed-list': ['gray', 'color-mod', 'color', 'rgba', 'hsla'],
-    'keyframes-name-pattern': '[a-z-]{4,40}',
-    'custom-media-pattern': '[a-z-]{4,40}',
-    'custom-property-pattern': '[a-z-]{4,40}',
-    'selector-class-pattern': '[a-z-_]{3,40}',
-    'selector-id-pattern': '[a-z-_]{2,40}',
     'declaration-no-important': true,
-    'number-max-precision': 5,
     'property-disallowed-list': [
       '-webkit-font-smoothing', '-moz-osx-font-smoothing',
       'font-smoothing', 'osx-font-smoothing', 'font-smooth',
@@ -109,14 +128,6 @@ module.exports = {
       's'
     ],
 
-    'declaration-block-no-shorthand-property-overrides': true,
-    'no-irregular-whitespace': true,
-    'no-invalid-position-at-import-rule': true,
-    'named-grid-areas-no-invalid': true,
-    'declaration-block-no-duplicate-custom-properties': true,
-    'color-function-notation': 'modern',
-    'alpha-value-notation': 'number',
-    'hue-degree-notation': 'number',
     'font-weight-notation': [
       'numeric',
       {
@@ -126,52 +137,15 @@ module.exports = {
       }
     ],
     'function-url-no-scheme-relative': true,
-    'function-url-quotes': [
-      'always',
-      {
-        except: [
-          'empty'
-        ]
-      }
-    ],
-    'selector-type-no-unknown': [
-      true,
-      {
-        ignore: ['custom-elements']
-      }
-    ],
     'max-nesting-depth': 2,
     'color-named': 'never',
-    'value-keyword-case': [
-      'lower',
-      {
-        ignoreProperties: 'unicode-range',
-        camelCaseSvgKeywords: true
-      }
-    ],
-    'unit-no-unknown': [
-      true,
-      {
-        ignoreUnits: [
-          'x'
-        ]
-      }
-    ],
-    'shorthand-property-no-redundant-values': true,
     'no-unknown-animations': true,
-    'at-rule-no-vendor-prefix': true,
-    'media-feature-name-no-vendor-prefix': true,
-    'property-no-vendor-prefix': true,
-    'selector-no-vendor-prefix': true,
-    'value-no-vendor-prefix': true,
-    'font-family-name-quotes': 'always-where-recommended',
 
-    /* enforced by prettier
+    /* stylelint-config-ccb - prettier overlap, no conflict */
     linebreaks: 'unix',
-    'no-empty-first-line': true,
     'unicode-bom': 'never',
-    'selector-attribute-quotes': 'always',
-    'string-quotes': 'double',
+
+    /* stylelint-config-ccb - prettier overlap, check todo */
     'at-rule-semicolon-space-before': 'never',
     'block-opening-brace-newline-before': 'never-single-line',
     'declaration-block-semicolon-newline-before': 'never-multi-line',
@@ -180,32 +154,37 @@ module.exports = {
     'selector-list-comma-newline-before': 'never-multi-line',
     'selector-list-comma-space-after': 'always-single-line',
     'value-list-comma-newline-before': 'never-multi-line',
+
+    /* rules not included - prettier overlap, check todo
+    'at-rule-name-newline-after': null,
+    'block-closing-brace-space-after': null,
     */
 
-    /* disabled due to prettier */
+    /* prettier rules in standard or recommended, no conflict
     indentation: null,
-    linebreaks: null,
+    'color-hex-case': null,
+    'string-quotes': null,
+    */
 
+    /* prettier rules in standard or recommended, has conflict
+    'max-line-length': null, // default is 120 max line length, prettier goes for 80
+    */
+
+    /* prettier rules in standard or recommended, check todo
     'at-rule-empty-line-before': null,
     'at-rule-name-case': null,
-    'at-rule-name-newline-after': null,
     'at-rule-name-space-after': null,
     'at-rule-semicolon-newline-after': null,
-    'at-rule-semicolon-space-before': null,
     'block-closing-brace-empty-line-before': null,
     'block-closing-brace-newline-after': null,
     'block-closing-brace-newline-before': null,
-    'block-closing-brace-space-after': null,
     'block-closing-brace-space-before': null,
     'block-opening-brace-newline-after': null,
-    'block-opening-brace-newline-before': null,
     'block-opening-brace-space-after': null,
     'block-opening-brace-space-before': null,
-    'color-hex-case': null,
     'declaration-bang-space-after': null,
     'declaration-bang-space-before': null,
     'declaration-block-semicolon-newline-after': null,
-    'declaration-block-semicolon-newline-before': null,
     'declaration-block-semicolon-space-after': null,
     'declaration-block-semicolon-space-before': null,
     'declaration-block-trailing-semicolon': null,
@@ -213,20 +192,17 @@ module.exports = {
     'declaration-colon-space-after': null,
     'declaration-colon-space-before': null,
     'function-comma-newline-after': null,
-    'function-comma-newline-before': null,
     'function-comma-space-after': null,
     'function-comma-space-before': null,
     'function-max-empty-lines': null,
     'function-parentheses-newline-inside': null,
     'function-parentheses-space-inside': null,
     'max-empty-lines': null,
-    'max-line-length': null,
     'media-feature-colon-space-after': null,
     'media-feature-colon-space-before': null,
     'media-feature-name-case': null,
     'media-feature-parentheses-space-inside': null,
     'media-query-list-comma-newline-after': null,
-    'media-query-list-comma-newline-before': null,
     'media-query-list-comma-space-after': null,
     'media-query-list-comma-space-before': null,
     'no-empty-first-line': null,
@@ -244,21 +220,16 @@ module.exports = {
     'selector-combinator-space-before': null,
     'selector-descendant-combinator-no-non-space': null,
     'selector-list-comma-newline-after': null,
-    'selector-list-comma-newline-before': null,
-    'selector-list-comma-space-after': null,
     'selector-list-comma-space-before': null,
     'selector-max-empty-lines': null,
     'selector-pseudo-class-case': null,
     'selector-pseudo-class-parentheses-space-inside': null,
     'selector-pseudo-element-case': null,
-    'string-quotes': null,
-    'unicode-bom': null,
     'unit-case': null,
     'value-list-comma-newline-after': null,
-    'value-list-comma-newline-before': null,
     'value-list-comma-space-after': null,
     'value-list-comma-space-before': null,
-    'value-list-max-empty-lines': null,
+    'value-list-max-empty-lines': null, */
 
     'prettier/prettier': [
       true,
@@ -266,6 +237,12 @@ module.exports = {
         preserve: true
       }
     ],
+
+    'color-format/format': {
+      format: 'rgb'
+    },
+
+    'plugin/stylelint-selector-no-empty': true,
 
     'order/order': [
       [
