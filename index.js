@@ -87,8 +87,6 @@ module.exports = {
     'custom-property-pattern': '[a-z-]{4,40}',
     'selector-class-pattern': '[a-z-_]{3,40}',
     'selector-id-pattern': '[a-z-_]{2,40}',
-    linebreaks: 'unix',
-    'no-empty-first-line': true,
     'declaration-no-important': true,
     'number-max-precision': 5,
     'property-disallowed-list': [
@@ -96,7 +94,6 @@ module.exports = {
       'font-smoothing', 'osx-font-smoothing', 'font-smooth',
       'float'
     ],
-    'unicode-bom': 'never',
     'time-min-milliseconds': 75,
     'selector-no-qualifying-type': true,
     'selector-max-attribute': 1,
@@ -143,18 +140,8 @@ module.exports = {
         ignore: ['custom-elements']
       }
     ],
-    'selector-attribute-quotes': 'always',
-    'string-quotes': 'double',
     'max-nesting-depth': 2,
     'color-named': 'never',
-    'at-rule-semicolon-space-before': 'never',
-    'block-opening-brace-newline-before': 'never-single-line',
-    'declaration-block-semicolon-newline-before': 'never-multi-line',
-    'function-comma-newline-before': 'never-multi-line',
-    'media-query-list-comma-newline-before': 'never-multi-line',
-    'selector-list-comma-newline-before': 'never-multi-line',
-    'selector-list-comma-space-after': 'always-single-line',
-    'value-list-comma-newline-before': 'never-multi-line',
     'value-keyword-case': [
       'lower',
       {
@@ -179,7 +166,23 @@ module.exports = {
     'value-no-vendor-prefix': true,
     'font-family-name-quotes': 'always-where-recommended',
 
-    /* disabled by prettier
+    /* enforced by prettier
+    linebreaks: 'unix',
+    'no-empty-first-line': true,
+    'unicode-bom': 'never',
+    'selector-attribute-quotes': 'always',
+    'string-quotes': 'double',
+    'at-rule-semicolon-space-before': 'never',
+    'block-opening-brace-newline-before': 'never-single-line',
+    'declaration-block-semicolon-newline-before': 'never-multi-line',
+    'function-comma-newline-before': 'never-multi-line',
+    'media-query-list-comma-newline-before': 'never-multi-line',
+    'selector-list-comma-newline-before': 'never-multi-line',
+    'selector-list-comma-space-after': 'always-single-line',
+    'value-list-comma-newline-before': 'never-multi-line',
+    */
+
+    /* disabled due to prettier */
     indentation: null,
     linebreaks: null,
 
@@ -255,7 +258,7 @@ module.exports = {
     'value-list-comma-newline-before': null,
     'value-list-comma-space-after': null,
     'value-list-comma-space-before': null,
-    'value-list-max-empty-lines': null, */
+    'value-list-max-empty-lines': null,
 
     'prettier/prettier': [
       true,
