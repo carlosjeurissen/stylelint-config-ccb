@@ -14,6 +14,13 @@ module.exports = {
 
     'plugin/stylelint-selector-no-empty': true,
 
+    'declaration-property-max-values': {
+      'border-width': 2,
+      border: 3,
+      margin: 2,
+      padding: 2
+    },
+
     'rule-selector-property-disallowed-list': {
       html: ['background', 'background-color', 'background-image', /^background/]
     },
