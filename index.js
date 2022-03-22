@@ -284,10 +284,8 @@ module.exports = {
       '-webkit-perspective-origin-y',
       '-webkit-rtl-ordering',
       '-webkit-svg-shadow',
-      '-webkit-tap-highlight-color',
       '-webkit-text-decoration-skip',
       '-webkit-text-decorations-in-effect',
-      '-webkit-text-fill-color',
       '-webkit-text-security',
       '-webkit-text-stroke',
       '-webkit-text-stroke-color',
@@ -298,6 +296,12 @@ module.exports = {
       '-webkit-transform-origin-z',
       '-webkit-user-drag',
       '-webkit-user-modify',
+
+      /* webkit-only allowed
+      '-webkit-text-fill-color',
+      '-webkit-tap-highlight-color',
+      '-webkit-user-drag', // for now, html[draggable="true"] is preferred
+      */
 
       /* deprecated safari webkit properties, see:
       https://webkit.org/blog/12445/new-webkit-features-in-safari-15-4/ */
@@ -376,7 +380,6 @@ module.exports = {
       'alt*',
       'animation-trigger',
       'app-region',
-      'appearance',
       'aspect-ratio',
       'backdrop-filter',
       'backface-visibility',
@@ -431,7 +434,6 @@ module.exports = {
       'context-properties',
       'cursor-visibility',
       'dashboard-region',
-      'filter',
       'float-edge',
       'flow-from',
       'flow-into',
@@ -540,11 +542,9 @@ module.exports = {
       'shape-inside',
       'stack-sizing',
       'svg-shadow',
-      'tap-highlight-color',
       'text-autospace',
       'text-combine-upright',
       'text-decorations-in-effect',
-      'text-fill-color',
       'text-security',
       'text-stroke',
       'text-stroke',
@@ -556,7 +556,6 @@ module.exports = {
       'transform-origin-x',
       'transform-origin-y',
       'transform-origin-z',
-      'user-drag',
       'user-focus',
       'user-input',
       'user-modify',
