@@ -137,6 +137,18 @@ module.exports = {
       'background-origin-x',
       'background-origin-y',
 
+      /* webkit prefixes */
+      '-webkit-appearance',
+      '-webkit-mask',
+      '-webkit-mask-image',
+      '-webkit-mask-size',
+      '-webkit-mask-repeat-x',
+      '-webkit-mask-repeat-y',
+      '-webkit-mask-origin',
+      '-webkit-backface-visibility',
+      '-webkit-text-combine-upright',
+      '-webkit-print-color-adjust',
+
       /* legacy */
       'text-decoration-skip',
 
