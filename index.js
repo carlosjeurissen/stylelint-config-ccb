@@ -610,16 +610,15 @@ module.exports = {
     'declaration-colon-newline-after': null,
     'value-list-comma-newline-after': null,
     'selector-descendant-combinator-no-non-space': null,
-    'selector-combinator-space-before': null
-    */
-
-    /* prettier-conflicts, prefer prettier */
+    'selector-combinator-space-before': null,
     'max-line-length': 80,
+    */
 
     'prettier/prettier': [
       true,
       {
-        quoteProps: 'preserve'
+        quoteProps: 'preserve',
+        printWidth: 120
       }
     ],
 
