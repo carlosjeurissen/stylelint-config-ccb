@@ -109,9 +109,63 @@ module.exports = {
     'function-disallowed-list': ['gray', 'color-mod', 'color', 'rgba', 'hsla'],
     'declaration-no-important': true,
     'property-disallowed-list': [
-      '-webkit-font-smoothing', '-moz-osx-font-smoothing',
-      'font-smoothing', 'osx-font-smoothing', 'font-smooth',
-      'float'
+      /* deprecated webkit properties */
+      '-webkit-alt*',
+      '-webkit-background-composite',
+      '-webkit-border-fit',
+      '-webkit-color-correction',
+      '-webkit-flow-from',
+      '-webkit-flow-into',
+      '-webkit-grid-columns',
+      '-webkit-grid-rows',
+      '-webkit-hyphenate-charset',
+      '-webkit-image-set',
+      '-webkit-mask-attachment',
+      '-webkit-match-nearest-mail-blockquote-color',
+      '-webkit-margin-collapse',
+      '-webkit-margin-after-collapse',
+      '-webkit-margin-before-collapse',
+      '-webkit-margin-bottom-collapse',
+      '-webkit-margin-top-collapse',
+      '-webkit-overflow-scrolling',
+      '-webkit-region-break-after',
+      '-webkit-region-break-before',
+      '-webkit-region-break-inside',
+      '-webkit-region-fragment',
+      '-webkit-shape-inside',
+      '-webkit-touch-callout',
+      'background-origin-x',
+      'background-origin-y',
+
+      /* legacy */
+      'text-decoration-skip',
+
+      '-moz-outline-radius',
+      '-moz-outline-radius-bottomleft',
+      '-moz-outline-radius-bottomright',
+      '-moz-outline-radius-topleft',
+      '-moz-outline-radius-topright',
+
+      '-webkit-font-smoothing',
+      '-moz-osx-font-smoothing',
+      'font-smoothing',
+      'osx-font-smoothing',
+
+      'box-orient',
+
+      'zoom',
+
+      'word-break',
+      'page-break-inside',
+      'clip',
+
+      /* compatibility */
+      '-webkit-text-stroke', // use -webkit-text-stroke-width or -webkit-text-stroke-color
+
+      /* opinionated */
+      'float',
+
+      'font-smooth'
     ],
     'time-min-milliseconds': 75,
     'selector-no-qualifying-type': true,
@@ -154,7 +208,6 @@ module.exports = {
     'value-list-comma-newline-before': 'never-multi-line',
 
     /* prettier-conflicts, prefer stylelint-config-standard
-    'max-line-length': 120,
     'block-opening-brace-space-before': null,
     'declaration-colon-newline-after': null,
     'value-list-comma-newline-after': null,
@@ -162,11 +215,13 @@ module.exports = {
     'selector-combinator-space-before': null
     */
 
+    /* prettier-conflicts, prefer prettier */
+    'max-line-length': 80,
+
     'prettier/prettier': [
       true,
       {
-        quoteProps: 'preserve',
-        printWidth: 120
+        quoteProps: 'preserve'
       }
     ],
 
