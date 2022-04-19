@@ -485,7 +485,6 @@ module.exports = {
       'mask-box-image-slice',
       'mask-box-image-source',
       'mask-box-image-width',
-      'mask-image',
       'mask-origin',
       'mask-position-x',
       'mask-position-y',
