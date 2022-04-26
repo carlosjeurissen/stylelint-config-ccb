@@ -42,6 +42,7 @@ module.exports = {
     'selector-id-pattern': '[a-z-_]{2,40}',
 
     /* stylelint-config-ccb */
+    'keyframe-block-no-duplicate-selectors': true,
     'declaration-property-max-values': {
       'border-width': 2,
       border: 3,
