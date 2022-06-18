@@ -7,7 +7,7 @@ module.exports = {
     'stylelint-selector-no-empty',
     'stylelint-color-format',
     'stylelint-prettier',
-    'stylelint-a11y',
+    '@ronilaukkarinen/stylelint-a11y',
   ],
   rules: {
     /* stylelint-config-standard overwrites */
