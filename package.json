@@ -1,6 +1,6 @@
 {
   "name": "stylelint-config-ccb",
-  "version": "1.12.0",
+  "version": "1.12.1",
   "description": "Stylelint config which extends stylelint-config-standard",
   "keywords": [
     "stylelint",
@@ -39,6 +39,11 @@
     "env": {
       "node": true,
       "es2022": true
+    }
+  },
+  "pnpm": {
+    "overrides": {
+      "postcss@<7.0.36": ">=7.0.36"
     }
   }
 }
