@@ -1,6 +1,6 @@
 {
   "name": "stylelint-config-ccb",
-  "version": "1.13.0",
+  "version": "1.13.1",
   "description": "Stylelint config which extends stylelint-config-standard",
   "keywords": [
     "stylelint",
@@ -14,7 +14,8 @@
   },
   "main": "index.js",
   "files": [
-    "index.js"
+    "index.js",
+    "data/*"
   ],
   "scripts": {
     "lint": "eslint index.js data/*.js __tests__/index.test.js",

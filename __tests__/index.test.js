@@ -34,9 +34,7 @@ describe('flags warnings with invalid css', () => {
 
   it('did error', () => result.then((data) => expect(data.errored).toBeTruthy()));
 
-  it('flags one warning', () => result.then((data) => {
-    return expect(data.results[0].warnings).toHaveLength(2);
-  }));
+  it('flags one warning', () => result.then((data) => expect(data.results[0].warnings).toHaveLength(2)));
 
   it('correct warning text', () => result.then((data) => expect(data.results[0].warnings[0].text).toBe(
     'Insert "0" (prettier/prettier)',
