@@ -3,11 +3,12 @@
 module.exports = {
   extends: 'stylelint-config-standard',
   plugins: [
-    'stylelint-order',
-    'stylelint-selector-no-empty',
-    'stylelint-color-format',
-    'stylelint-prettier',
     '@ronilaukkarinen/stylelint-a11y',
+    'stylelint-color-format',
+    'stylelint-no-indistinguishable-colors',
+    'stylelint-order',
+    'stylelint-prettier',
+    'stylelint-selector-no-empty',
   ],
   rules: {
     /* stylelint-config-standard overwrites */
@@ -685,6 +686,8 @@ module.exports = {
     'a11y/content-property-no-static-value': true,
 
     'plugin/stylelint-selector-no-empty': true,
+
+    'plugin/stylelint-no-indistinguishable-colors': true,
 
     'order/order': [
       [
