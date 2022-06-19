@@ -9,6 +9,7 @@ module.exports = {
     'stylelint-order',
     'stylelint-prettier',
     'stylelint-selector-no-empty',
+    'stylelint-declaration-block-no-ignored-properties',
   ],
   rules: {
     /* stylelint-config-standard overwrites */
@@ -171,6 +172,8 @@ module.exports = {
     'plugin/stylelint-selector-no-empty': true,
 
     'plugin/stylelint-no-indistinguishable-colors': true,
+
+    'plugin/declaration-block-no-ignored-properties': true,
 
     'order/order': [
       [
