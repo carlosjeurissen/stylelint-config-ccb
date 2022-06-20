@@ -94,7 +94,14 @@ module.exports = {
       'text-align': ['justify'],
     },
     'function-url-scheme-allowed-list': ['data', 'https'],
-    'function-disallowed-list': ['gray', 'color-mod', 'color', 'rgba', 'hsla'],
+    'function-disallowed-list': [
+      // deprecated
+      'gray', 'color-mod', 'rgba', 'hsla',
+      // not preferred
+      'hwb', 'hsl',
+      'lab', 'oklab', 'lch', 'oklch',
+      'color', 'color-mix', 'color-contrast',
+    ],
     'declaration-no-important': true,
     'property-disallowed-list': require('./data/disallowed-properties.js'),
     'time-min-milliseconds': 75,
@@ -108,7 +115,7 @@ module.exports = {
     'selector-pseudo-class-disallowed-list': [':scope', ':has', ':matches'],
     'unit-disallowed-list': [
       'cm', 'mm', 'Q', 'in', 'pc', 'pt',
-      'ex', 'ch',
+      'ex', 'ch', 'ic',
       's',
     ],
 
