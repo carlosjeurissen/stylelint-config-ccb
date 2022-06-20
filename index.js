@@ -78,7 +78,7 @@ module.exports = {
       all: ['initial', 'revert'],
       position: ['fixed', 'absolute', 'relative', 'sticky'],
       appearance: ['none', 'auto'],
-      content: ['""', '/^attr\\(aria-/', '/^attr\\(data-/', '/^var\\(/', 'none', '"*"'],
+      content: ['""', '/^attr\\(aria-/', '/^attr\\(data-/', '/^var\\(/', 'none', '"*"', '"ǀ"'],
       font: ['inherit'],
       fill: ['currentColor', 'inherit', 'none'],
       overflow: ['initial', 'hidden', 'clip', 'auto'],
@@ -122,9 +122,16 @@ module.exports = {
     'selector-disallowed-list': require('./data/disallowed-selectors.js'),
     'selector-pseudo-class-disallowed-list': [':scope', ':has', ':matches'],
     'unit-disallowed-list': [
+      // physical length
       'cm', 'mm', 'Q', 'in', 'pc', 'pt',
-      'ex', 'ch', 'ic',
+      // Relative length
+      'ex', 'ch', 'ic', 'cap', 'lh', 'rlh',
+      // Time units
       's',
+      // Angle units
+      'grad', 'rad', 'turn',
+      // Resolution
+      'x', 'dpcm', 'dpi',
     ],
 
     'font-weight-notation': [
