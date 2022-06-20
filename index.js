@@ -78,7 +78,7 @@ module.exports = {
       all: ['initial', 'revert'],
       position: ['fixed', 'absolute', 'relative', 'sticky'],
       appearance: ['none', 'auto'],
-      content: ['""', '/^attr\\(/', '/^var\\(/', 'none'],
+      content: ['""', '/^attr\\(aria-/', '/^attr\\(data-/', '/^var\\(/', 'none', '*'],
       font: ['inherit'],
       fill: ['currentColor', 'inherit', 'none'],
       overflow: ['initial', 'hidden', 'clip', 'auto'],
@@ -159,15 +159,21 @@ module.exports = {
     },
 
     'a11y/font-size-is-readable': true,
+    'a11y/no-spread-text': true,
+
+    // both already handled by selector-disallowed-list
+    // 'a11y/no-obsolete-attribute': true,
+    // 'a11y/no-obsolete-element': true,
+
+    // both already handled by declaration-property-value-disallowed-list
+    // 'a11y/no-text-align-justify': true,
+    // 'a11y/no-outline-none': true,
+
     // reduced-motion autofix is too unreliable, see https://github.com/YozhikM/stylelint-a11y/issues/57
     // 'a11y/media-prefers-reduced-motion': true,
-    'a11y/no-obsolete-attribute': true,
-    'a11y/no-obsolete-element': true,
-    'a11y/no-spread-text': true,
-    'a11y/no-outline-none': true,
-    'a11y/no-text-align-justify': true,
-    // also covered with declaration-property-value-allowed-list
-    'a11y/content-property-no-static-value': true,
+
+    // already handled by declaration-property-value-allowed-list
+    // 'a11y/content-property-no-static-value': true,
 
     'plugin/stylelint-selector-no-empty': true,
 
