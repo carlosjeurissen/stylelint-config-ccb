@@ -149,15 +149,14 @@ module.exports = {
     'selector-list-comma-newline-before': 'never-multi-line',
     'selector-list-comma-space-after': 'always-single-line',
     'value-list-comma-newline-before': 'never-multi-line',
+    'max-line-length': 160,
 
     /* prettier-conflicts, prefer stylelint-config-standard
     'block-opening-brace-space-before': null,
     'declaration-colon-newline-after': null,
     'value-list-comma-newline-after': null,
     'selector-descendant-combinator-no-non-space': null,
-    'selector-combinator-space-before': null,
-    'max-line-length': 80,
-    */
+    'selector-combinator-space-before': null, */
 
     'prettier/prettier': [
       true,
