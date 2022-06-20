@@ -171,7 +171,7 @@ module.exports = {
       true,
       {
         quoteProps: 'preserve',
-        printWidth: 160,
+        printWidth: 80,
       },
     ],
 
