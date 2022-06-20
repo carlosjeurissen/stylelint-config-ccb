@@ -227,6 +227,10 @@ module.exports = [
   'scroll-padding-inline-end',
   'scroll-padding-inline-start',
 
+  'scroll-start',
+  'scroll-start-x',
+  'scroll-start-y',
+
   // background
   'background',
   'background-color',

@@ -107,6 +107,8 @@ module.exports = {
       'tan', 'sin', 'cos',
       'atan', 'asin', 'acos',
       'atan2',
+      // future
+      'anchor', 'toggle',
     ],
     'declaration-no-important': true,
     'property-disallowed-list': require('./data/disallowed-properties.js'),
