@@ -3,10 +3,10 @@
 module.exports = [
   ':root',
   // regex
-  '/:any(/',
-  '/:matches(/',
-  '/:-moz-any(/',
-  '/:-webkit-any(/',
+  '/:any\\(/',
+  '/:matches\\(/',
+  '/:-moz-any\\(/',
+  '/:-webkit-any\\(/',
   // should not be styled
   'head',
   'link',

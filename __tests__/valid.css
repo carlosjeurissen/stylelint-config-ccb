@@ -6,7 +6,7 @@
  */
 
 html {
-  --brand-red: hsl(5deg 10% 40%);
+  --brand-red: rgb(128 128 128);
 }
 
 .selector-1,
@@ -47,7 +47,7 @@ html {
 
 @media (orientation: portrait), projection and (color) {
   .selector-i + .selector-ii {
-    background: hsl(20deg 25% 33%);
+    background: rgb(128 128 128);
     font-family: Helvetica, "Arial Black", sans-serif;
   }
 }
