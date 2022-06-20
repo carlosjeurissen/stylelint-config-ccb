@@ -95,12 +95,18 @@ module.exports = {
     },
     'function-url-scheme-allowed-list': ['data', 'https'],
     'function-disallowed-list': [
-      // deprecated
+      // deprecated colors
       'gray', 'color-mod', 'rgba', 'hsla',
-      // not preferred
+      // not preferred colors
       'hwb', 'hsl',
       'lab', 'oklab', 'lch', 'oklch',
       'color', 'color-mix', 'color-contrast',
+      // stepped value functions
+      'round', 'mod', 'rem',
+      // trigonometric functions
+      'tan', 'sin', 'cos',
+      'atan', 'asin', 'acos',
+      'atan2',
     ],
     'declaration-no-important': true,
     'property-disallowed-list': require('./data/disallowed-properties.js'),
