@@ -131,7 +131,7 @@ module.exports = {
       // Angle units
       'grad', 'rad', 'turn',
       // Resolution
-      'x', 'dpcm', 'dpi',
+      'dpcm', 'dpi',
     ],
 
     'font-weight-notation': [
