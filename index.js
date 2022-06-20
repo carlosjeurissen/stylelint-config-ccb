@@ -78,7 +78,7 @@ module.exports = {
       all: ['initial', 'revert'],
       position: ['fixed', 'absolute', 'relative', 'sticky'],
       appearance: ['none', 'auto'],
-      content: ['""', '/^attr\\(aria-/', '/^attr\\(data-/', '/^var\\(/', 'none', '*'],
+      content: ['""', '/^attr\\(aria-/', '/^attr\\(data-/', '/^var\\(/', 'none', '"*"'],
       font: ['inherit'],
       fill: ['currentColor', 'inherit', 'none'],
       overflow: ['initial', 'hidden', 'clip', 'auto'],
@@ -150,7 +150,7 @@ module.exports = {
       true,
       {
         quoteProps: 'preserve',
-        printWidth: 120,
+        printWidth: 160,
       },
     ],
 
