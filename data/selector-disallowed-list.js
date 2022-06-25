@@ -1,6 +1,4 @@
-'use strict';
-
-module.exports = [
+export default [
   // disallow nth-child(n) and nth-child(1n)
   '/:nth(-last)?(-child|-of-type)\\([\\s]{0,}1?n[\\s]{0,}\\)/',
   // should not be styled

@@ -1,6 +1,4 @@
-'use strict';
-
-module.exports = [
+export default [
   /* microsoft-only properties */
   '-ms-accelerator',
   '-ms-block-progression',

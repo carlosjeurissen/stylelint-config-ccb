@@ -1,6 +1,10 @@
-'use strict';
+/* eslint-disable import/extensions */
+import commentWordDisallowedList from './data/comment-word-disallowed-list.js';
+import propertyDisallowedList from './data/property-disallowed-list.js';
+import selectorDisallowedList from './data/selector-disallowed-list.js';
+import propertyOrderList from './data/property-order-list.js';
 
-module.exports = {
+export default {
   extends: 'stylelint-config-standard',
   plugins: [
     '@ronilaukkarinen/stylelint-a11y',
@@ -57,13 +61,21 @@ module.exports = {
       html: ['background', 'background-color', 'background-image', /^background/],
     },
 
-    'at-rule-allowed-list': ['import', 'media', 'keyframes', 'charset', 'font-face', 'page', 'supports'],
+    'at-rule-allowed-list': [
+      'charset',
+      'font-face',
+      'import',
+      'keyframes',
+      'media',
+      'page',
+      'supports',
+    ],
     'at-rule-disallowed-list': ['custom-selector', '-moz-document'],
     'at-rule-property-required-list': {
       'font-face': ['font-display', 'font-family', 'font-style', 'src'],
     },
     'color-no-hex': true,
-    'comment-word-disallowed-list': require('./data/disallowed-comment-words.js'),
+    'comment-word-disallowed-list': commentWordDisallowedList,
     'declaration-property-unit-allowed-list': {
       'font-size': ['rem', 'em'],
       'transition-delay': ['ms'],
@@ -111,7 +123,7 @@ module.exports = {
       'anchor', 'toggle',
     ],
     'declaration-no-important': true,
-    'property-disallowed-list': require('./data/disallowed-properties.js'),
+    'property-disallowed-list': propertyDisallowedList,
     'time-min-milliseconds': 75,
     'selector-no-qualifying-type': true,
     'selector-max-attribute': 1,
@@ -119,7 +131,7 @@ module.exports = {
     'selector-max-universal': 0,
     'selector-max-pseudo-class': 2,
     'selector-max-type': 2,
-    'selector-disallowed-list': require('./data/disallowed-selectors.js'),
+    'selector-disallowed-list': selectorDisallowedList,
     'selector-pseudo-class-disallowed-list': [
       'any',
       'has',
@@ -227,7 +239,7 @@ module.exports = {
       { severity: 'warning' },
     ],
     'order/properties-order': [
-      require('./data/selector-order.js'),
+      propertyOrderList,
       {
         unspecified: 'bottom',
         severity: 'warning',

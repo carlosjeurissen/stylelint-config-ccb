@@ -1,6 +1,4 @@
-'use strict';
-
-module.exports = [
+export default [
   'todo',
 
   /* list from https://developers.google.com/style/word-list */
