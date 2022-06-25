@@ -9,6 +9,10 @@ html {
   --brand-red: rgb(128 128 128);
 }
 
+div:nth-child(2n) {
+  display: block;
+}
+
 .selector-1,
 .selector-2,
 .selector-3[type="text"] {
