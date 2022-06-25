@@ -120,7 +120,13 @@ module.exports = {
     'selector-max-pseudo-class': 2,
     'selector-max-type': 2,
     'selector-disallowed-list': require('./data/disallowed-selectors.js'),
-    'selector-pseudo-class-disallowed-list': [':scope', ':has', ':matches'],
+    'selector-pseudo-class-disallowed-list': [
+      'any',
+      'has',
+      'matches',
+      'root',
+      'scope',
+    ],
     'unit-disallowed-list': [
       // physical length
       'cm', 'mm', 'Q', 'in', 'pc', 'pt',
