@@ -9,7 +9,7 @@ html {
   --brand-red: rgb(128 128 128);
 }
 
-div:nth-child(2n) {
+.test:nth-child(2n) {
   display: block;
 }
 

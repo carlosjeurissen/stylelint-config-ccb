@@ -8,12 +8,18 @@ export default {
   extends: 'stylelint-config-standard',
   plugins: [
     '@ronilaukkarinen/stylelint-a11y',
+    'stylelint-value-no-unknown-custom-properties',
     'stylelint-color-format',
     'stylelint-no-indistinguishable-colors',
     'stylelint-order',
     'stylelint-prettier',
     'stylelint-selector-no-empty',
     'stylelint-declaration-block-no-ignored-properties',
+    'stylelint-require-units',
+    'stylelint-selector-tag-no-without-class',
+    'stylelint-high-performance-animation',
+    'stylelint-z-index-value-constraint',
+    'stylelint-no-undoing-styles',
   ],
   rules: {
     /* stylelint-config-standard overwrites */
@@ -189,7 +195,7 @@ export default {
       true,
       {
         quoteProps: 'preserve',
-        printWidth: 80,
+        printWidth: 2000,
       },
     ],
 
@@ -199,6 +205,10 @@ export default {
 
     'a11y/font-size-is-readable': true,
     'a11y/no-spread-text': true,
+
+    'matterialize/stylelint-require-units': [true, {
+      checkUnknownUnits: true,
+    }],
 
     // both already handled by selector-disallowed-list
     // 'a11y/no-obsolete-attribute': true,
@@ -219,6 +229,21 @@ export default {
     'plugin/stylelint-no-indistinguishable-colors': true,
 
     'plugin/declaration-block-no-ignored-properties': true,
+
+    'plugin/selector-tag-no-without-class': ['div', 'span'],
+
+    'csstools/value-no-unknown-custom-properties': true,
+
+    'plugin/no-undoing-styles': true,
+
+    'plugin/z-index-value-constraint': {
+      min: 1,
+      max: 10000,
+    },
+
+    'plugin/no-low-performance-animation-properties': [true, {
+      ignoreProperties: ['color', 'background-color'],
+    }],
 
     'order/order': [
       [

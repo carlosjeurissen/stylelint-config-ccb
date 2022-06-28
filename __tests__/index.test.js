@@ -1,3 +1,11 @@
+/* global
+  describe
+  beforeEach
+  expect
+  it
+*/
+
+// eslint-disable-next-line lines-around-directive, no-autofix/strict
 'use strict';
 
 const fs = require('fs');
