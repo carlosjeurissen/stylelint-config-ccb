@@ -16,10 +16,9 @@ export default {
     'stylelint-selector-no-empty',
     'stylelint-declaration-block-no-ignored-properties',
     'stylelint-require-units',
-    'stylelint-selector-tag-no-without-class',
     'stylelint-high-performance-animation',
-    'stylelint-z-index-value-constraint',
-    'stylelint-no-undoing-styles',
+    'stylelint-csstree-validator',
+    'stylelint-plugin-import',
   ],
   rules: {
     /* stylelint-config-standard overwrites */
@@ -92,6 +91,7 @@ export default {
       'letter-spacing': ['em'],
     },
     'declaration-property-value-allowed-list': {
+      'z-index': ['/^([1-9][0-9]{0,3})$/'], // only allow z-index 1 up to 9999
       'text-decoration': ['inherit', 'underline', 'none'],
       all: ['initial', 'revert'],
       position: ['fixed', 'absolute', 'relative', 'sticky'],
@@ -104,6 +104,8 @@ export default {
       overflowY: ['initial', 'hidden', 'clip', 'auto'],
     },
     'declaration-property-value-disallowed-list': {
+      '/^border/': ['0'],
+      '/^padding/': ['auto'],
       outline: ['none', '0'],
       color: ['rebeccapurple'],
       fill: ['rebeccapurple'],
@@ -230,19 +232,23 @@ export default {
 
     'plugin/declaration-block-no-ignored-properties': true,
 
-    'plugin/selector-tag-no-without-class': ['div', 'span'],
+    'plugin-import/file-extension': {
+      mode: 'require', /* require that all imports have a file extension */
+    },
+
+    'plugin-import/import-as-reference': {
+      mode: 'block', /* prevent any imports use (reference) */
+    },
 
     'csstools/value-no-unknown-custom-properties': true,
 
-    'plugin/no-undoing-styles': true,
-
-    'plugin/z-index-value-constraint': {
-      min: 1,
-      max: 10000,
+    'csstree/validator': {
+      syntaxExtensions: false,
     },
 
     'plugin/no-low-performance-animation-properties': [true, {
-      ignoreProperties: ['color', 'background-color'],
+      // ignore: 'paint-properties',
+      ignoreProperties: [],
     }],
 
     'order/order': [
