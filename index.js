@@ -211,6 +211,7 @@ export default {
 
     'matterialize/stylelint-require-units': [true, {
       checkUnknownUnits: true,
+      whitelistedProperties: ['line-height'],
     }],
 
     // both already handled by selector-disallowed-list
@@ -252,6 +253,7 @@ export default {
       // ignore: 'paint-properties',
       ignoreProperties: [
         'background-color',
+        'border-color',
         'border-radius',
         'box-shadow',
         'color',

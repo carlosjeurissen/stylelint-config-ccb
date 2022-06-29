@@ -1,4 +1,5 @@
 export default [
+  'color-adjust',
   /* microsoft-only properties */
   '-ms-accelerator',
   '-ms-block-progression',
