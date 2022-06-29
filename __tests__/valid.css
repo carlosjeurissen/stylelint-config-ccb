@@ -12,6 +12,9 @@ html {
 .test {
   padding-top: env(safe-area-inset-top);
   border: none;
+  border-bottom-width: 0;
+  border-radius: 0;
+  border-bottom-right-radius: 0;
 }
 
 .test:nth-child(2n) {

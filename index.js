@@ -105,12 +105,12 @@ export default {
     },
     'declaration-property-value-disallowed-list': {
       'background-color': ['none', 'rebeccapurple'],
+      '/^border(-block|-inline)?(-top|-right|-bottom|-left|-end|-start)?$': ['0'],
       'font-size': ['0'],
       outline: ['none', '0'],
       'text-align': ['justify'],
       transition: ['/all|-webkit-|-moz-|-ms-|-o-/'],
       'transition-property': ['/all|-webkit-|-moz-|-ms-|-o-/'],
-      '/^border(?!-radius)/': ['0'],
       '/^padding/': ['auto'],
       '/.*/': ['rebeccapurple'],
     },
