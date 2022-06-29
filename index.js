@@ -104,14 +104,15 @@ export default {
       overflowY: ['initial', 'hidden', 'clip', 'auto'],
     },
     'declaration-property-value-disallowed-list': {
-      '/^border/': ['0'],
+      '/.*/': ['rebeccapurple'],
+      '/^border(?!-radius)/': ['0'],
       '/^padding/': ['auto'],
       outline: ['none', '0'],
-      color: ['rebeccapurple'],
-      fill: ['rebeccapurple'],
-      'background-color': ['rebeccapurple', 'none'],
+      'background-color': ['none'],
       'font-size': ['0'],
       'text-align': ['justify'],
+      transition: ['/all|-webkit-|-moz-|-ms-|-o-/'],
+      'transition-property': ['/all|-webkit-|-moz-|-ms-|-o-/'],
     },
     'function-url-scheme-allowed-list': ['data', 'https'],
     'function-disallowed-list': [
@@ -244,11 +245,17 @@ export default {
 
     'csstree/validator': {
       syntaxExtensions: false,
+      ignoreValue: 'env(',
     },
 
     'plugin/no-low-performance-animation-properties': [true, {
       // ignore: 'paint-properties',
-      ignoreProperties: [],
+      ignoreProperties: [
+        'background-color',
+        'border-radius',
+        'box-shadow',
+        'color',
+      ],
     }],
 
     'order/order': [
