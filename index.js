@@ -245,7 +245,7 @@ export default {
 
     'csstree/validator': {
       syntaxExtensions: false,
-      ignoreValue: 'env(',
+      ignoreValue: 'env\\(',
     },
 
     'plugin/no-low-performance-animation-properties': [true, {
