@@ -9,6 +9,10 @@ html {
   --brand-red: rgb(128 128 128);
 }
 
+.something::before {
+  content: attr(aria-label);
+}
+
 .test {
   padding-top: env(safe-area-inset-top);
   border: none;
