@@ -117,6 +117,9 @@ export default {
       '/.*/': ['rebeccapurple'],
     },
     'function-url-scheme-allowed-list': ['data', 'https'],
+    'function-url-scheme-disallowed-list': ['ftp', 'http'],
+    'function-url-no-scheme-relative': true,
+
     'function-disallowed-list': [
       // deprecated colors
       'gray', 'color-mod', 'rgba', 'hsla',
@@ -171,7 +174,6 @@ export default {
         ],
       },
     ],
-    'function-url-no-scheme-relative': true,
     'max-nesting-depth': 2,
     'color-named': 'never',
     'no-unknown-animations': true,
