@@ -63,7 +63,8 @@ export default {
     },
 
     'rule-selector-property-disallowed-list': {
-      html: ['background', 'background-color', 'background-image', /^background/],
+      ':root': [/^background/, /^margin/, 'font-family', 'font'],
+      html: [/^background/, /^margin/, 'font-family', 'font'],
     },
 
     'at-rule-allowed-list': [
@@ -96,7 +97,7 @@ export default {
       all: ['initial', 'revert'],
       position: ['fixed', 'absolute', 'relative', 'sticky'],
       appearance: ['none', 'auto'],
-      content: ['""', '/^attr(aria-/', '/^attr(data-/', '/^var(/', 'none', '"*"', '"ǀ"', '":"'],
+      content: ['""', '/^attr\\(aria-/', '/^attr\\(data-/', '/^var\\(/', 'none', '"*"', '"ǀ"', '":"'],
       font: ['inherit'],
       fill: ['currentColor', 'inherit', 'none'],
       overflow: ['initial', 'hidden', 'clip', 'auto'],
