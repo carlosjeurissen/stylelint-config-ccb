@@ -65,6 +65,7 @@ export default {
     'rule-selector-property-disallowed-list': {
       ':root': [/^background/, /^margin/, 'font-family', 'font'],
       html: [/^background/, /^margin/, 'font-family', 'font'],
+      a: [/^margin/],
     },
 
     'at-rule-allowed-list': [
@@ -92,12 +93,12 @@ export default {
       'letter-spacing': ['em'],
     },
     'declaration-property-value-allowed-list': {
-      'z-index': ['/^([1-9][0-9]{0,3})$/'], // only allow z-index 1 up to 9999
+      'z-index': [/^([1-9]\d{0,3})$/], // only allow z-index 1 up to 9999
       'text-decoration': ['inherit', 'underline', 'none'],
       all: ['initial', 'revert'],
       position: ['fixed', 'absolute', 'relative', 'sticky'],
       appearance: ['none', 'auto'],
-      content: ['""', '/^attr\\(aria-/', '/^attr\\(data-/', '/^var\\(/', 'none', '"*"', '"ǀ"', '":"'],
+      content: ['""', /^attr\(aria-/, /^attr\(data-/, /^var\(/, 'none', '"*"', '"ǀ"', '":"'],
       font: ['inherit'],
       fill: ['currentColor', 'inherit', 'none'],
       overflow: ['initial', 'hidden', 'clip', 'auto'],
@@ -110,8 +111,8 @@ export default {
       'font-size': ['0'],
       outline: ['none', '0'],
       'text-align': ['justify'],
-      transition: ['/all|-webkit-|-moz-|-ms-|-o-/'],
-      'transition-property': ['/all|-webkit-|-moz-|-ms-|-o-/'],
+      transition: [/all|-webkit-|-moz-|-ms-|-o-/],
+      'transition-property': [/all|-webkit-|-moz-|-ms-|-o-/],
       '/^padding/': ['auto'],
       '/.*/': ['rebeccapurple'],
     },
