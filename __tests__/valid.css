@@ -14,6 +14,7 @@ html {
 }
 
 .test {
+  z-index: -1;
   padding-top: env(safe-area-inset-top);
   border: none;
   border-bottom-width: 0;

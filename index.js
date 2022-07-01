@@ -93,7 +93,7 @@ export default {
       'letter-spacing': ['em'],
     },
     'declaration-property-value-allowed-list': {
-      'z-index': [/^([1-9]\d{0,3})$/], // only allow z-index 1 up to 9999
+      'z-index': [/^([1-9]\d{0,3})|-1$/], // only allow z-index 1 up to 9999
       'text-decoration': ['inherit', 'underline', 'none'],
       all: ['initial', 'revert'],
       position: ['fixed', 'absolute', 'relative', 'sticky'],
@@ -104,6 +104,7 @@ export default {
       overflow: ['initial', 'hidden', 'clip', 'auto'],
       overflowX: ['initial', 'hidden', 'clip', 'auto'],
       overflowY: ['initial', 'hidden', 'clip', 'auto'],
+      'user-select': ['none', 'text'],
     },
     'declaration-property-value-disallowed-list': {
       'background-color': ['none', 'rebeccapurple'],
