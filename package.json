@@ -1,6 +1,6 @@
 {
   "name": "stylelint-config-ccb",
-  "version": "1.27.0",
+  "version": "1.27.1",
   "description": "Stylelint config which extends stylelint-config-standard",
   "keywords": [
     "stylelint",
@@ -41,7 +41,7 @@
   },
   "devDependencies": {
     "eslint": "^8.18.0",
-    "eslint-config-ccb": "^0.0.17",
+    "eslint-config-ccb": "^0.1.0",
     "jest": "^28.1.2",
     "rollup": "^2.75.7",
     "rollup-plugin-terser": "^7.0.2",

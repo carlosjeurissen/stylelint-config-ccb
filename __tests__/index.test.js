@@ -8,7 +8,7 @@
 // eslint-disable-next-line lines-around-directive, no-autofix/strict
 'use strict';
 
-const fs = require('fs');
+const fs = require('node:fs');
 const stylelint = require('stylelint');
 const config = require('..');
 
