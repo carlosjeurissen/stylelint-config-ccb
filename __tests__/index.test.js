@@ -1,11 +1,15 @@
+/* eslint-disable
+  global-require,
+  no-autofix/strict,
+  unicorn/prefer-module,
+*/
 /* global
-  describe
-  beforeEach
-  expect
-  it
+  beforeEach,
+  describe,
+  expect,
+  it,
 */
 
-// eslint-disable-next-line lines-around-directive, no-autofix/strict
 'use strict';
 
 const fs = require('node:fs');
