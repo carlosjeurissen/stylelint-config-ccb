@@ -93,12 +93,16 @@ export default {
       'letter-spacing': ['em'],
     },
     'declaration-property-value-allowed-list': {
-      'z-index': [/^([1-9]\d{0,3})|-1$/], // only allow z-index 1 up to 9999
+      'z-index': [/^[1-9]\d{0,3}$/, '-1', 'initial'], // only allow z-index 1 up to 9999
       'text-decoration': ['inherit', 'underline', 'none'],
       all: ['initial', 'revert'],
       position: ['fixed', 'absolute', 'relative', 'sticky'],
       appearance: ['none', 'auto'],
-      content: ['""', /^attr\(aria-/, /^attr\(data-/, /^var\(/, 'none', '"*"', '"ǀ"', '":"'],
+      content: [
+        'none', '""',
+        '"*"', '":"', '"ǀ"',
+        /^var\(/, /^attr\(aria-/, /^attr\(data-/,
+      ],
       font: ['inherit'],
       fill: ['currentColor', 'inherit', 'none'],
       overflow: ['initial', 'hidden', 'clip', 'auto'],
@@ -111,6 +115,7 @@ export default {
       '/^border(-block|-inline)?(-top|-right|-bottom|-left|-end|-start)?$': ['0'],
       'font-size': ['0'],
       outline: ['none', '0'],
+      'word-break': ['break-word'],
       'text-align': ['justify'],
       transition: [/all|-webkit-|-moz-|-ms-|-o-/],
       'transition-property': [/all|-webkit-|-moz-|-ms-|-o-/],
@@ -136,6 +141,8 @@ export default {
       'atan2',
       // future
       'anchor', 'toggle',
+      // ancient
+      'expression',
     ],
     'declaration-no-important': true,
     'property-disallowed-list': propertyDisallowedList,

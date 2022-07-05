@@ -1,5 +1,4 @@
 export default [
-  'color-adjust',
   /* microsoft-only properties */
   '-ms-accelerator',
   '-ms-block-progression',
@@ -255,7 +254,9 @@ export default [
 
   'zoom',
 
-  'word-break',
+  'color-adjust',
+
+  'word-wrap',
   'page-break-inside',
   'clip',
 
