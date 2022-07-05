@@ -267,4 +267,6 @@ export default [
   'float',
 
   'font-smooth',
+
+  'word-break',
 ];
