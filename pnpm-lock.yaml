@@ -17,7 +17,7 @@ specifiers:
   stylelint-csstree-validator: ^2.0.0
   stylelint-declaration-block-no-ignored-properties: ^2.5.0
   stylelint-high-performance-animation: ^1.6.0
-  stylelint-no-indistinguishable-colors: ^1.3.0
+  stylelint-no-indistinguishable-colors: ^1.3.2
   stylelint-order: ^5.0.0
   stylelint-plugin-import: ^1.0.9
   stylelint-prettier: ^2.0.0
@@ -33,7 +33,7 @@ dependencies:
   stylelint-csstree-validator: 2.0.0_stylelint@14.9.1
   stylelint-declaration-block-no-ignored-properties: 2.5.0_stylelint@14.9.1
   stylelint-high-performance-animation: 1.6.0_stylelint@14.9.1
-  stylelint-no-indistinguishable-colors: 1.3.0_stylelint@14.9.1
+  stylelint-no-indistinguishable-colors: 1.3.2_stylelint@14.9.1
   stylelint-order: 5.0.0_stylelint@14.9.1
   stylelint-plugin-import: 1.0.9
   stylelint-prettier: 2.0.0_ajb4dyjcjxvkvtnz4mzu4n3pcq
@@ -1089,7 +1089,7 @@ packages:
     hasBin: true
     dependencies:
       caniuse-lite: 1.0.30001363
-      electron-to-chromium: 1.4.182
+      electron-to-chromium: 1.4.184
       node-releases: 2.0.5
       update-browserslist-db: 1.0.4_browserslist@4.21.1
     dev: true
@@ -1426,8 +1426,8 @@ packages:
       esutils: 2.0.3
     dev: true
 
-  /electron-to-chromium/1.4.182:
-    resolution: {integrity: sha512-OpEjTADzGoXABjqobGhpy0D2YsTncAax7IkER68ycc4adaq0dqEG9//9aenKPy7BGA90bqQdLac0dPp6uMkcSg==}
+  /electron-to-chromium/1.4.184:
+    resolution: {integrity: sha512-IADi390FRdvxWfVX3hjzfTDNVHiTqVo9ar53/7em/SfhUG9YcjVhyQecY/XwmBHRKden/wFud7RWOUH7+7LFng==}
     dev: true
 
   /emittery/0.10.2:
@@ -1556,7 +1556,7 @@ packages:
       eslint-plugin-react: 7.30.1_eslint@8.19.0
       eslint-plugin-react-hooks: 4.6.0_eslint@8.19.0
       eslint-plugin-security: 1.5.0
-      eslint-plugin-unicorn: 43.0.0_eslint@8.19.0
+      eslint-plugin-unicorn: 43.0.1_eslint@8.19.0
       eslint-plugin-unused-imports: 2.0.0_eslint@8.19.0
       eslint-plugin-vue: 9.2.0_eslint@8.19.0
     transitivePeerDependencies:
@@ -1712,8 +1712,8 @@ packages:
       safe-regex: 2.1.1
     dev: true
 
-  /eslint-plugin-unicorn/43.0.0_eslint@8.19.0:
-    resolution: {integrity: sha512-Z/6HX8yry+zAjo4jHHTAbe1rfniox7qgmCReGBfTc/CVgotfScaMCc4dtSSTHlJ+7Yix5o6LPXzwwpuGGFricg==}
+  /eslint-plugin-unicorn/43.0.1_eslint@8.19.0:
+    resolution: {integrity: sha512-wYvF6q0RRTKw6gzbKy5bbazWUrBEPIto2S9U6eSF+tsHgtgE+CwQ6Bww1W2Ie9TRED01QkZRN79c5aVMFgrFYw==}
     engines: {node: '>=14.18'}
     peerDependencies:
       eslint: '>=8.18.0'
@@ -3962,10 +3962,10 @@ packages:
       stylelint: 14.9.1
     dev: false
 
-  /stylelint-no-indistinguishable-colors/1.3.0_stylelint@14.9.1:
-    resolution: {integrity: sha512-tqqitUmKnnYTWcAw39lMHngSRUywQcI38bbFtB3hdFl1g7uO7nY4AJJfZCKR7o1tIG24sKLWDV6NmfzIlEiTRw==}
+  /stylelint-no-indistinguishable-colors/1.3.2_stylelint@14.9.1:
+    resolution: {integrity: sha512-Zt5MnJgsxx3Ujnkiown5MjJZlTd61XNoPPRSMxEDFi7diuSyDUUUZj4jQ7a1S/bhUK9wRh52cKW4hFTfCuPm9w==}
     peerDependencies:
-      stylelint: ^11.1.1
+      stylelint: ^11.1.1 || ^12.0.0 || ^13.0.0
     dependencies:
       colorguard: 1.2.1
       postcss: 7.0.39
