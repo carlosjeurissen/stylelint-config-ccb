@@ -8,17 +8,18 @@ export default {
   extends: 'stylelint-config-standard',
   plugins: [
     '@ronilaukkarinen/stylelint-a11y',
-    'stylelint-value-no-unknown-custom-properties',
     'stylelint-color-format',
-    'stylelint-no-indistinguishable-colors',
-    'stylelint-order',
-    'stylelint-prettier',
-    'stylelint-selector-no-empty',
-    'stylelint-declaration-block-no-ignored-properties',
-    'stylelint-require-units',
-    'stylelint-high-performance-animation',
     'stylelint-csstree-validator',
+    'stylelint-declaration-block-no-ignored-properties',
+    'stylelint-high-performance-animation',
+    'stylelint-no-indistinguishable-colors',
+    'stylelint-no-nested-media',
+    'stylelint-order',
     'stylelint-plugin-import',
+    'stylelint-prettier',
+    'stylelint-require-units',
+    'stylelint-selector-no-empty',
+    'stylelint-value-no-unknown-custom-properties',
   ],
   rules: {
     /* stylelint-config-standard overwrites */
@@ -253,6 +254,8 @@ export default {
     'plugin-import/import-as-reference': {
       mode: 'block', /* prevent any imports use (reference) */
     },
+
+    'pitcher/no-nested-media': true,
 
     'csstools/value-no-unknown-custom-properties': true,
 

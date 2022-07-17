@@ -1,6 +1,6 @@
 {
   "name": "stylelint-config-ccb",
-  "version": "1.29.3",
+  "version": "1.30.0",
   "description": "Stylelint config which extends stylelint-config-standard",
   "keywords": [
     "stylelint",
@@ -32,6 +32,7 @@
     "stylelint-declaration-block-no-ignored-properties": "^2.5.0",
     "stylelint-high-performance-animation": "^1.6.0",
     "stylelint-no-indistinguishable-colors": "^1.3.2",
+    "stylelint-no-nested-media": "^0.1.0",
     "stylelint-order": "^5.0.0",
     "stylelint-plugin-import": "^1.0.9",
     "stylelint-prettier": "^2.0.0",
@@ -40,10 +41,10 @@
     "stylelint-value-no-unknown-custom-properties": "^4.0.0"
   },
   "devDependencies": {
-    "eslint": "^8.19.0",
+    "eslint": "^8.20.0",
     "eslint-config-ccb": "^0.3.0",
-    "jest": "^28.1.2",
-    "rollup": "^2.75.7",
+    "jest": "^28.1.3",
+    "rollup": "^2.77.0",
     "rollup-plugin-terser": "^7.0.2",
     "stylelint": "^14.9.1"
   },
