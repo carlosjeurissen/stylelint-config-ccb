@@ -37,8 +37,8 @@ export default {
     'value-keyword-case': [
       'lower',
       {
-        ignoreProperties: ['unicode-range'],
         camelCaseSvgKeywords: true,
+        ignoreProperties: ['unicode-range'],
       },
     ],
     'number-max-precision': 5,
@@ -66,6 +66,7 @@ export default {
     'rule-selector-property-disallowed-list': {
       ':root': [/^background/, /^margin/, 'font-family', 'font'],
       html: [/^background/, /^margin/, 'font-family', 'font'],
+
       a: [/^margin/],
     },
 
@@ -85,47 +86,51 @@ export default {
     'color-no-hex': true,
     'comment-word-disallowed-list': commentWordDisallowedList,
     'declaration-property-unit-allowed-list': {
-      'font-size': ['rem', 'em'],
-      'transition-delay': ['ms'],
       animation: ['ms'],
-      'line-height': [],
-      'z-index': [],
-      opacity: [],
+      'transition-delay': ['ms'],
+
+      'font-size': ['rem', 'em'],
       'letter-spacing': ['em'],
+
+      'line-height': [],
+      opacity: [],
+      'z-index': [],
     },
     'declaration-property-value-allowed-list': {
-      'z-index': [/^[1-9]\d{0,3}$/, '-1', 'initial'], // only allow z-index 1 up to 9999
-      'text-decoration': ['inherit', 'underline', 'none'],
       all: ['initial', 'revert'],
-      position: ['fixed', 'absolute', 'relative', 'sticky'],
       appearance: ['none', 'auto'],
       content: [
         'none', '""',
         '"*"', '":"', '"ǀ"',
         /^var\(/, /^attr\(aria-/, /^attr\(data-/,
       ],
-      font: ['inherit'],
       fill: ['currentColor', 'inherit', 'none'],
+      font: ['inherit'],
       overflow: ['initial', 'hidden', 'clip', 'auto'],
       overflowX: ['initial', 'hidden', 'clip', 'auto'],
       overflowY: ['initial', 'hidden', 'clip', 'auto'],
+      position: ['fixed', 'absolute', 'relative', 'sticky'],
+      'text-decoration': ['inherit', 'underline', 'none'],
       'user-select': ['none', 'text'],
+      'z-index': [/^[1-9]\d{0,3}$/, '-1', 'initial'], // only allow z-index 1 up to 9999
     },
     'declaration-property-value-disallowed-list': {
       'background-color': ['none', 'rebeccapurple'],
-      '/^border(-block|-inline)?(-top|-right|-bottom|-left|-end|-start)?$': ['0'],
       'font-size': ['0'],
       outline: ['none', '0'],
-      'word-break': ['break-word'],
       'text-align': ['justify'],
+      'word-break': ['break-word'],
+
       transition: [/all|-webkit-|-moz-|-ms-|-o-/],
       'transition-property': [/all|-webkit-|-moz-|-ms-|-o-/],
+
+      '/^border(-block|-inline)?(-top|-right|-bottom|-left|-end|-start)?$': ['0'],
       '/^padding/': ['auto'],
       '/.*/': ['rebeccapurple'],
     },
+    'function-url-no-scheme-relative': true,
     'function-url-scheme-allowed-list': ['data', 'https'],
     'function-url-scheme-disallowed-list': ['ftp', 'http'],
-    'function-url-no-scheme-relative': true,
 
     'function-disallowed-list': [
       // deprecated colors
@@ -148,13 +153,13 @@ export default {
     'declaration-no-important': true,
     'property-disallowed-list': propertyDisallowedList,
     'time-min-milliseconds': 75,
-    'selector-no-qualifying-type': true,
+    'selector-disallowed-list': selectorDisallowedList,
     'selector-max-attribute': 1,
     'selector-max-id': 0,
-    'selector-max-universal': 0,
     'selector-max-pseudo-class': 2,
     'selector-max-type': 2,
-    'selector-disallowed-list': selectorDisallowedList,
+    'selector-max-universal': 0,
+    'selector-no-qualifying-type': true,
     'selector-pseudo-class-disallowed-list': [
       'any',
       'has',
@@ -210,8 +215,8 @@ export default {
     'prettier/prettier': [
       true,
       {
-        quoteProps: 'preserve',
         printWidth: 2000,
+        quoteProps: 'preserve',
       },
     ],
 
@@ -223,8 +228,8 @@ export default {
     'a11y/no-spread-text': true,
 
     'matterialize/stylelint-require-units': [true, {
-      checkUnknownUnits: true,
       blacklistedProperties: ['line-height'],
+      checkUnknownUnits: true,
     }],
 
     // both already handled by selector-disallowed-list
@@ -260,8 +265,8 @@ export default {
     'csstools/value-no-unknown-custom-properties': true,
 
     'csstree/validator': {
-      syntaxExtensions: false,
       ignoreValue: 'env\\(',
+      syntaxExtensions: false,
     },
 
     'plugin/no-low-performance-animation-properties': [true, {
