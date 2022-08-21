@@ -15,7 +15,10 @@ export default {
     'stylelint-no-indistinguishable-colors',
     'stylelint-no-nested-media',
     'stylelint-order',
+    /* todo, temporary disable until this is fixed:
+      https://github.com/electrovir/stylelint-plugin-import
     'stylelint-plugin-import',
+    */
     'stylelint-prettier',
     'stylelint-require-units',
     'stylelint-selector-no-empty',
@@ -23,7 +26,7 @@ export default {
   ],
   rules: {
     /* stylelint-config-standard overwrites */
-    'alpha-value-notation': 'number',
+    'alpha-value-notation': 'percentage',
     'color-hex-length': 'long',
     'declaration-block-no-redundant-longhand-properties': null,
     'function-url-quotes': [
@@ -48,6 +51,7 @@ export default {
         message: 'Expected id selector to be kebab-case'
       }
     ], */
+
     'custom-media-pattern': '[a-z-]{4,40}',
     'custom-property-pattern': '[a-z-]{4,40}',
     'keyframes-name-pattern': '[a-z-]{4,40}',
@@ -56,6 +60,7 @@ export default {
 
     /* stylelint-config-ccb */
     'keyframe-block-no-duplicate-selectors': true,
+
     'declaration-property-max-values': {
       'border-width': 2,
       border: 3,
@@ -83,8 +88,11 @@ export default {
     'at-rule-property-required-list': {
       'font-face': ['font-display', 'font-family', 'font-style', 'src'],
     },
+    'at-rule-semicolon-space-before': 'never',
+    'color-named': 'never',
     'color-no-hex': true,
     'comment-word-disallowed-list': commentWordDisallowedList,
+    'declaration-no-important': true,
     'declaration-property-unit-allowed-list': {
       animation: ['ms'],
       'transition-delay': ['ms'],
@@ -93,7 +101,7 @@ export default {
       'letter-spacing': ['em'],
 
       'line-height': [],
-      opacity: [],
+      opacity: ['%'],
       'z-index': [],
     },
     'declaration-property-value-allowed-list': {
@@ -150,15 +158,15 @@ export default {
       // ancient
       'expression',
     ],
-    'declaration-no-important': true,
     'property-disallowed-list': propertyDisallowedList,
-    'time-min-milliseconds': 75,
     'selector-disallowed-list': selectorDisallowedList,
     'selector-max-attribute': 1,
     'selector-max-id': 0,
     'selector-max-pseudo-class': 2,
     'selector-max-type': 2,
-    'selector-max-universal': 0,
+    'selector-max-universal': [0, {
+      ignoreAfterCombinators: ['+'],
+    }],
     'selector-no-qualifying-type': true,
     'selector-pseudo-class-disallowed-list': [
       'any',
@@ -167,6 +175,7 @@ export default {
       'root',
       'scope',
     ],
+    'time-min-milliseconds': 75,
     'unit-disallowed-list': [
       // physical length
       'cm', 'mm', 'Q', 'in', 'pc', 'pt',
@@ -188,14 +197,14 @@ export default {
         ],
       },
     ],
+    'max-line-length': 160,
     'max-nesting-depth': 2,
-    'color-named': 'never',
     'no-unknown-animations': true,
 
     /* prettier-overlap */
     linebreaks: 'unix',
     'unicode-bom': 'never',
-    'at-rule-semicolon-space-before': 'never',
+
     'block-opening-brace-newline-before': 'never-single-line',
     'declaration-block-semicolon-newline-before': 'never-multi-line',
     'function-comma-newline-before': 'never-multi-line',
@@ -203,7 +212,6 @@ export default {
     'selector-list-comma-newline-before': 'never-multi-line',
     'selector-list-comma-space-after': 'always-single-line',
     'value-list-comma-newline-before': 'never-multi-line',
-    'max-line-length': 160,
 
     /* prettier-conflicts, prefer stylelint-config-standard
     'block-opening-brace-space-before': null,
@@ -252,13 +260,16 @@ export default {
 
     'plugin/declaration-block-no-ignored-properties': true,
 
+    /* todo, temporary disable until this is fixed:
+      https://github.com/electrovir/stylelint-plugin-import
+
     'plugin-import/file-extension': {
-      mode: 'require', /* require that all imports have a file extension */
+      mode: 'require', // require that all imports have a file extension
     },
 
     'plugin-import/import-as-reference': {
-      mode: 'block', /* prevent any imports use (reference) */
-    },
+      mode: 'block', // prevent any imports use (reference)
+    }, */
 
     'pitcher/no-nested-media': true,
 
@@ -301,8 +312,8 @@ export default {
     'order/properties-order': [
       propertyOrderList,
       {
-        unspecified: 'bottom',
         severity: 'warning',
+        unspecified: 'bottom',
       },
     ],
   },

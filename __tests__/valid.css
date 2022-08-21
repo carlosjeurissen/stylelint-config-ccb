@@ -32,7 +32,7 @@ html {
 .selector-3[type="text"] {
   display: block;
   box-sizing: border-box;
-  background: linear-gradient(rgb(255 255 255), rgb(0 0 0 / 0.8));
+  background: linear-gradient(rgb(255 255 255), rgb(0 0 0 / 80%));
   color: var(--brand-red);
 }
 
@@ -76,7 +76,7 @@ html {
     height: 10rem;
     margin: 10px;
     margin-bottom: 5px;
-    background-image: repeating-linear-gradient(-45deg, transparent, rgb(255 255 255) 25px, rgb(255 255 255 / 1) 50px);
+    background-image: repeating-linear-gradient(-45deg, transparent, rgb(255 255 255) 25px, rgb(255 255 255 / 100%) 50px);
     box-shadow: 0 1px 1px rgb(0 0 0), 0 1px 0 rgb(255 255 255), 2px 2px 1px 1px rgb(204 204 204) inset;
     animation: 300ms none fade-in;
   }
@@ -90,10 +90,10 @@ html {
 
 @keyframes fade-in {
   from {
-    opacity: 0;
+    opacity: 0%;
   }
 
   to {
-    opacity: 1;
+    opacity: 1%;
   }
 }
