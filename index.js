@@ -15,10 +15,7 @@ export default {
     'stylelint-no-indistinguishable-colors',
     'stylelint-no-nested-media',
     'stylelint-order',
-    /* todo, temporary disable until this is fixed:
-      https://github.com/electrovir/stylelint-plugin-import
     'stylelint-plugin-import',
-    */
     'stylelint-prettier',
     'stylelint-require-units',
     'stylelint-selector-no-empty',
@@ -165,7 +162,7 @@ export default {
     'selector-max-pseudo-class': 2,
     'selector-max-type': 2,
     'selector-max-universal': [0, {
-      ignoreAfterCombinators: ['+'],
+      ignoreAfterCombinators: ['+', '>'],
     }],
     'selector-no-qualifying-type': true,
     'selector-pseudo-class-disallowed-list': [
@@ -260,16 +257,13 @@ export default {
 
     'plugin/declaration-block-no-ignored-properties': true,
 
-    /* todo, temporary disable until this is fixed:
-      https://github.com/electrovir/stylelint-plugin-import
-
     'plugin-import/file-extension': {
       mode: 'require', // require that all imports have a file extension
     },
 
     'plugin-import/import-as-reference': {
       mode: 'block', // prevent any imports use (reference)
-    }, */
+    },
 
     'pitcher/no-nested-media': true,
 
