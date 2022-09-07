@@ -154,6 +154,8 @@ export default {
       'anchor', 'toggle',
       // ancient
       'expression',
+      // bad coding pattern, use srcset or media queries
+      'image-set', '-webkit-image-set',
     ],
     'property-disallowed-list': propertyDisallowedList,
     'selector-disallowed-list': selectorDisallowedList,
