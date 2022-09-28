@@ -173,6 +173,18 @@ export default {
       'matches',
       'root',
       'scope',
+      'modal',
+      'host',
+      'host-contex',
+    ],
+    'selector-pseudo-element-allowed-list': [
+      'first-letter',
+      'first-line',
+      'file-selector-button',
+      'before',
+      'after',
+      'backdrop',
+      'placeholder',
     ],
     'time-min-milliseconds': 75,
     'unit-disallowed-list': [
