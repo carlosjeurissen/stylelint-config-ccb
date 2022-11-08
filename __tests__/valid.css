@@ -1,5 +1,4 @@
-@import "x.css";
-@import "y.css";
+@import url("x.css");
 
 /**
  * Multi-line comment

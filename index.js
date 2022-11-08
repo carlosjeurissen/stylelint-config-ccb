@@ -34,6 +34,7 @@ export default {
         ],
       },
     ],
+    'number-max-precision': 5,
     'value-keyword-case': [
       'lower',
       {
@@ -41,7 +42,7 @@ export default {
         ignoreProperties: ['unicode-range'],
       },
     ],
-    'number-max-precision': 5,
+
     /* todo update these based on 'selector-id-pattern': [
       '^([a-z][a-z0-9]*)(-[a-z0-9]+)*$',
       {
@@ -271,9 +272,9 @@ export default {
 
     'plugin/declaration-block-no-ignored-properties': true,
 
-    'plugin-import/file-extension': {
+    /* todo 'plugin-import/file-extension': {
       mode: 'require', // require that all imports have a file extension
-    },
+    }, */
 
     'plugin-import/import-as-reference': {
       mode: 'block', // prevent any imports use (reference)
