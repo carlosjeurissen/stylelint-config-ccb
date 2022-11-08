@@ -272,9 +272,9 @@ export default {
 
     'plugin/declaration-block-no-ignored-properties': true,
 
-    /* todo 'plugin-import/file-extension': {
+    'plugin-import/file-extension': {
       mode: 'require', // require that all imports have a file extension
-    }, */
+    },
 
     'plugin-import/import-as-reference': {
       mode: 'block', // prevent any imports use (reference)
