@@ -193,6 +193,7 @@ export default [
   '-webkit-text-fill-color',
   '-webkit-tap-highlight-color',
   '-webkit-user-drag', // for now, html[draggable="true"] is preferred
+  '-webkit-touch-callout', // see https://developer.mozilla.org/en-US/docs/Web/CSS/-webkit-touch-callout
   */
 
   /* deprecated safari webkit properties, see:
@@ -220,7 +221,6 @@ export default [
   '-webkit-region-break-inside',
   '-webkit-region-fragment',
   '-webkit-shape-inside',
-  '-webkit-touch-callout',
   'background-origin-x',
   'background-origin-y',
 
