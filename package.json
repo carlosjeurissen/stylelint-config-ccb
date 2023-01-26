@@ -1,6 +1,6 @@
 {
   "name": "stylelint-config-ccb",
-  "version": "1.38.3",
+  "version": "1.39.0",
   "description": "Stylelint config which extends stylelint-config-standard",
   "keywords": [
     "stylelint",
@@ -12,13 +12,13 @@
     "type": "git",
     "url": "https://github.com/carlosjeurissen/stylelint-config-ccb.git"
   },
-  "main": "dist/index.js",
+  "main": "dist/main.js",
   "files": [
-    "dist/index.js",
+    "dist/main.js",
     "dist/compat.js"
   ],
   "scripts": {
-    "build": "rollup --input index.js --file dist/index.js --format cjs --exports auto --plugin terser",
+    "build": "rollup --input index.js --file dist/main.js --format cjs --exports auto --plugin terser",
     "build-compat": "rollup --input index.js --file dist/compat.js --format cjs --exports auto --plugin terser --environment COMPAT_VARIANT",
     "build-all": "pnpm run build && pnpm run build-compat",
     "lint": "eslint index.js data/*.js __tests__/index.test.js",
@@ -62,7 +62,7 @@
     }
   },
   "stylelint": {
-    "extends": "./dist/index.js"
+    "extends": "./dist/main.js"
   },
   "pnpm": {
     "overrides": {
