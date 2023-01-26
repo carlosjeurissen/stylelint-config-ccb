@@ -1,6 +1,6 @@
 {
   "name": "stylelint-config-ccb",
-  "version": "1.39.0",
+  "version": "1.39.1",
   "description": "Stylelint config which extends stylelint-config-standard",
   "keywords": [
     "stylelint",
@@ -12,7 +12,7 @@
     "type": "git",
     "url": "https://github.com/carlosjeurissen/stylelint-config-ccb.git"
   },
-  "main": "dist/main.js",
+  "main": "dist/compat.js",
   "files": [
     "dist/main.js",
     "dist/compat.js"
@@ -62,7 +62,7 @@
     }
   },
   "stylelint": {
-    "extends": "./dist/main.js"
+    "extends": "./dist/compat.js"
   },
   "pnpm": {
     "overrides": {

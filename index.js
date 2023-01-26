@@ -5,7 +5,7 @@ import selectorDisallowedList from './data/selector-disallowed-list.js';
 import propertyOrderList from './data/property-order-list.js';
 
 const forContentScripts = false;
-const forCompatibility = Boolean(process.env.COMPAT_VARIANT);
+const forCompatibility = false;
 
 const plugins = [
   '@ronilaukkarinen/stylelint-a11y',
