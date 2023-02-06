@@ -19,7 +19,7 @@
   ],
   "scripts": {
     "build": "rollup --input index.js --file dist/main.js --format cjs --exports auto --plugin terser",
-    "build-compat": "rollup --input index.js --file dist/compat.js --format cjs --exports auto --plugin terser --environment COMPAT_VARIANT",
+    "build-compat": "rollup --input index.js --file dist/compat.js --format cjs --exports auto --plugin terser",
     "build-all": "pnpm run build && pnpm run build-compat",
     "lint": "eslint index.js data/*.js __tests__/index.test.js",
     "lint-fix": "eslint index.js data/*.js __tests__/index.test.js --fix",
