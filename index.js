@@ -463,6 +463,9 @@ if (forCompatibility) {
 
   /* prevent merge of :not() selectors */
   rules['selector-not-notation'] = 'simple';
+
+  /* use classic media query notation */
+  rules['media-feature-range-notation'] = 'prefix';
 }
 
 export default {
