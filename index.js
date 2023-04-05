@@ -126,6 +126,7 @@ const rules = {
 
   /* stylelint-config-ccb */
   'keyframe-block-no-duplicate-selectors': true,
+  'no-unknown-custom-properties': true,
 
   'declaration-property-max-values': {
     'border-width': 2,
@@ -416,7 +417,6 @@ const rules = {
   selector-max-combinators
   selector-max-compound-selectors
   selector-max-specificity
-  media-feature-range-notation
   comment-pattern
   selector-nested-pattern
   block-closing-brace-space-after
