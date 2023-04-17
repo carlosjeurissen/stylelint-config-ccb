@@ -138,6 +138,7 @@ const rules = {
     ':root': [/^background/, /^margin/, 'font-family', 'font'],
     html: [/^background/, /^margin/, 'font-family', 'font'],
 
+    '/:(hover|focus|focus-visible|active)/': ['cursor'],
     a: [/^margin/],
   },
 
@@ -201,6 +202,7 @@ const rules = {
 
     '/^border(-block|-inline)?(-top|-right|-bottom|-left|-end|-start)?$': ['0'],
     '/^padding/': ['auto'],
+
     '/.*/': ['rebeccapurple'],
   },
   'function-url-no-scheme-relative': true,
