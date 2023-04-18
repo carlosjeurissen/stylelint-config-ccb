@@ -13,7 +13,7 @@ const plugins = [
   'stylelint-csstree-validator',
   'stylelint-declaration-block-no-ignored-properties',
   'stylelint-high-performance-animation',
-  'stylelint-no-browser-hacks',
+  'stylelint-no-browser-hacks/lib',
   'stylelint-no-indistinguishable-colors',
   'stylelint-no-nested-media',
   'stylelint-no-unsupported-browser-features',
