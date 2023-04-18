@@ -46,6 +46,9 @@ dependencies:
   stylelint-selector-no-empty:
     specifier: ^1.0.9
     version: 1.0.9(stylelint@15.5.0)
+  stylelint-stylistic:
+    specifier: ^0.4.0
+    version: 0.4.0(stylelint@15.5.0)
   stylelint-value-no-unknown-custom-properties:
     specifier: ^4.0.0
     version: 4.0.0(stylelint@15.5.0)
@@ -4303,6 +4306,19 @@ packages:
     peerDependencies:
       stylelint: ^14.9.1
     dependencies:
+      stylelint: 15.5.0
+    dev: false
+
+  /stylelint-stylistic@0.4.0(stylelint@15.5.0):
+    resolution: {integrity: sha512-8x6sClY6D+wrdTZD9kEcIcyH6Qv3nXapngd8INEI0iABukdecepZcme+RpxMOJCe4ngacBZf+JlCLjDjKadBcA==}
+    engines: {node: '>=14.x'}
+    peerDependencies:
+      stylelint: ^15.0.0
+    dependencies:
+      postcss: 8.4.22
+      postcss-media-query-parser: 0.2.3
+      postcss-value-parser: 4.2.0
+      style-search: 0.1.0
       stylelint: 15.5.0
     dev: false
 
