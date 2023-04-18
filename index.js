@@ -13,8 +13,10 @@ const plugins = [
   'stylelint-csstree-validator',
   'stylelint-declaration-block-no-ignored-properties',
   'stylelint-high-performance-animation',
+  'stylelint-no-browser-hacks',
   'stylelint-no-indistinguishable-colors',
   'stylelint-no-nested-media',
+  'stylelint-no-unsupported-browser-features',
   'stylelint-order',
   'stylelint-plugin-import',
   'stylelint-prettier',
@@ -22,8 +24,9 @@ const plugins = [
   'stylelint-selector-no-empty',
   'stylelint-stylistic',
   'stylelint-value-no-unknown-custom-properties',
-
-  // todo add https://github.com/stylelint-scss/stylelint-scss
+  /* TODO
+  'stylelint-scss',
+  */
 ];
 
 const rules = {
@@ -348,6 +351,9 @@ const rules = {
 
   // already handled by declaration-property-value-allowed-list
   // 'a11y/content-property-no-static-value': true,
+
+  'plugin/no-unsupported-browser-features': true,
+  'plugin/no-browser-hacks': true,
 
   'plugin/stylelint-selector-no-empty': true,
 
