@@ -13,7 +13,6 @@ const plugins = [
   'stylelint-csstree-validator',
   'stylelint-declaration-block-no-ignored-properties',
   'stylelint-high-performance-animation',
-  'stylelint-no-browser-hacks/lib',
   'stylelint-no-indistinguishable-colors',
   'stylelint-no-nested-media',
   'stylelint-no-unsupported-browser-features',
@@ -25,6 +24,7 @@ const plugins = [
   'stylelint-stylistic',
   'stylelint-value-no-unknown-custom-properties',
   /* TODO
+  'stylelint-no-browser-hacks/lib',
   'stylelint-scss',
   */
 ];
@@ -352,8 +352,8 @@ const rules = {
   // already handled by declaration-property-value-allowed-list
   // 'a11y/content-property-no-static-value': true,
 
+  // todo 'plugin/no-browser-hacks': true,
   'plugin/no-unsupported-browser-features': true,
-  'plugin/no-browser-hacks': true,
 
   'plugin/stylelint-selector-no-empty': true,
 
