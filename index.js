@@ -22,12 +22,21 @@ const plugins = [
   'stylelint-selector-no-empty',
   'stylelint-stylistic',
   'stylelint-value-no-unknown-custom-properties',
+
+  // todo add https://github.com/stylelint-scss/stylelint-scss
 ];
 
 const rules = {
   /* stylelint-config-standard overwrites */
   'alpha-value-notation': 'percentage',
   'color-hex-length': 'long',
+  // todo keep this until https://github.com/stylelint/stylelint/pull/6797
+  'declaration-block-no-duplicate-properties': [
+    true,
+    {
+      ignore: ['consecutive-duplicates-with-different-values'],
+    },
+  ],
   'declaration-block-no-redundant-longhand-properties': null,
   'function-url-quotes': [
     'always',
