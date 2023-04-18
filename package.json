@@ -1,6 +1,6 @@
 {
   "name": "stylelint-config-ccb",
-  "version": "1.46.2",
+  "version": "1.46.3",
   "description": "Stylelint config which extends stylelint-config-standard",
   "keywords": [
     "stylelint",
@@ -33,7 +33,6 @@
     "stylelint-csstree-validator": "^2.1.0",
     "stylelint-declaration-block-no-ignored-properties": "^2.7.0",
     "stylelint-high-performance-animation": "^1.8.0",
-    "stylelint-no-browser-hacks": "^1.2.1",
     "stylelint-no-indistinguishable-colors": "^1.3.2",
     "stylelint-no-nested-media": "^0.1.0",
     "stylelint-no-unsupported-browser-features": "^6.1.0",
@@ -68,11 +67,7 @@
   },
   "pnpm": {
     "overrides": {
-      "yargs-parser@>=6.0.0 <13.1.2": ">=13.1.2",
-      "postcss@<7.0.36": ">=7.0.36",
-      "trim@<0.0.3": ">=0.0.3",
-      "glob-parent@<5.1.2": ">=5.1.2",
-      "trim-newlines@<3.0.1": ">=3.0.1"
+      "postcss@<7.0.36": ">=7.0.36"
     }
   }
 }
