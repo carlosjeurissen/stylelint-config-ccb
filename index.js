@@ -15,7 +15,6 @@ const plugins = [
   'stylelint-high-performance-animation',
   'stylelint-no-indistinguishable-colors',
   'stylelint-no-nested-media',
-  'stylelint-no-unsupported-browser-features',
   'stylelint-order',
   'stylelint-plugin-import',
   'stylelint-prettier',
@@ -24,6 +23,7 @@ const plugins = [
   'stylelint-stylistic',
   'stylelint-value-no-unknown-custom-properties',
   /* TODO
+  'stylelint-no-unsupported-browser-features',
   'stylelint-no-browser-hacks/lib',
   'stylelint-scss',
   */
@@ -132,6 +132,7 @@ const rules = {
     'z-index': [/^[1-9]\d{0,3}$/, '-1', 'initial'], // only allow z-index 1 up to 9999
   },
   'declaration-property-value-disallowed-list': {
+    all: ['inherit'], // see https://github.com/WICG/view-transitions/blob/main/debugging_overflow_on_images.md
     'background-color': ['none', 'rebeccapurple'],
     'font-size': ['0'],
     outline: ['none', '0'],
@@ -346,7 +347,7 @@ const rules = {
   // 'a11y/content-property-no-static-value': true,
 
   // todo 'plugin/no-browser-hacks': true,
-  'plugin/no-unsupported-browser-features': true,
+  // todo 'plugin/no-unsupported-browser-features': true,
 
   'plugin/stylelint-selector-no-empty': true,
 
