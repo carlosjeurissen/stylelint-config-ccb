@@ -445,44 +445,72 @@ function removeItemOnce (arr, value) {
   return arr;
 }
 
-if (forContentScripts) {
-  rules['declaration-no-important'] = null;
-  rules['declaration-no-important'] = null;
-  rules['no-descending-specificity'] = null;
-  rules['selector-class-pattern'] = null;
-  rules['selector-id-pattern'] = null;
-  rules['selector-max-attribute'] = null;
-  rules['selector-max-id'] = null;
-  rules['selector-max-pseudo-class'] = null;
-  rules['selector-max-type'] = null;
-  rules['selector-max-universal'] = null;
-  rules['selector-no-qualifying-type'] = null;
+function copyArrayExceptValue (array, value) {
+  const copy = JSON.parse(JSON.stringify(array));
+  removeItemOnce(copy, value);
+  return copy;
+}
 
-  removeItemOnce(rules['selector-pseudo-class-disallowed-list'], 'has');
+function applyContentScriptRules (targetRules) {
+  targetRules['declaration-no-important'] = null;
+  targetRules['declaration-no-important'] = null;
+  targetRules['no-descending-specificity'] = null;
+  targetRules['selector-class-pattern'] = null;
+  targetRules['selector-id-pattern'] = null;
+  targetRules['selector-max-attribute'] = null;
+  targetRules['selector-max-id'] = null;
+  targetRules['selector-max-pseudo-class'] = null;
+  targetRules['selector-max-type'] = null;
+  targetRules['selector-max-universal'] = null;
+  targetRules['selector-no-qualifying-type'] = null;
+  targetRules['selector-pseudo-class-disallowed-list'] = copyArrayExceptValue(
+    rules['selector-pseudo-class-disallowed-list'],
+    'has',
+  );
+}
+
+function applyCompatibilityRules (targetRules) {
+  /* use hex and rgba instead of rgb */
+  targetRules['color-function-notation'] = 'legacy';
+  targetRules['color-no-hex'] = null;
+  targetRules['function-disallowed-list'] = copyArrayExceptValue(
+    rules['function-disallowed-list'],
+    'rgba',
+  );
+  targetRules['function-disallowed-list'].push('rgb');
+  targetRules['color-format/format'] = null;
+
+  /* use float instead of percentage for alpha */
+  targetRules['declaration-property-unit-allowed-list'].opacity = [];
+  targetRules['alpha-value-notation'] = 'number';
+
+  /* prevent merge of :not() selectors */
+  targetRules['selector-not-notation'] = 'simple';
+
+  /* use classic media query notation */
+  targetRules['media-feature-range-notation'] = 'prefix';
+}
+
+if (forContentScripts) {
+  applyContentScriptRules(rules);
 }
 
 if (forCompatibility) {
-  /* use hex and rgba instead of rgb */
-  rules['color-function-notation'] = 'legacy';
-  rules['color-no-hex'] = null;
-  removeItemOnce(rules['function-disallowed-list'], 'rgba');
-  rules['function-disallowed-list'].push('rgb');
+  applyCompatibilityRules(rules);
   removeItemOnce(plugins, 'stylelint-color-format');
-  delete rules['color-format/format'];
-
-  /* use float instead of percentage for alpha */
-  rules['declaration-property-unit-allowed-list'].opacity = [];
-  rules['alpha-value-notation'] = 'number';
-
-  /* prevent merge of :not() selectors */
-  rules['selector-not-notation'] = 'simple';
-
-  /* use classic media query notation */
-  rules['media-feature-range-notation'] = 'prefix';
 }
+
+const csRules = {};
+applyContentScriptRules(csRules);
 
 export default {
   extends: 'stylelint-config-standard',
   plugins: plugins,
   rules: rules,
+  overrides: [
+    {
+      files: ['/cs-*.css'],
+      rules: csRules,
+    },
+  ],
 };
