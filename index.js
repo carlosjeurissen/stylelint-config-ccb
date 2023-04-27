@@ -507,9 +507,16 @@ export default {
   extends: 'stylelint-config-standard',
   plugins: plugins,
   rules: rules,
+
   overrides: [
     {
-      files: ['/cs-*.css'],
+      files: [
+        '/cs-*.css',
+        '/content-script.css',
+        '/contentscript.css',
+        '/user-script.css',
+        '/userscript.css',
+      ],
       rules: csRules,
     },
   ],
