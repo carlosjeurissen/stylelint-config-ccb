@@ -1,13 +1,11 @@
 /* eslint-disable import/extensions */
-import commentWordDisallowedList from './data/comment-word-disallowed-list.js';
-import propertyDisallowedList from './data/property-disallowed-list.js';
-import selectorDisallowedList from './data/selector-disallowed-list.js';
-import propertyOrderList from './data/property-order-list.js';
+import fs from 'node:fs';
+import commentWordDisallowedList from './data/comment-word-disallowed-list.mjs';
+import propertyDisallowedList from './data/property-disallowed-list.mjs';
+import selectorDisallowedList from './data/selector-disallowed-list.mjs';
+import propertyOrderList from './data/property-order-list.mjs';
 
-const forContentScripts = false;
-const forCompatibility = false;
-
-const plugins = [
+const mainPlugins = [
   '@ronilaukkarinen/stylelint-a11y',
   'stylelint-color-format',
   'stylelint-csstree-validator',
@@ -23,13 +21,12 @@ const plugins = [
   'stylelint-stylistic',
   'stylelint-value-no-unknown-custom-properties',
   /* TODO
-  'stylelint-no-unsupported-browser-features',
   'stylelint-no-browser-hacks/lib',
   'stylelint-scss',
   */
 ];
 
-const rules = {
+const mainRules = {
   /* stylelint-config-standard overwrites */
   'alpha-value-notation': 'percentage',
   'color-hex-length': 'long',
@@ -76,11 +73,11 @@ const rules = {
   },
 
   'rule-selector-property-disallowed-list': {
-    ':root': [/^background/, /^margin/, 'font-family', 'font'],
-    html: [/^background/, /^margin/, 'font-family', 'font'],
+    ':root': ['/^background/', '/^margin/', 'font-family', 'font'],
+    html: ['/^background/', '/^margin/', 'font-family', 'font'],
 
     '/:(hover|focus|focus-visible|active)/': ['cursor'],
-    a: [/^margin/],
+    a: ['/^margin/'],
   },
 
   'at-rule-allowed-list': [
@@ -119,7 +116,7 @@ const rules = {
     content: [
       'none', '""',
       '"*"', '":"', '"ǀ"',
-      /^var\(/, /^attr\(aria-/, /^attr\(data-/,
+      '/^var\\(/', '/^attr\\(aria-/', '/^attr\\(data-/',
     ],
     fill: ['currentColor', 'inherit', 'none'],
     font: ['inherit'],
@@ -129,7 +126,7 @@ const rules = {
     position: ['fixed', 'absolute', 'relative', 'sticky'],
     'text-decoration': ['inherit', 'underline', 'none'],
     'user-select': ['none', 'text'],
-    'z-index': [/^[1-9]\d{0,3}$/, '-1', 'initial'], // only allow z-index 1 up to 9999
+    'z-index': ['/^[1-9]\\d{0,3}$/', '-1', 'initial'], // only allow z-index 1 up to 9999
   },
   'declaration-property-value-disallowed-list': {
     all: ['inherit'], // see https://github.com/WICG/view-transitions/blob/main/debugging_overflow_on_images.md
@@ -139,8 +136,8 @@ const rules = {
     'text-align': ['justify'],
     'word-break': ['break-word'],
 
-    transition: [/all|-webkit-|-moz-|-ms-|-o-/],
-    'transition-property': [/all|-webkit-|-moz-|-ms-|-o-/],
+    transition: ['/all|-webkit-|-moz-|-ms-|-o-/'],
+    'transition-property': ['/all|-webkit-|-moz-|-ms-|-o-/'],
 
     '/^border(-block|-inline)?(-top|-right|-bottom|-left|-end|-start)?$': ['0'],
     '/^padding/': ['auto'],
@@ -347,7 +344,6 @@ const rules = {
   // 'a11y/content-property-no-static-value': true,
 
   // todo 'plugin/no-browser-hacks': true,
-  // todo 'plugin/no-unsupported-browser-features': true,
 
   'plugin/stylelint-selector-no-empty': true,
 
@@ -445,8 +441,12 @@ function removeItemOnce (arr, value) {
   return arr;
 }
 
+function cloneJson (input) {
+  return JSON.parse(JSON.stringify(input));
+}
+
 function copyArrayExceptValue (array, value) {
-  const copy = JSON.parse(JSON.stringify(array));
+  const copy = cloneJson(array);
   removeItemOnce(copy, value);
   return copy;
 }
@@ -464,7 +464,7 @@ function applyContentScriptRules (targetRules) {
   targetRules['selector-max-universal'] = null;
   targetRules['selector-no-qualifying-type'] = null;
   targetRules['selector-pseudo-class-disallowed-list'] = copyArrayExceptValue(
-    rules['selector-pseudo-class-disallowed-list'],
+    mainRules['selector-pseudo-class-disallowed-list'],
     'has',
   );
 }
@@ -474,7 +474,7 @@ function applyCompatibilityRules (targetRules) {
   targetRules['color-function-notation'] = 'legacy';
   targetRules['color-no-hex'] = null;
   targetRules['function-disallowed-list'] = copyArrayExceptValue(
-    rules['function-disallowed-list'],
+    mainRules['function-disallowed-list'],
     'rgba',
   );
   targetRules['function-disallowed-list'].push('rgb');
@@ -489,35 +489,70 @@ function applyCompatibilityRules (targetRules) {
 
   /* use classic media query notation */
   targetRules['media-feature-range-notation'] = 'prefix';
+
+  targetRules['plugin/no-unsupported-browser-features'] = true;
 }
 
-if (forContentScripts) {
-  applyContentScriptRules(rules);
-}
+function generateConfig (options) {
+  const plugins = cloneJson(mainPlugins);
+  const rules = cloneJson(mainRules);
 
-if (forCompatibility) {
-  applyCompatibilityRules(rules);
-  removeItemOnce(plugins, 'stylelint-color-format');
-}
+  if (options.compatibility) {
+    plugins.push('stylelint-no-unsupported-browser-features');
+    removeItemOnce(plugins, 'stylelint-color-format');
+    applyCompatibilityRules(rules);
+  }
 
-const csRules = {};
-applyContentScriptRules(csRules);
+  if (options.contentscript) {
+    applyContentScriptRules(rules);
+  }
 
-export default {
-  extends: 'stylelint-config-standard',
-  plugins: plugins,
-  rules: rules,
+  const overrides = [];
 
-  overrides: [
-    {
+  if (options.contentscriptOverrides) {
+    const csRules = {};
+    applyContentScriptRules(csRules);
+
+    overrides.push({
       files: [
-        '/cs-*.css',
-        '/content-script.css',
-        '/contentscript.css',
-        '/user-script.css',
-        '/userscript.css',
+        '*/cs-*.css',
+        '*/content-script.css',
+        '*/contentscript.css',
+        '*/user-script.css',
+        '*/userscript.css',
       ],
       rules: csRules,
-    },
-  ],
-};
+    });
+  }
+
+  const config = {
+    extends: 'stylelint-config-standard',
+    plugins: plugins,
+    rules: rules,
+  };
+
+  if (overrides.length > 0) {
+    config.overrides = overrides;
+  }
+
+  return config;
+}
+
+function writeConfig (path, options) {
+  const config = generateConfig(options);
+  const fileText = '"use strict"; module.exports = ' + JSON.stringify(config);
+  fs.writeFileSync(path, fileText);
+}
+
+writeConfig('./dist/main.js', {
+  contentscriptOverrides: true,
+});
+
+writeConfig('./dist/compat.js', {
+  compatibility: true,
+  contentscriptOverrides: true,
+});
+
+writeConfig('./dist/contentscript.js', {
+  contentscript: true,
+});

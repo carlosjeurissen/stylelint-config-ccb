@@ -44,16 +44,16 @@ describe('flags warnings with invalid css', () => {
   it('flags one warning', () => result.then((data) => expect(data.results[0].warnings).toHaveLength(2)));
 
   it('correct warning text', () => result.then((data) => expect(data.results[0].warnings[0].text).toBe(
-    'Insert "0" (prettier/prettier)',
+    'Expected a leading zero (stylistic/number-leading-zero)',
   )));
 
   it('correct warning text', () => result.then((data) => expect(data.results[0].warnings[1].text).toBe(
-    'Expected a leading zero (number-leading-zero)',
+    'Insert "0" (prettier/prettier)',
   )));
 
-  it('correct rule flagged', () => result.then((data) => expect(data.results[0].warnings[0].rule).toBe('prettier/prettier')));
+  it('correct rule flagged', () => result.then((data) => expect(data.results[0].warnings[0].rule).toBe('stylistic/number-leading-zero')));
 
-  it('correct rule flagged', () => result.then((data) => expect(data.results[0].warnings[1].rule).toBe('number-leading-zero')));
+  it('correct rule flagged', () => result.then((data) => expect(data.results[0].warnings[1].rule).toBe('prettier/prettier')));
 
   it('correct severity flagged', () => result.then((data) => expect(data.results[0].warnings[0].severity).toBe('error')));
 
