@@ -515,11 +515,11 @@ function generateConfig (options) {
 
     overrides.push({
       files: [
-        '*/cs-*.css',
-        '*/content-script.css',
-        '*/contentscript.css',
-        '*/user-script.css',
-        '*/userscript.css',
+        '**/cs-*.css',
+        '**/content-script.css',
+        '**/contentscript.css',
+        '**/user-script.css',
+        '**/userscript.css',
       ],
       rules: csRules,
     });
