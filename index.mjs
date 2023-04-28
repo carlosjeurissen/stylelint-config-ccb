@@ -93,7 +93,6 @@ const mainRules = {
   'at-rule-property-required-list': {
     'font-face': ['font-display', 'font-family', 'font-style', 'src'],
   },
-  'at-rule-semicolon-space-before': 'never',
   'color-hex-alpha': 'never',
   'color-named': 'never',
   'color-no-hex': true,
@@ -219,7 +218,6 @@ const mainRules = {
       ],
     },
   ],
-  'max-line-length': 160,
   'max-nesting-depth': 2,
   'no-unknown-animations': true,
 
@@ -289,6 +287,10 @@ const mainRules = {
   'stylistic/value-list-comma-space-after': 'always-single-line',
   'stylistic/value-list-comma-space-before': 'never',
   'stylistic/value-list-max-empty-lines': 0,
+
+  /* additional stylistic */
+  'stylistic/at-rule-semicolon-space-before': 'never',
+  'stylistic/max-line-length': 160,
 
   /* prettier-overlap */
   'stylistic/linebreaks': 'unix',

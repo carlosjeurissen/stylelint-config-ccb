@@ -1,6 +1,6 @@
 {
   "name": "stylelint-config-ccb",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Stylelint config which extends stylelint-config-standard",
   "keywords": [
     "stylelint",
