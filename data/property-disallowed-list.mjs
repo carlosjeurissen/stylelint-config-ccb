@@ -260,6 +260,32 @@ export default [
   'page-break-inside',
   'clip',
 
+  'scroll-start',
+  'scroll-start-x',
+  'scroll-start-y',
+
+  '-webkit-user-modify',
+  '-moz-user-modify',
+  'user-modify',
+
+  // use border-block-start and similar
+  '-webkit-border-before',
+  '-webkit-border-before-color',
+  '-webkit-border-before-style',
+  '-webkit-border-before-width',
+  '-webkit-border-after',
+  '-webkit-border-after-color',
+  '-webkit-border-after-style',
+  '-webkit-border-after-width',
+  '-webkit-border-end',
+  '-webkit-border-end-color',
+  '-webkit-border-end-style',
+  '-webkit-border-end-width',
+  '-webkit-border-start',
+  '-webkit-border-start-color',
+  '-webkit-border-start-style',
+  '-webkit-border-start-width',
+
   /* compatibility */
   '-webkit-text-stroke', // use -webkit-text-stroke-width or -webkit-text-stroke-color
 
