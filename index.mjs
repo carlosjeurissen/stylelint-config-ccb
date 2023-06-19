@@ -63,6 +63,7 @@ const mainRules = {
 
   /* stylelint-config-ccb */
   'keyframe-block-no-duplicate-selectors': true,
+  'media-feature-name-value-no-unknown': true,
   'no-unknown-custom-properties': true,
 
   'declaration-property-max-values': {
