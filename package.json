@@ -12,6 +12,7 @@
     "type": "git",
     "url": "https://github.com/carlosjeurissen/stylelint-config-ccb.git"
   },
+  "type": "module",
   "main": "dist/main.js",
   "files": [
     "dist/main.js",
@@ -19,15 +20,14 @@
     "dist/contentscript.js"
   ],
   "scripts": {
-    "build": "node index.mjs",
-    "lint": "eslint index.mjs data/*.mjs __tests__/index.test.js",
-    "lint-fix": "eslint index.mjs data/*.mjs __tests__/index.test.js --fix",
-    "test": "jest",
-    "watch": "jest --watch"
+    "build": "node index.js",
+    "lint": "eslint index.js data/*.js __tests__/index.test.js",
+    "lint-fix": "eslint index.js data/*.js __tests__/index.test.js --fix",
+    "test": "pnpm node --experimental-vm-modules node_modules/jest/bin/jest.js"
   },
   "dependencies": {
     "@ronilaukkarinen/stylelint-a11y": "^1.2.7",
-    "prettier": "^2.8.8",
+    "prettier": "^3.0.0",
     "stylelint-color-format": "^1.1.0",
     "stylelint-config-standard": "^34.0.0",
     "stylelint-csstree-validator": "^3.0.0",

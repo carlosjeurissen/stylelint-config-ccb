@@ -1,9 +1,9 @@
 /* eslint-disable import/extensions */
 import fs from 'node:fs';
-import commentWordDisallowedList from './data/comment-word-disallowed-list.mjs';
-import propertyDisallowedList from './data/property-disallowed-list.mjs';
-import selectorDisallowedList from './data/selector-disallowed-list.mjs';
-import propertyOrderList from './data/property-order-list.mjs';
+import commentWordDisallowedList from './data/comment-word-disallowed-list.js';
+import propertyDisallowedList from './data/property-disallowed-list.js';
+import selectorDisallowedList from './data/selector-disallowed-list.js';
+import propertyOrderList from './data/property-order-list.js';
 
 const mainPlugins = [
   '@ronilaukkarinen/stylelint-a11y',
@@ -20,6 +20,7 @@ const mainPlugins = [
   'stylelint-selector-no-empty',
   // 'stylelint-stylistic',
   'stylelint-value-no-unknown-custom-properties',
+
   /* TODO
   'stylelint-no-browser-hacks/lib',
   'stylelint-scss',
@@ -543,7 +544,7 @@ function generateConfig (options) {
 
 function writeConfig (path, options) {
   const config = generateConfig(options);
-  const fileText = '"use strict"; module.exports = ' + JSON.stringify(config);
+  const fileText = 'export default ' + JSON.stringify(config);
   fs.writeFileSync(path, fileText);
 }
 
