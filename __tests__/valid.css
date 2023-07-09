@@ -80,7 +80,10 @@ html {
     margin: 10px;
     margin-bottom: 5px;
     background-image: repeating-linear-gradient(-45deg, transparent, rgb(255 255 255) 25px, rgb(255 255 255 / 100%) 50px);
-    box-shadow: 0 1px 1px rgb(0 0 0), 0 1px 0 rgb(255 255 255), 2px 2px 1px 1px rgb(204 204 204) inset;
+    box-shadow:
+      0 1px 1px rgb(0 0 0),
+      0 1px 0 rgb(255 255 255),
+      2px 2px 1px 1px rgb(204 204 204) inset;
     animation: 300ms none fade-in;
   }
 

@@ -5,11 +5,13 @@
   unicorn/prefer-module,
 */
 
-'use strict';
+import fs from 'node:fs';
+import stylelint from 'stylelint';
+import config from '../dist/main.js';
 
-const fs = require('node:fs');
+/* const fs = require('node:fs');
 const stylelint = require('stylelint');
-const config = require('..');
+const config = require('..'); */
 
 const validCss = fs.readFileSync('./__tests__/valid.css', 'utf8');
 const invalidCss = fs.readFileSync('./__tests__/invalid.css', 'utf8');
