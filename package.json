@@ -1,6 +1,6 @@
 {
   "name": "stylelint-config-ccb",
-  "version": "2.7.0",
+  "version": "2.8.0",
   "description": "Stylelint config which extends stylelint-config-standard",
   "keywords": [
     "stylelint",
@@ -13,11 +13,11 @@
     "url": "https://github.com/carlosjeurissen/stylelint-config-ccb.git"
   },
   "type": "module",
-  "main": "dist/main.js",
+  "main": "dist/main.cjs",
   "files": [
-    "dist/main.js",
-    "dist/compat.js",
-    "dist/contentscript.js"
+    "dist/main.cjs",
+    "dist/compat.cjs",
+    "dist/contentscript.cjs"
   ],
   "scripts": {
     "build": "node index.js",
@@ -61,7 +61,7 @@
     }
   },
   "stylelint": {
-    "extends": "./dist/main.js"
+    "extends": "stylelint-config-ccb"
   },
   "pnpm": {
     "overrides": {

@@ -544,7 +544,7 @@ function generateConfig (options) {
 
 function writeConfig (path, options) {
   const config = generateConfig(options);
-  const fileText = 'export default ' + JSON.stringify(config);
+  const fileText = '"use strict"; module.exports = ' + JSON.stringify(config);
   fs.writeFileSync(path, fileText);
 }
 
