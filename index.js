@@ -18,7 +18,7 @@ const mainPlugins = [
   'stylelint-prettier',
   'stylelint-require-units',
   'stylelint-selector-no-empty',
-  // 'stylelint-stylistic',
+  'stylelint-stylistic',
   'stylelint-value-no-unknown-custom-properties',
 
   /* TODO
