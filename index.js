@@ -548,15 +548,15 @@ function writeConfig (path, options) {
   fs.writeFileSync(path, fileText);
 }
 
-writeConfig('./dist/main.js', {
+writeConfig('./dist/main.cjs', {
   contentscriptOverrides: true,
 });
 
-writeConfig('./dist/compat.js', {
+writeConfig('./dist/compat.cjs', {
   compatibility: true,
   contentscriptOverrides: true,
 });
 
-writeConfig('./dist/contentscript.js', {
+writeConfig('./dist/contentscript.cjs', {
   contentscript: true,
 });
