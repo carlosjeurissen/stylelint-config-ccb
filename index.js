@@ -75,8 +75,10 @@ const mainRules = {
   },
 
   'rule-selector-property-disallowed-list': {
-    ':root': ['/^background/', '/^margin/', 'font-family', 'font'],
-    html: ['/^background/', '/^margin/', 'font-family', 'font'],
+    ':root': ['/^background/', '/^margin/', 'font-family', 'font', 'position'],
+    html: ['/^background/', '/^margin/', 'font-family', 'font', 'position'],
+
+    body: ['position'],
 
     '/:(hover|focus|focus-visible|active)/': ['cursor'],
     a: ['/^margin/'],
