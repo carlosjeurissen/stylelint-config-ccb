@@ -222,7 +222,12 @@ const mainRules = {
       ],
     },
   ],
-  'max-nesting-depth': 2,
+  'max-nesting-depth': [
+    2,
+    {
+      ignore: ['pseudo-classes', 'blockless-at-rules'],
+    },
+  ],
   'no-unknown-animations': true,
 
   /* Stylistic rules */
