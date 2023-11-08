@@ -176,7 +176,9 @@ const mainRules = {
   'selector-max-attribute': 1,
   'selector-max-id': 0,
   'selector-max-pseudo-class': 2,
-  'selector-max-type': 2,
+  'selector-max-type': [0, {
+    ignoreTypes: ['html', 'body', 'input', 'textarea', 'select'],
+  }],
   'selector-max-universal': [0, {
     ignoreAfterCombinators: ['+', '>'],
   }],

@@ -39,19 +39,25 @@ describe('flags warnings with invalid css', () => {
 
   it('did error', () => result.then((data) => expect(data.errored).toBeTruthy()));
 
-  it('flags one warning', () => result.then((data) => expect(data.results[0].warnings).toHaveLength(2)));
+  it('flags one warning', () => result.then((data) => expect(data.results[0].warnings).toHaveLength(3)));
 
   it('correct warning text', () => result.then((data) => expect(data.results[0].warnings[0].text).toBe(
     'Expected a leading zero (stylistic/number-leading-zero)',
   )));
 
   it('correct warning text', () => result.then((data) => expect(data.results[0].warnings[1].text).toBe(
+    'Expected "a" to have no more than 0 type selectors (selector-max-type)',
+  )));
+
+  it('correct warning text', () => result.then((data) => expect(data.results[0].warnings[2].text).toBe(
     'Insert "0" (prettier/prettier)',
   )));
 
   it('correct rule flagged', () => result.then((data) => expect(data.results[0].warnings[0].rule).toBe('stylistic/number-leading-zero')));
 
-  it('correct rule flagged', () => result.then((data) => expect(data.results[0].warnings[1].rule).toBe('prettier/prettier')));
+  it('correct rule flagged', () => result.then((data) => expect(data.results[0].warnings[1].rule).toBe('selector-max-type')));
+
+  it('correct rule flagged', () => result.then((data) => expect(data.results[0].warnings[2].rule).toBe('prettier/prettier')));
 
   it('correct severity flagged', () => result.then((data) => expect(data.results[0].warnings[0].severity).toBe('error')));
 
