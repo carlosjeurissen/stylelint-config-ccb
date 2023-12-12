@@ -46,7 +46,7 @@ describe('flags warnings with invalid css', () => {
   )));
 
   it('correct warning text', () => result.then((data) => expect(data.results[0].warnings[1].text).toBe(
-    'Expected "a" to have no more than 0 type selectors (selector-max-type)',
+    'Expected "button" to have no more than 0 type selectors (selector-max-type)',
   )));
 
   it('correct warning text', () => result.then((data) => expect(data.results[0].warnings[2].text).toBe(
