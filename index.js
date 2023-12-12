@@ -80,6 +80,8 @@ const mainRules = {
 
     body: ['position'],
 
+    '/::-webkit-scrollbar$/': ['display', 'visibility'],
+
     '/:(hover|focus|focus-visible|active)/': ['cursor'],
     a: ['/^margin/'],
   },
@@ -139,6 +141,8 @@ const mainRules = {
     'text-align': ['justify'],
     'word-break': ['break-word'],
 
+    'scrollbar-width': ['none', '0'],
+
     transition: ['/all|-webkit-|-moz-|-ms-|-o-/'],
     'transition-property': ['/all|-webkit-|-moz-|-ms-|-o-/'],
 
@@ -177,7 +181,11 @@ const mainRules = {
   'selector-max-id': 0,
   'selector-max-pseudo-class': 2,
   'selector-max-type': [0, {
-    ignoreTypes: ['html', 'body', 'input', 'textarea', 'select'],
+    ignoreTypes: [
+      'html', 'body', // for base styles
+      'input', 'textarea', 'select', // for accent-color
+      'a', // for reset
+    ],
   }],
   'selector-max-universal': [0, {
     ignoreAfterCombinators: ['+', '>'],
@@ -201,6 +209,7 @@ const mainRules = {
     'after',
     'backdrop',
     'placeholder',
+    'focus-inner', // TODO should be -moz-focus-inner, yet fails to work, see https://github.com/stylelint/stylelint/pull/6025
   ],
   'time-min-milliseconds': 75,
   'unit-disallowed-list': [
