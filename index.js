@@ -6,19 +6,19 @@ import selectorDisallowedList from './data/selector-disallowed-list.js';
 import propertyOrderList from './data/property-order-list.js';
 
 const mainPlugins = [
-  '@ronilaukkarinen/stylelint-a11y', // TODO 16 requires isStandardSyntaxRule
+  '@ronilaukkarinen/stylelint-a11y',
   'stylelint-color-format',
-  'stylelint-csstree-validator', // TODO 16 requires isStandardSyntaxAtRule
+  'stylelint-csstree-validator',
   'stylelint-declaration-block-no-ignored-properties',
-  'stylelint-high-performance-animation', // TODO 16 declarationValueIndex
-  'stylelint-no-indistinguishable-colors', // TODO 16 requires isValidHex, see https://github.com/ierhyna/stylelint-no-indistinguishable-colors/issues/15
+  'stylelint-high-performance-animation',
+  'stylelint-no-indistinguishable-colors',
   'stylelint-no-nested-media',
   'stylelint-order',
   'stylelint-plugin-import',
   'stylelint-prettier',
   'stylelint-require-units',
   'stylelint-selector-no-empty',
-  'stylelint-stylistic', // TODO 16 requires isStandardSyntaxAtRule
+  'stylelint-stylistic',
   'stylelint-value-no-unknown-custom-properties',
 
   /* TODO
