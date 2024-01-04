@@ -25,11 +25,11 @@ dependencies:
     specifier: ^3.0.0
     version: 3.0.0(stylelint@15.11.0)
   stylelint-declaration-block-no-ignored-properties:
-    specifier: ^2.7.0
-    version: 2.7.0(stylelint@15.11.0)
+    specifier: ^2.8.0
+    version: 2.8.0(stylelint@15.11.0)
   stylelint-high-performance-animation:
-    specifier: ^1.9.0
-    version: 1.9.0(stylelint@15.11.0)
+    specifier: ^1.10.0
+    version: 1.10.0(stylelint@15.11.0)
   stylelint-no-indistinguishable-colors:
     specifier: ^1.3.2
     version: 1.3.2(stylelint@15.11.0)
@@ -37,8 +37,8 @@ dependencies:
     specifier: ^0.1.0
     version: 0.1.0
   stylelint-no-unsupported-browser-features:
-    specifier: ^7.0.0
-    version: 7.0.0(stylelint@15.11.0)
+    specifier: ^8.0.0
+    version: 8.0.0(stylelint@15.11.0)
   stylelint-order:
     specifier: ^6.0.4
     version: 6.0.4(stylelint@15.11.0)
@@ -55,8 +55,8 @@ dependencies:
     specifier: ^1.0.9
     version: 1.0.9(stylelint@15.11.0)
   stylelint-stylistic:
-    specifier: ^0.4.3
-    version: 0.4.3(stylelint@15.11.0)
+    specifier: ^0.4.5
+    version: 0.4.5(stylelint@15.11.0)
   stylelint-value-no-unknown-custom-properties:
     specifier: ^5.0.0
     version: 5.0.0(stylelint@15.11.0)
@@ -3466,6 +3466,10 @@ packages:
     resolution: {integrity: sha512-0KpjqXRVvrYyCsX1swR/XTK0va6VQkQM6MNo7PqW77ByjAhoARA8EfrP1N4+KlKj8YS0ZUCtRT/YUuhyYDujIQ==}
     dev: true
 
+  /lodash.pick@4.4.0:
+    resolution: {integrity: sha512-hXt6Ul/5yWjfklSGvLQl8vM//l3FtyHZeuelpzK6mm99pNvN9yTDruNZPEJZD1oWrqo+izBmB7oUfWgcCX7s4Q==}
+    dev: false
+
   /lodash.truncate@4.4.2:
     resolution: {integrity: sha512-jttmRe7bRse52OsWIMDLaXxWqRAmtIUccAQ3garviCqJjafXOfNMO0yMfNpdD6zbGaTU0P5Nz7e7gAT6cKmJRw==}
 
@@ -4469,19 +4473,19 @@ packages:
       stylelint: 15.11.0
     dev: false
 
-  /stylelint-declaration-block-no-ignored-properties@2.7.0(stylelint@15.11.0):
-    resolution: {integrity: sha512-44SpI9+9Oc1ICuwwRfwS/3npQ2jPobDSTnwWdNgZGryGqQCp17CgEIWjCv1BgUOSzND3RqywNCNLKvO1AOxbfg==}
+  /stylelint-declaration-block-no-ignored-properties@2.8.0(stylelint@15.11.0):
+    resolution: {integrity: sha512-Ws8Cav7Y+SPN0JsV407LrnNXWOrqGjxShf+37GBtnU/C58Syve9c0+I/xpLcFOosST3ternykn3Lp77f3ITnFw==}
     engines: {node: '>=6'}
     peerDependencies:
-      stylelint: ^7.0.0 || ^8.0.0 || ^9.0.0 || ^10.0.0 || ^11.0.0 || ^12.0.0 || ^13.0.0 || ^14.0.0 || ^15.0.0
+      stylelint: ^7.0.0 || ^8.0.0 || ^9.0.0 || ^10.0.0 || ^11.0.0 || ^12.0.0 || ^13.0.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
     dependencies:
       stylelint: 15.11.0
     dev: false
 
-  /stylelint-high-performance-animation@1.9.0(stylelint@15.11.0):
-    resolution: {integrity: sha512-tUN8YqIRFRCsMLLI1wnyODP6+H5Lc63NEaUcOt1lqNaEEgd0tGgA4miY2JuL8eSHvgmGkmZPZTn1Dgek05O3uQ==}
+  /stylelint-high-performance-animation@1.10.0(stylelint@15.11.0):
+    resolution: {integrity: sha512-YzNI+E6taN8pwgaM0INazRg4tw23VA17KNMKUVdOeohpnpSyJLBnLVT9NkRcaCFLodK/67smS5VZK+Qe4Ohrvw==}
     peerDependencies:
-      stylelint: ^7.0.0 || ^8.0.0 || ^9.0.0 || ^10.0.0 || ^11.0.0 || ^12.0.0 || ^13.0.0 || ^14.0.0 || ^15.0.0
+      stylelint: ^7.0.0 || ^8.0.0 || ^9.0.0 || ^10.0.0 || ^11.0.0 || ^12.0.0 || ^13.0.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
     dependencies:
       postcss-value-parser: 4.2.0
       stylelint: 15.11.0
@@ -4501,14 +4505,14 @@ packages:
     resolution: {integrity: sha512-KXOmKOlVo5oHqoquJQqXJJui0Ky8lM775SohISaPAMKXcX+2LqxpIKDuQ+Zb/hBWA5PZWe9g8tdxo85rqoOfzA==}
     dev: false
 
-  /stylelint-no-unsupported-browser-features@7.0.0(stylelint@15.11.0):
-    resolution: {integrity: sha512-O5VYlBhr+lpJ6jeTJSy+SMbHJhW5h5EJxsoicYcTi/07m45V/CF1mQidwRQLjv8y9BFQMpioWz60O89IkmbaNw==}
-    engines: {node: '>=16'}
+  /stylelint-no-unsupported-browser-features@8.0.0(stylelint@15.11.0):
+    resolution: {integrity: sha512-XrXaizW90HdswC+2V1XJXsvNrMUt/bk8OJ7ZDn3nKZzE5NAd4rmAIo/igKuGzHA2a6vx5FplhD5VOqSLYDPnYg==}
+    engines: {node: '>=18.12.0'}
     peerDependencies:
-      stylelint: ^14.0.0||^15.0.0
+      stylelint: ^16.0.2
     dependencies:
       doiuse: 6.0.2
-      lodash: 4.17.21
+      lodash.pick: 4.4.0
       postcss: 8.4.32
       stylelint: 15.11.0
     dev: false
@@ -4570,8 +4574,9 @@ packages:
       stylelint: 15.11.0
     dev: false
 
-  /stylelint-stylistic@0.4.3(stylelint@15.11.0):
-    resolution: {integrity: sha512-WphmneK3MRrm5ixvRPWy7+c9+EQUh0FPvNMXW/N9VD85vyqtpxUejpD+mxubVVht0fRgidcqBxtW3s3tU2Ujhw==}
+  /stylelint-stylistic@0.4.5(stylelint@15.11.0):
+    resolution: {integrity: sha512-E3Mz68yqmZe5Zk5UraR5MA2DjxgfE2TCZerDPk+fcd9dwLjwRupAt0j+Q1fBJRE3vhh3PvToKDhvhfMHf1tfNg==}
+    deprecated: This package has been deprecated in favor of @stylistic/stylelint-plugin
     peerDependencies:
       stylelint: ^15.0.0
     dependencies:
