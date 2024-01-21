@@ -1,6 +1,6 @@
 {
   "name": "stylelint-config-ccb",
-  "version": "2.11.2",
+  "version": "2.11.3",
   "description": "Stylelint config which extends stylelint-config-standard",
   "keywords": [
     "stylelint",
@@ -46,9 +46,9 @@
   },
   "devDependencies": {
     "eslint": "^8.56.0",
-    "eslint-config-ccb": "^0.16.0",
+    "eslint-config-ccb": "^0.16.2",
     "stylelint": "^15.11.0",
-    "vitest": "^1.2.0"
+    "vitest": "^1.2.1"
   },
   "peerDependencies": {
     "stylelint": ">=14.10.0"
