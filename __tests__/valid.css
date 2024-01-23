@@ -55,6 +55,7 @@ html {
 
 .selector-z {
   width: 30%;
+  font-family: Helvetica, "Arial Black", sans-serif;
 }
 
 /* Single-line comment */
@@ -69,7 +70,7 @@ html {
 @media (orientation: portrait), projection and (color) {
   .selector-i + .selector-ii {
     background: rgb(128 128 128);
-    font-family: Helvetica, "Arial Black", sans-serif;
+    font-family: Helvetica, Arial, sans-serif;
   }
 }
 
