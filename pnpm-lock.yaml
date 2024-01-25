@@ -37,8 +37,8 @@ dependencies:
     specifier: ^0.1.0
     version: 0.1.0
   stylelint-no-unsupported-browser-features:
-    specifier: ^8.0.0
-    version: 8.0.0(stylelint@15.11.0)
+    specifier: 7.0.0
+    version: 7.0.0(stylelint@15.11.0)
   stylelint-order:
     specifier: ^6.0.4
     version: 6.0.4(stylelint@15.11.0)
@@ -2506,16 +2506,11 @@ packages:
     resolution: {integrity: sha512-0KpjqXRVvrYyCsX1swR/XTK0va6VQkQM6MNo7PqW77ByjAhoARA8EfrP1N4+KlKj8YS0ZUCtRT/YUuhyYDujIQ==}
     dev: true
 
-  /lodash.pick@4.4.0:
-    resolution: {integrity: sha512-hXt6Ul/5yWjfklSGvLQl8vM//l3FtyHZeuelpzK6mm99pNvN9yTDruNZPEJZD1oWrqo+izBmB7oUfWgcCX7s4Q==}
-    dev: false
-
   /lodash.truncate@4.4.2:
     resolution: {integrity: sha512-jttmRe7bRse52OsWIMDLaXxWqRAmtIUccAQ3garviCqJjafXOfNMO0yMfNpdD6zbGaTU0P5Nz7e7gAT6cKmJRw==}
 
   /lodash@4.17.21:
     resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==}
-    dev: true
 
   /loose-envify@1.4.0:
     resolution: {integrity: sha512-lyuxPGr/Wfhrlem2CL/UcnUc1zcqKAImBDzukY7Y5F/yQiNdko6+fRLevlw1HgMySw7f611UIY408EtxRSoK3Q==}
@@ -3488,14 +3483,14 @@ packages:
     resolution: {integrity: sha512-KXOmKOlVo5oHqoquJQqXJJui0Ky8lM775SohISaPAMKXcX+2LqxpIKDuQ+Zb/hBWA5PZWe9g8tdxo85rqoOfzA==}
     dev: false
 
-  /stylelint-no-unsupported-browser-features@8.0.0(stylelint@15.11.0):
-    resolution: {integrity: sha512-XrXaizW90HdswC+2V1XJXsvNrMUt/bk8OJ7ZDn3nKZzE5NAd4rmAIo/igKuGzHA2a6vx5FplhD5VOqSLYDPnYg==}
-    engines: {node: '>=18.12.0'}
+  /stylelint-no-unsupported-browser-features@7.0.0(stylelint@15.11.0):
+    resolution: {integrity: sha512-O5VYlBhr+lpJ6jeTJSy+SMbHJhW5h5EJxsoicYcTi/07m45V/CF1mQidwRQLjv8y9BFQMpioWz60O89IkmbaNw==}
+    engines: {node: '>=16'}
     peerDependencies:
-      stylelint: ^16.0.2
+      stylelint: ^14.0.0||^15.0.0
     dependencies:
       doiuse: 6.0.2
-      lodash.pick: 4.4.0
+      lodash: 4.17.21
       postcss: 8.4.33
       stylelint: 15.11.0
     dev: false
