@@ -1,6 +1,6 @@
 {
   "name": "stylelint-config-ccb",
-  "version": "2.11.6",
+  "version": "2.11.7",
   "description": "Stylelint config which extends stylelint-config-standard",
   "keywords": [
     "stylelint",
@@ -34,7 +34,7 @@
     "stylelint-csstree-validator": "^3.0.0",
     "stylelint-declaration-block-no-ignored-properties": "^2.8.0",
     "stylelint-high-performance-animation": "^1.10.0",
-    "stylelint-no-indistinguishable-colors": "^2.1.0",
+    "stylelint-no-indistinguishable-colors": "^2.2.0",
     "stylelint-no-nested-media": "^0.1.0",
     "stylelint-no-unsupported-browser-features": "7.0.0",
     "stylelint-order": "^6.0.4",
@@ -66,7 +66,6 @@
   },
   "pnpm": {
     "overrides": {
-      "colorguard-processor": "1.0.33",
       "postcss@<8.4.31": ">=8.4.31"
     }
   }
