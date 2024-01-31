@@ -30,8 +30,8 @@ dependencies:
     specifier: ^1.10.0
     version: 1.10.0(stylelint@15.11.0)
   stylelint-no-indistinguishable-colors:
-    specifier: ^2.2.0
-    version: 2.2.0(stylelint@15.11.0)
+    specifier: ^2.3.0
+    version: 2.3.0(stylelint@15.11.0)
   stylelint-no-nested-media:
     specifier: ^0.1.0
     version: 0.1.0
@@ -71,7 +71,7 @@ devDependencies:
     specifier: ^15.11.0
     version: 15.11.0
   vitest:
-    specifier: ^1.2.1
+    specifier: ^1.2.2
     version: 1.2.2
 
 packages:
@@ -927,7 +927,7 @@ packages:
     hasBin: true
     dependencies:
       caniuse-lite: 1.0.30001581
-      electron-to-chromium: 1.4.650
+      electron-to-chromium: 1.4.651
       node-releases: 2.0.14
       update-browserslist-db: 1.0.13(browserslist@4.22.3)
 
@@ -1059,9 +1059,9 @@ packages:
   /colord@2.9.3:
     resolution: {integrity: sha512-jeC1axXpnb0/2nn/Y1LPuLdgXBLH7aDcHu4KEKfqw3CUhX7ZpfBSlPKyqXE6btIgEzfWtrX3/tyBCaCvXvMkOw==}
 
-  /colorguard-processor@1.0.33:
-    resolution: {integrity: sha512-lr2tTn0jKy7NICJonKqp/qXMAN2XeB5yWuSm+WeRz2wHvPmDTEoBwZ92UDiPUgAwK88fARQHfV3FCPh0DZPN2g==}
-    engines: {node: '>=14.0.0'}
+  /colorguard-processor@2.0.36:
+    resolution: {integrity: sha512-8DKNMPDI2pX3XzBPMwWwLGgsiWO6dwWaQbVDkzk0DVaZR7UycNXniqF6lTh7mbyDo1JJ5cdv+aIqvHka/ROYvQ==}
+    engines: {node: '>=18.0.0'}
     dev: false
 
   /concat-map@0.0.1:
@@ -1256,8 +1256,8 @@ packages:
       stream-shift: 1.0.3
     dev: false
 
-  /electron-to-chromium@1.4.650:
-    resolution: {integrity: sha512-sYSQhJCJa4aGA1wYol5cMQgekDBlbVfTRavlGZVr3WZpDdOPcp6a6xUnFfrt8TqZhsBYYbDxJZCjGfHuGupCRQ==}
+  /electron-to-chromium@1.4.651:
+    resolution: {integrity: sha512-jjks7Xx+4I7dslwsbaFocSwqBbGHQmuXBJUK9QBZTIrzPq3pzn6Uf2szFSP728FtLYE3ldiccmlkOM/zhGKCpA==}
 
   /emoji-regex@8.0.0:
     resolution: {integrity: sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A==}
@@ -3469,12 +3469,12 @@ packages:
       stylelint: 15.11.0
     dev: false
 
-  /stylelint-no-indistinguishable-colors@2.2.0(stylelint@15.11.0):
-    resolution: {integrity: sha512-ST5AiRd2Jl+4GmRBNk7wUZxtQq46jYkOco0z7IHCTkveX0NiYtEJqdcn2n9KQ4DoZHexzSroZGutOrqUrt234g==}
+  /stylelint-no-indistinguishable-colors@2.3.0(stylelint@15.11.0):
+    resolution: {integrity: sha512-R7Jl1kYXEQGC+oDCDoY6sjZ6+FfT677PCXbBC7tizlk3mBZNR8Y50JIP8//m35DDGqFj2QvzfkVrzJJxafoUQQ==}
     peerDependencies:
       stylelint: ^11.1.1 || ^12.0.0 || ^13.0.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
     dependencies:
-      colorguard-processor: 1.0.33
+      colorguard-processor: 2.0.36
       stylelint: 15.11.0
     dev: false
 
