@@ -28,7 +28,7 @@
   },
   "dependencies": {
     "@ronilaukkarinen/stylelint-a11y": "^1.2.9",
-    "prettier": "^3.2.4",
+    "prettier": "^3.2.5",
     "stylelint-color-format": "^1.1.0",
     "stylelint-config-standard": "^35.0.0",
     "stylelint-csstree-validator": "^3.0.0",
