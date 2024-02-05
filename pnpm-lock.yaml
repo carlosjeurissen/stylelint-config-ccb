@@ -8,9 +8,9 @@ overrides:
   postcss@<8.4.31: '>=8.4.31'
 
 dependencies:
-  '@ronilaukkarinen/stylelint-a11y':
-    specifier: ^1.2.9
-    version: 1.2.9(stylelint@16.2.1)
+  '@double-great/stylelint-a11y':
+    specifier: ^3.0.1
+    version: 3.0.1(stylelint@16.2.1)
   '@stylistic/stylelint-plugin':
     specifier: ^2.0.0
     version: 2.0.0(stylelint@16.2.1)
@@ -158,6 +158,16 @@ packages:
       postcss-selector-parser: ^6.0.13
     dependencies:
       postcss-selector-parser: 6.0.15
+
+  /@double-great/stylelint-a11y@3.0.1(stylelint@16.2.1):
+    resolution: {integrity: sha512-0wRzfuDrXnSFvZGrAizngaJBhwCgZwjAVp2Vm4zPLekKW4eXccvB7HBEkhAeVSIuGCg3ki2h7eSHEoqZNfVOew==}
+    engines: {node: '>=18.12.0'}
+    peerDependencies:
+      stylelint: '>=16.0.0'
+    dependencies:
+      postcss: 8.4.33
+      stylelint: 16.2.1
+    dev: false
 
   /@esbuild/aix-ppc64@0.19.12:
     resolution: {integrity: sha512-bmoCYyWdEL3wDQIVbcyzRyeKLgk2WtWLTWz1ZIAZF/EGbNOwSA6ew3PftJ1PqMiOOGu0OyFMzG53L0zqIpPeNA==}
@@ -572,15 +582,6 @@ packages:
     requiresBuild: true
     dev: true
     optional: true
-
-  /@ronilaukkarinen/stylelint-a11y@1.2.9(stylelint@16.2.1):
-    resolution: {integrity: sha512-8w0mWEO6B16J4PSc9lMkNUsVsD+lbmgsQiYOY0Xq/FTUzHF0/DM4eR/PLXBFgcz9hENTnLzGBM7zEVOsC1vCIg==}
-    engines: {node: '>=8.7.0'}
-    peerDependencies:
-      stylelint: 10 - 15
-    dependencies:
-      stylelint: 16.2.1
-    dev: false
 
   /@sinclair/typebox@0.27.8:
     resolution: {integrity: sha512-+Fj43pSMwJs4KRrH/938Uf+uAELIgVBmQzg/q1YG10djyfA3TnrU8N8XzqCh/okZdszqBQTZf96idMfE5lnwTA==}

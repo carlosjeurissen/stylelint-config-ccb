@@ -6,6 +6,7 @@ import selectorDisallowedList from './data/selector-disallowed-list.js';
 import propertyOrderList from './data/property-order-list.js';
 
 const mainPlugins = [
+  '@double-great/stylelint-a11y',
   '@stylistic/stylelint-plugin',
   'stylelint-color-format',
   'stylelint-declaration-block-no-ignored-properties',
@@ -19,7 +20,6 @@ const mainPlugins = [
   'stylelint-value-no-unknown-custom-properties',
 
   /* TODO 16
-  '@ronilaukkarinen/stylelint-a11y', // see https://github.com/developer-stylechain/stylelint-a11y/issues/4
   'stylelint-csstree-validator', // see https://github.com/csstree/stylelint-validator/pull/59
   'stylelint-plugin-import', // see https://github.com/electrovir/stylelint-plugin-import/issues/22
   */
