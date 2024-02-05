@@ -6,20 +6,23 @@ import selectorDisallowedList from './data/selector-disallowed-list.js';
 import propertyOrderList from './data/property-order-list.js';
 
 const mainPlugins = [
-  '@ronilaukkarinen/stylelint-a11y',
   '@stylistic/stylelint-plugin',
   'stylelint-color-format',
-  'stylelint-csstree-validator',
   'stylelint-declaration-block-no-ignored-properties',
   'stylelint-high-performance-animation',
   'stylelint-no-indistinguishable-colors',
   'stylelint-no-nested-media',
   'stylelint-order',
-  'stylelint-plugin-import',
   'stylelint-prettier',
   'stylelint-require-units',
   'stylelint-selector-no-empty',
   'stylelint-value-no-unknown-custom-properties',
+
+  /* TODO 16
+  '@ronilaukkarinen/stylelint-a11y',
+  'stylelint-csstree-validator',
+  'stylelint-plugin-import',
+  */
 
   /* TODO
   'stylelint-no-browser-hacks/lib',
@@ -397,6 +400,7 @@ const mainRules = {
     },
   ],
 
+  /* TODO 16
   'a11y/font-size-is-readable': true,
   'a11y/no-spread-text': true,
 
@@ -412,6 +416,7 @@ const mainRules = {
     ignoreValue: 'env\\(',
     syntaxExtensions: false,
   },
+  */
 
   /* TODO
   'plugin/no-browser-hacks': true,
