@@ -343,29 +343,10 @@ const mainRules = {
     format: 'rgb',
   },
 
-  'a11y/font-size-is-readable': true,
-  'a11y/no-spread-text': true,
-
   'matterialize/stylelint-require-units': [true, {
     blacklistedProperties: ['line-height'],
     checkUnknownUnits: true,
   }],
-
-  // both already handled by selector-disallowed-list
-  // 'a11y/no-obsolete-attribute': true,
-  // 'a11y/no-obsolete-element': true,
-
-  // both already handled by declaration-property-value-disallowed-list
-  // 'a11y/no-text-align-justify': true,
-  // 'a11y/no-outline-none': true,
-
-  // reduced-motion autofix is too unreliable, see https://github.com/YozhikM/stylelint-a11y/issues/57
-  // 'a11y/media-prefers-reduced-motion': true,
-
-  // already handled by declaration-property-value-allowed-list
-  // 'a11y/content-property-no-static-value': true,
-
-  // todo 'plugin/no-browser-hacks': true,
 
   'plugin/stylelint-selector-no-empty': true,
 
@@ -373,24 +354,11 @@ const mainRules = {
 
   'plugin/declaration-block-no-ignored-properties': true,
 
-  'plugin-import/file-extension': {
-    mode: 'require', // require that all imports have a file extension
-  },
-
-  'plugin-import/import-as-reference': {
-    mode: 'block', // prevent any imports use (reference)
-  },
-
   'pitcher/no-nested-media': true,
 
   'csstools/value-no-unknown-custom-properties': true,
 
   'declaration-property-value-no-unknown': true,
-
-  'csstree/validator': {
-    ignoreValue: 'env\\(',
-    syntaxExtensions: false,
-  },
 
   'plugin/no-low-performance-animation-properties': [true, {
     // ignore: 'paint-properties',
@@ -428,7 +396,44 @@ const mainRules = {
       unspecified: 'bottom',
     },
   ],
-  /* rules not used
+
+  'a11y/font-size-is-readable': true,
+  'a11y/no-spread-text': true,
+
+  'plugin-import/file-extension': {
+    mode: 'require', // require that all imports have a file extension
+  },
+
+  'plugin-import/import-as-reference': {
+    mode: 'block', // prevent any imports use (reference)
+  },
+
+  'csstree/validator': {
+    ignoreValue: 'env\\(',
+    syntaxExtensions: false,
+  },
+
+  /* TODO
+  'plugin/no-browser-hacks': true,
+  */
+
+  /* OBSOLETE
+  // both already handled by selector-disallowed-list
+  'a11y/no-obsolete-attribute': true,
+  'a11y/no-obsolete-element': true,
+
+  // both already handled by declaration-property-value-disallowed-list
+  'a11y/no-text-align-justify': true,
+  'a11y/no-outline-none': true,
+
+  // reduced-motion autofix is too unreliable, see https://github.com/YozhikM/stylelint-a11y/issues/57
+  'a11y/media-prefers-reduced-motion': true,
+
+  // already handled by declaration-property-value-allowed-list
+  'a11y/content-property-no-static-value': true,
+  */
+
+  /* UNUSED
   declaration-property-unit-disallowed-list
   function-allowed-list
   media-feature-name-allowed-list
