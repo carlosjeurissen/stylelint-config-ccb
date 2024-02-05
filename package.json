@@ -28,6 +28,7 @@
   },
   "dependencies": {
     "@ronilaukkarinen/stylelint-a11y": "^1.2.9",
+    "@stylistic/stylelint-plugin": "^2.0.0",
     "prettier": "^3.2.5",
     "stylelint-color-format": "^1.1.0",
     "stylelint-config-standard": "^36.0.0",
@@ -36,13 +37,12 @@
     "stylelint-high-performance-animation": "^1.10.0",
     "stylelint-no-indistinguishable-colors": "^2.3.0",
     "stylelint-no-nested-media": "^0.1.0",
-    "stylelint-no-unsupported-browser-features": "8.0.1",
+    "stylelint-no-unsupported-browser-features": "^8.0.1",
     "stylelint-order": "^6.0.4",
     "stylelint-plugin-import": "^1.0.13",
     "stylelint-prettier": "^5.0.0",
     "stylelint-require-units": "^1.0.2",
     "stylelint-selector-no-empty": "^1.0.9",
-    "stylelint-stylistic": "^0.4.5",
     "stylelint-value-no-unknown-custom-properties": "^6.0.1"
   },
   "devDependencies": {
