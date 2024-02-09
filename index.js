@@ -152,7 +152,7 @@ const mainRules = {
     '/^border(-block|-inline)?(-top|-right|-bottom|-left|-end|-start)?$': ['0'],
     '/^padding/': ['auto'],
 
-    '/.*/': ['rebeccapurple'],
+    '/.*/': ['rebeccapurple', 'unset'],
   },
   'function-url-no-scheme-relative': true,
   'function-url-scheme-allowed-list': ['data', 'https'],
