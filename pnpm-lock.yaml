@@ -8,6 +8,9 @@ overrides:
   postcss@<8.4.31: '>=8.4.31'
 
 dependencies:
+  '@carlosjeurissen/stylelint-csstree-validator':
+    specifier: ^3.1.0
+    version: 3.1.0(stylelint@16.2.1)
   '@double-great/stylelint-a11y':
     specifier: ^3.0.1
     version: 3.0.1(stylelint@16.2.1)
@@ -23,9 +26,6 @@ dependencies:
   stylelint-config-standard:
     specifier: ^36.0.0
     version: 36.0.0(stylelint@16.2.1)
-  stylelint-csstree-validator:
-    specifier: ^3.0.0
-    version: 3.0.0(stylelint@16.2.1)
   stylelint-declaration-block-no-ignored-properties:
     specifier: ^2.8.0
     version: 2.8.0(stylelint@16.2.1)
@@ -128,6 +128,16 @@ packages:
       '@babel/helper-validator-identifier': 7.22.20
       to-fast-properties: 2.0.0
     dev: true
+
+  /@carlosjeurissen/stylelint-csstree-validator@3.1.0(stylelint@16.2.1):
+    resolution: {integrity: sha512-/2k0fxAW1ys7UB329TkmFJyaeE9P+EDN9N2ZkEf9hdSrNpPxVu/NN8RNXWgYblTg6gpHUYZehly0C6btu0ZZpg==}
+    engines: {node: ^14.13.0 || >=15.0.0, npm: '>=7.0.0'}
+    peerDependencies:
+      stylelint: '>=16.0.0'
+    dependencies:
+      css-tree: 2.3.1
+      stylelint: 16.2.1
+    dev: false
 
   /@csstools/css-parser-algorithms@2.5.0(@csstools/css-tokenizer@2.2.3):
     resolution: {integrity: sha512-abypo6m9re3clXA00eu5syw+oaPHbJTPapu9C4pzNsJ4hdZDzushT50Zhu+iIYXgEe1CxnRMn7ngsbV+MLrlpQ==}
@@ -3478,16 +3488,6 @@ packages:
     dependencies:
       stylelint: 16.2.1
       stylelint-config-recommended: 14.0.0(stylelint@16.2.1)
-    dev: false
-
-  /stylelint-csstree-validator@3.0.0(stylelint@16.2.1):
-    resolution: {integrity: sha512-/CPYhwchWZbyZK2LVGKvt1ivISYZyRSRhrY4cMArlwYh1DxwygubR0nBv+5upuX23j1qBfJWdv6xx9dsUZF+OA==}
-    engines: {node: ^14.13.0 || >=15.0.0, npm: '>=7.0.0'}
-    peerDependencies:
-      stylelint: '>=7.0.0 <16.0.0'
-    dependencies:
-      css-tree: 2.3.1
-      stylelint: 16.2.1
     dev: false
 
   /stylelint-declaration-block-no-ignored-properties@2.8.0(stylelint@16.2.1):

@@ -6,6 +6,7 @@ import selectorDisallowedList from './data/selector-disallowed-list.js';
 import propertyOrderList from './data/property-order-list.js';
 
 const mainPlugins = [
+  '@carlosjeurissen/stylelint-csstree-validator', // see https://github.com/csstree/stylelint-validator/pull/59
   '@double-great/stylelint-a11y',
   '@stylistic/stylelint-plugin',
   'stylelint-color-format',
@@ -20,7 +21,6 @@ const mainPlugins = [
   'stylelint-value-no-unknown-custom-properties',
 
   /* TODO 16
-  'stylelint-csstree-validator', // see https://github.com/csstree/stylelint-validator/pull/59
   'stylelint-plugin-import', // see https://github.com/electrovir/stylelint-plugin-import/issues/22
   */
 
@@ -400,9 +400,15 @@ const mainRules = {
     },
   ],
 
-  /* TODO 16
   'a11y/font-size-is-readable': true,
   'a11y/no-spread-text': true,
+
+  'csstree/validator': {
+    ignoreValue: 'env\\(',
+    syntaxExtensions: false,
+  },
+
+  /* TODO 16
 
   'plugin-import/file-extension': {
     mode: 'require', // require that all imports have a file extension
@@ -410,11 +416,6 @@ const mainRules = {
 
   'plugin-import/import-as-reference': {
     mode: 'block', // prevent any imports use (reference)
-  },
-
-  'csstree/validator': {
-    ignoreValue: 'env\\(',
-    syntaxExtensions: false,
   },
   */
 

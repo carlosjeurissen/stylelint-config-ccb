@@ -27,12 +27,12 @@
     "watch": "vitest watch"
   },
   "dependencies": {
+    "@carlosjeurissen/stylelint-csstree-validator": "^3.1.0",
     "@double-great/stylelint-a11y": "^3.0.1",
     "@stylistic/stylelint-plugin": "^2.0.0",
     "prettier": "^3.2.5",
     "stylelint-color-format": "^1.1.0",
     "stylelint-config-standard": "^36.0.0",
-    "stylelint-csstree-validator": "^3.0.0",
     "stylelint-declaration-block-no-ignored-properties": "^2.8.0",
     "stylelint-high-performance-animation": "^1.10.0",
     "stylelint-no-indistinguishable-colors": "^2.3.0",
