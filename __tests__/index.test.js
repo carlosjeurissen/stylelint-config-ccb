@@ -44,7 +44,7 @@ describe('flags warnings with invalid css', () => {
   test('flags one warning', () => expect(result.results[0].warnings).toHaveLength(3));
 
   test('correct warning text', () => expect(result.results[0].warnings[0].text).toBe(
-    'Expected a leading zero (stylistic/number-leading-zero)',
+    'Expected a leading zero (@stylistic/number-leading-zero)',
   ));
 
   test('correct warning text', () => expect(result.results[0].warnings[1].text).toBe(
@@ -55,7 +55,7 @@ describe('flags warnings with invalid css', () => {
     'Insert "0" (prettier/prettier)',
   ));
 
-  test('correct rule flagged', () => expect(result.results[0].warnings[0].rule).toBe('stylistic/number-leading-zero'));
+  test('correct rule flagged', () => expect(result.results[0].warnings[0].rule).toBe('@stylistic/number-leading-zero'));
 
   test('correct rule flagged', () => expect(result.results[0].warnings[1].rule).toBe('selector-max-type'));
 
