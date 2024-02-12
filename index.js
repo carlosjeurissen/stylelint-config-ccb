@@ -141,15 +141,15 @@ const mainRules = {
     'background-color': ['none', 'rebeccapurple'],
     'font-size': ['0'],
     outline: ['none', '0'],
+    'scrollbar-width': ['none', '0'],
     'text-align': ['justify'],
     'word-break': ['break-word'],
-
-    'scrollbar-width': ['none', '0'],
 
     transition: ['/all|-webkit-|-moz-|-ms-|-o-/'],
     'transition-property': ['/all|-webkit-|-moz-|-ms-|-o-/'],
 
-    '/^border(-block|-inline)?(-top|-right|-bottom|-left|-end|-start)?$': ['0'],
+    '/^border(-block|-inline)?(-top|-right|-bottom|-left|-end|-start)?$/': ['0'],
+    '/^overflow(?:-block|-inline|-x|-y|)$/': ['overlay'],
     '/^padding/': ['auto'],
 
     '/.*/': ['rebeccapurple', 'unset'],
