@@ -21,7 +21,7 @@ const mainPlugins = [
   'stylelint-require-units',
   'stylelint-selector-no-empty',
   'stylelint-value-no-unknown-custom-properties',
-  'stylelint-no-browser-hacks/lib',
+  // 'stylelint-no-browser-hacks/lib',
 
   /* TODO 16
   'stylelint-plugin-import', // see https://github.com/electrovir/stylelint-plugin-import/issues/22
@@ -414,7 +414,7 @@ const mainRules = {
     syntaxExtensions: false,
   },
 
-  'plugin/no-browser-hacks': true,
+  // 'plugin/no-browser-hacks': true,
 
   'plugin/no-unsupported-browser-features': [true, {
     ignore: unsupportedBrowserFeatures,
