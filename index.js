@@ -4,6 +4,7 @@ import commentWordDisallowedList from './data/comment-word-disallowed-list.js';
 import propertyDisallowedList from './data/property-disallowed-list.js';
 import selectorDisallowedList from './data/selector-disallowed-list.js';
 import propertyOrderList from './data/property-order-list.js';
+import unsupportedBrowserFeatures from './data/unsupported-browser-features.js';
 
 const mainPlugins = [
   '@carlosjeurissen/stylelint-csstree-validator', // see https://github.com/csstree/stylelint-validator/pull/59
@@ -14,18 +15,19 @@ const mainPlugins = [
   'stylelint-high-performance-animation',
   'stylelint-no-indistinguishable-colors',
   'stylelint-no-nested-media',
+  'stylelint-no-unsupported-browser-features',
   'stylelint-order',
   'stylelint-prettier',
   'stylelint-require-units',
   'stylelint-selector-no-empty',
   'stylelint-value-no-unknown-custom-properties',
+  'stylelint-no-browser-hacks/lib',
 
   /* TODO 16
   'stylelint-plugin-import', // see https://github.com/electrovir/stylelint-plugin-import/issues/22
   */
 
   /* TODO
-  'stylelint-no-browser-hacks/lib',
   'stylelint-scss',
   */
 ];
@@ -128,13 +130,12 @@ const mainRules = {
     ],
     fill: ['currentColor', 'inherit', 'none'],
     font: ['inherit'],
-    overflow: ['initial', 'hidden', 'clip', 'auto'],
-    overflowX: ['initial', 'hidden', 'clip', 'auto'],
-    overflowY: ['initial', 'hidden', 'clip', 'auto'],
     position: ['fixed', 'absolute', 'relative', 'sticky'],
     'text-decoration': ['inherit', 'underline', 'none'],
     'user-select': ['none', 'text'],
     'z-index': ['/^[1-9]\\d{0,3}$/', '-1', 'initial'], // only allow z-index 1 up to 9999
+
+    '/^overflow(?:-block|-inline|-x|-y|)$/': ['initial', 'hidden', 'clip', 'auto'],
   },
   'declaration-property-value-disallowed-list': {
     all: ['inherit'], // see https://github.com/WICG/view-transitions/blob/main/debugging_overflow_on_images.md
@@ -205,6 +206,7 @@ const mainRules = {
     'host-contex',
   ],
   'selector-pseudo-element-allowed-list': [
+    '-moz-focus-inner', // TODO should be -moz-focus-inner, yet fails to work, see https://github.com/stylelint/stylelint/pull/6025
     'first-letter',
     'first-line',
     'file-selector-button',
@@ -212,8 +214,12 @@ const mainRules = {
     'after',
     'backdrop',
     'placeholder',
-    'focus-inner', // TODO should be -moz-focus-inner, yet fails to work, see https://github.com/stylelint/stylelint/pull/6025
   ],
+
+  'selector-nested-pattern': ['^&', {
+    splitList: true,
+  }],
+
   'time-min-milliseconds': 75,
   'unit-disallowed-list': [
     // physical length
@@ -408,6 +414,13 @@ const mainRules = {
     syntaxExtensions: false,
   },
 
+  'plugin/no-browser-hacks': true,
+
+  'plugin/no-unsupported-browser-features': [true, {
+    ignore: unsupportedBrowserFeatures,
+    ignorePartialSupport: false,
+  }],
+
   /* TODO 16
 
   'plugin-import/file-extension': {
@@ -417,10 +430,6 @@ const mainRules = {
   'plugin-import/import-as-reference': {
     mode: 'block', // prevent any imports use (reference)
   },
-  */
-
-  /* TODO
-  'plugin/no-browser-hacks': true,
   */
 
   /* OBSOLETE
@@ -440,29 +449,29 @@ const mainRules = {
   */
 
   /* UNUSED
+  comment-pattern
   declaration-property-unit-disallowed-list
   function-allowed-list
   media-feature-name-allowed-list
   media-feature-name-disallowed-list
+  media-feature-name-unit-allowed-list
   media-feature-name-value-allowed-list
-  media-feature-name-unit-allowed-list // todo
   property-allowed-list
   selector-attribute-name-disallowed-list
   selector-attribute-operator-allowed-list
   selector-attribute-operator-disallowed-list
   selector-combinator-allowed-list
   selector-combinator-disallowed-list
-  selector-pseudo-class-allowed-list
-  selector-pseudo-element-disallowed-list
-  unit-allowed-list
   selector-max-class
   selector-max-combinators
   selector-max-compound-selectors
   selector-max-specificity
-  comment-pattern
-  selector-nested-pattern
-  block-closing-brace-space-after
+  selector-pseudo-class-allowed-list
+  selector-pseudo-element-disallowed-list
+  unit-allowed-list
+
   at-rule-name-newline-after
+  block-closing-brace-space-after
   */
 };
 
@@ -531,7 +540,6 @@ function generateConfig (options) {
   const rules = cloneJson(mainRules);
 
   if (options.compatibility) {
-    plugins.push('stylelint-no-unsupported-browser-features');
     removeItemOnce(plugins, 'stylelint-color-format');
     applyCompatibilityRules(rules);
   }
