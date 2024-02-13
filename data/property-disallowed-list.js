@@ -289,6 +289,11 @@ export default [
   /* compatibility */
   '-webkit-text-stroke', // use -webkit-text-stroke-width or -webkit-text-stroke-color
 
+  /* future */
+  'column-gap',
+  'gap',
+  'row-gap',
+
   /* opinionated */
   'float',
 
