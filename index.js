@@ -18,10 +18,10 @@ function cloneJson (input) {
   return JSON.parse(JSON.stringify(input));
 }
 
-function copyArrayExceptValue (array, value) {
-  const copy = cloneJson(array);
-  removeItemOnce(copy, value);
-  return copy;
+function removeValuesFromArray (source, ...itemsToRemove) {
+  if (itemsToRemove.length === 0) return source;
+  const newSource = removeItemOnce([...source], itemsToRemove.pop());
+  return removeValuesFromArray(newSource, ...itemsToRemove);
 }
 
 function cleanAndNoPseudo (value) {
@@ -60,7 +60,7 @@ function getPseudoElementAllowedList (additional) {
   return mainList;
 }
 
-function getPseudoClassDisallowedList (contentScript) {
+function getPseudoClassDisallowedList ({ contentScript } = {}) {
   const mainList = [
     '-webkit-any',
     '-moz-any',
@@ -78,7 +78,7 @@ function getPseudoClassDisallowedList (contentScript) {
   return mainList;
 }
 
-function getFunctionDisallowedList (compatibility) {
+function getFunctionDisallowedList ({ compatibility } = {}) {
   return [
     // rgb vs rgba
     compatibility ? 'rgb' : 'rgba',
@@ -104,7 +104,7 @@ function getFunctionDisallowedList (compatibility) {
   ];
 }
 
-function getDeclarationPropertyValueAllowedList (essentials, contentScript) {
+function getDeclarationPropertyValueAllowedList ({ essentials, contentScript } = {}) {
   const mainList = {
     all: ['initial', 'revert'],
     appearance: ['none', 'auto'],
@@ -135,7 +135,7 @@ function getDeclarationPropertyValueAllowedList (essentials, contentScript) {
   return mainList;
 }
 
-function getDeclarationPropertyValueDisallowedList (essentials, contentScript) {
+function getDeclarationPropertyValueDisallowedList ({ contentScript } = {}) {
   const mainList = {
     all: ['inherit'], // see https://github.com/WICG/view-transitions/blob/main/debugging_overflow_on_images.md
     'background-color': ['none', 'rebeccapurple'],
@@ -155,10 +155,6 @@ function getDeclarationPropertyValueDisallowedList (essentials, contentScript) {
 
     '/.*/': ['rebeccapurple', 'unset'],
   };
-
-  if (contentScript) {
-    delete mainList['font-size'];
-  }
 
   if (contentScript) {
     delete mainList['font-size'];
@@ -281,13 +277,13 @@ const mainRules = {
     opacity: ['%'],
     'z-index': [],
   },
-  'declaration-property-value-allowed-list': getDeclarationPropertyValueAllowedList(false, false),
-  'declaration-property-value-disallowed-list': getDeclarationPropertyValueDisallowedList(false, false),
+  'declaration-property-value-allowed-list': getDeclarationPropertyValueAllowedList(),
+  'declaration-property-value-disallowed-list': getDeclarationPropertyValueDisallowedList(),
   'function-url-no-scheme-relative': true,
   'function-url-scheme-allowed-list': ['data', 'https'],
   'function-url-scheme-disallowed-list': ['ftp', 'http'],
 
-  'function-disallowed-list': getFunctionDisallowedList(false),
+  'function-disallowed-list': getFunctionDisallowedList(),
   'property-disallowed-list': propertyDisallowedList,
   'selector-disallowed-list': selectorDisallowedList,
   'selector-max-attribute': 1,
@@ -566,7 +562,7 @@ const mainRules = {
   */
 };
 
-function applyContentScriptRules (targetRules) {
+function applyContentScriptRules (targetRules, options) {
   targetRules['declaration-no-important'] = null;
   targetRules['no-descending-specificity'] = null;
   targetRules['selector-class-pattern'] = null;
@@ -578,35 +574,36 @@ function applyContentScriptRules (targetRules) {
   targetRules['selector-max-universal'] = null;
   targetRules['selector-no-qualifying-type'] = null;
 
-  targetRules['property-disallowed-list'] = copyArrayExceptValue(propertyDisallowedList, 'container');
-  targetRules['selector-pseudo-class-disallowed-list'] = getPseudoClassDisallowedList(true);
-  targetRules['selector-pseudo-element-allowed-list'] = getPseudoElementAllowedList(true);
-  targetRules['declaration-property-value-allowed-list'] = getDeclarationPropertyValueAllowedList(false, true);
-  targetRules['declaration-property-value-disallowed-list'] = getDeclarationPropertyValueDisallowedList(false, true);
+  targetRules['property-disallowed-list'] = removeValuesFromArray(propertyDisallowedList, 'container', 'float');
+  targetRules['selector-pseudo-class-disallowed-list'] = getPseudoClassDisallowedList(options);
+  targetRules['selector-pseudo-element-allowed-list'] = getPseudoElementAllowedList(options);
+  targetRules['declaration-property-value-allowed-list'] = getDeclarationPropertyValueAllowedList(options);
+  targetRules['declaration-property-value-disallowed-list'] = getDeclarationPropertyValueDisallowedList(options);
 }
 
-function applyEssentialRules (targetRules) {
+function applyEssentialRules (targetRules, options) {
   targetRules['@stylistic/max-line-length'] = null;
   targetRules['a11y/font-size-is-readable'] = null;
   targetRules['declaration-no-important'] = null;
   targetRules['no-descending-specificity'] = null;
   targetRules['plugin/no-low-performance-animation-properties'] = null;
   targetRules['plugin/no-unsupported-browser-features'] = null;
+  targetRules['selector-max-pseudo-class'] = null;
   targetRules['selector-max-type'] = null;
   targetRules['selector-no-qualifying-type'] = null;
   targetRules['time-min-milliseconds'] = null;
 
-  targetRules['property-disallowed-list'] = copyArrayExceptValue(propertyDisallowedList, 'float');
-  targetRules['selector-pseudo-element-allowed-list'] = getPseudoElementAllowedList(true);
-  targetRules['declaration-property-value-allowed-list'] = getDeclarationPropertyValueAllowedList(true, false);
-  targetRules['declaration-property-value-disallowed-list'] = getDeclarationPropertyValueDisallowedList(true, false);
+  targetRules['property-disallowed-list'] = removeValuesFromArray(propertyDisallowedList, 'float');
+  targetRules['selector-pseudo-element-allowed-list'] = getPseudoElementAllowedList(options);
+  targetRules['declaration-property-value-allowed-list'] = getDeclarationPropertyValueAllowedList(options);
+  targetRules['declaration-property-value-disallowed-list'] = getDeclarationPropertyValueDisallowedList(options);
 }
 
-function applyCompatibilityRules (targetRules) {
+function applyCompatibilityRules (targetRules, options) {
   /* use hex and rgba instead of rgb */
   targetRules['color-function-notation'] = 'legacy';
   targetRules['color-no-hex'] = null;
-  targetRules['function-disallowed-list'] = getFunctionDisallowedList(true);
+  targetRules['function-disallowed-list'] = getFunctionDisallowedList(options);
   targetRules['color-format/format'] = null;
 
   /* use float instead of percentage for alpha */
@@ -623,26 +620,25 @@ function applyCompatibilityRules (targetRules) {
 }
 
 function generateConfig (options) {
-  const plugins = cloneJson(mainPlugins);
   const rules = cloneJson(mainRules);
 
   if (options.compatibility) {
-    applyCompatibilityRules(rules);
+    applyCompatibilityRules(rules, options);
   }
 
-  if (options.contentscript) {
-    applyContentScriptRules(rules);
+  if (options.contentScript) {
+    applyContentScriptRules(rules, options);
   }
 
   if (options.essentials) {
-    applyEssentialRules(rules);
+    applyEssentialRules(rules, options);
   }
 
   const overrides = [];
 
-  if (options.contentscriptOverrides) {
+  if (options.contentScriptOverrides) {
     const csRules = {};
-    applyContentScriptRules(csRules);
+    applyContentScriptRules(csRules, { ...options, contentScript: true });
 
     overrides.push({
       files: [
@@ -659,7 +655,7 @@ function generateConfig (options) {
 
   const config = {
     extends: 'stylelint-config-standard',
-    plugins: plugins,
+    plugins: mainPlugins,
     rules: rules,
   };
 
@@ -677,19 +673,19 @@ function writeConfig (path, options) {
 }
 
 writeConfig('./dist/main.cjs', {
-  contentscriptOverrides: true,
+  contentScriptOverrides: true,
 });
 
 writeConfig('./dist/essentials.cjs', {
-  contentscriptOverrides: true,
+  contentScriptOverrides: true,
   essentials: true,
 });
 
 writeConfig('./dist/compat.cjs', {
   compatibility: true,
-  contentscriptOverrides: true,
+  contentScriptOverrides: true,
 });
 
 writeConfig('./dist/contentscript.cjs', {
-  contentscript: true,
+  contentScript: true,
 });
