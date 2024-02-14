@@ -206,7 +206,6 @@ const mainRules = {
     'host-contex',
   ],
   'selector-pseudo-element-allowed-list': [
-    '-moz-focus-inner', // TODO should be -moz-focus-inner, yet fails to work, see https://github.com/stylelint/stylelint/pull/6025
     'first-letter',
     'first-line',
     'file-selector-button',
@@ -214,6 +213,13 @@ const mainRules = {
     'after',
     'backdrop',
     'placeholder',
+
+    '-moz-focus-inner',
+
+    '-webkit-search-decoration',
+    '-webkit-search-cancel-button',
+    '-webkit-search-results-button',
+    '-webkit-search-results-decoration',
   ],
 
   'selector-nested-pattern': ['^&', {
@@ -495,7 +501,6 @@ function copyArrayExceptValue (array, value) {
 
 function applyContentScriptRules (targetRules) {
   targetRules['declaration-no-important'] = null;
-  targetRules['declaration-no-important'] = null;
   targetRules['no-descending-specificity'] = null;
   targetRules['selector-class-pattern'] = null;
   targetRules['selector-id-pattern'] = null;
@@ -508,6 +513,31 @@ function applyContentScriptRules (targetRules) {
   targetRules['selector-pseudo-class-disallowed-list'] = copyArrayExceptValue(
     mainRules['selector-pseudo-class-disallowed-list'],
     'has',
+  );
+
+  if (targetRules['selector-pseudo-element-allowed-list']) {
+    targetRules['selector-pseudo-element-allowed-list'].push(
+      '-webkit-scrollbar',
+      '-webkit-scrollbar-corner',
+      '-webkit-scrollbar-thumb',
+      '-webkit-scrollbar-track',
+      '-webkit-scrollbar-track-piece',
+    );
+  }
+}
+
+function applyEssentialRules (targetRules) {
+  targetRules['declaration-no-important'] = null;
+  targetRules['no-descending-specificity'] = null;
+  targetRules['selector-max-type'] = null;
+  targetRules['selector-no-qualifying-type'] = null;
+  targetRules['plugin/no-low-performance-animation-properties'] = null;
+  targetRules['selector-pseudo-element-allowed-list'].push(
+    '-webkit-scrollbar',
+    '-webkit-scrollbar-corner',
+    '-webkit-scrollbar-thumb',
+    '-webkit-scrollbar-track',
+    '-webkit-scrollbar-track-piece',
   );
 }
 
@@ -533,10 +563,6 @@ function applyCompatibilityRules (targetRules) {
   targetRules['media-feature-range-notation'] = 'prefix';
 
   targetRules['plugin/no-unsupported-browser-features'] = true;
-}
-
-function applyEssentialRules (targetRules) {
-  targetRules['no-descending-specificity'] = null;
 }
 
 function generateConfig (options) {
