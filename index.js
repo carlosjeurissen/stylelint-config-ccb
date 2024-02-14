@@ -104,6 +104,36 @@ function getFunctionDisallowedList (compatibility) {
   ];
 }
 
+function getDeclarationPropertyValueAllowedList (compatibility, contentScript) {
+  const mainList = {
+    all: ['initial', 'revert'],
+    appearance: ['none', 'auto'],
+    content: [
+      'none', '""',
+      '"*"', '":"', '"ǀ"',
+      '/^var\\(/', '/^attr\\(aria-/', '/^attr\\(data-/',
+    ],
+    fill: ['currentColor', 'inherit', 'none'],
+    font: ['inherit'],
+    position: ['fixed', 'absolute', 'relative', 'sticky'],
+    'text-decoration': ['inherit', 'underline', 'none'],
+    'user-select': ['none', 'text'],
+    'z-index': ['/^[1-9]\\d{0,3}$/', '-1', 'initial'], // only allow z-index 1 up to 9999
+
+    '/^overflow(?:-block|-inline|-x|-y|)$/': ['initial', 'hidden', 'clip', 'auto'],
+  };
+
+  if (compatibility || contentScript) {
+    delete mainList['z-index'];
+  }
+
+  if (compatibility) {
+    delete mainList.content;
+  }
+
+  return mainList;
+}
+
 const mainPlugins = [
   '@carlosjeurissen/stylelint-csstree-validator', // see https://github.com/csstree/stylelint-validator/pull/59
   '@double-great/stylelint-a11y',
@@ -218,23 +248,7 @@ const mainRules = {
     opacity: ['%'],
     'z-index': [],
   },
-  'declaration-property-value-allowed-list': {
-    all: ['initial', 'revert'],
-    appearance: ['none', 'auto'],
-    content: [
-      'none', '""',
-      '"*"', '":"', '"ǀ"',
-      '/^var\\(/', '/^attr\\(aria-/', '/^attr\\(data-/',
-    ],
-    fill: ['currentColor', 'inherit', 'none'],
-    font: ['inherit'],
-    position: ['fixed', 'absolute', 'relative', 'sticky'],
-    'text-decoration': ['inherit', 'underline', 'none'],
-    'user-select': ['none', 'text'],
-    'z-index': ['/^[1-9]\\d{0,3}$/', '-1', 'initial'], // only allow z-index 1 up to 9999
-
-    '/^overflow(?:-block|-inline|-x|-y|)$/': ['initial', 'hidden', 'clip', 'auto'],
-  },
+  'declaration-property-value-allowed-list': getDeclarationPropertyValueAllowedList(false, false),
   'declaration-property-value-disallowed-list': {
     all: ['inherit'], // see https://github.com/WICG/view-transitions/blob/main/debugging_overflow_on_images.md
     'background-color': ['none', 'rebeccapurple'],
@@ -547,22 +561,27 @@ function applyContentScriptRules (targetRules) {
   targetRules['selector-max-type'] = null;
   targetRules['selector-max-universal'] = null;
   targetRules['selector-no-qualifying-type'] = null;
+
+  targetRules['property-disallowed-list'] = copyArrayExceptValue(propertyDisallowedList, 'container');
   targetRules['selector-pseudo-class-disallowed-list'] = getPseudoClassDisallowedList(true);
   targetRules['selector-pseudo-element-allowed-list'] = getPseudoElementAllowedList(true);
-  targetRules['property-disallowed-list'] = copyArrayExceptValue(propertyDisallowedList, 'container');
+  targetRules['declaration-property-value-allowed-list'] = getDeclarationPropertyValueAllowedList(false, true);
 }
 
 function applyEssentialRules (targetRules) {
-  targetRules['declaration-no-important'] = null;
-  targetRules['no-descending-specificity'] = null;
-  targetRules['selector-max-type'] = null;
-  targetRules['selector-no-qualifying-type'] = null;
-  targetRules['plugin/no-low-performance-animation-properties'] = null;
   targetRules['@stylistic/max-line-length'] = null;
   targetRules['a11y/font-size-is-readable'] = null;
+  targetRules['declaration-no-important'] = null;
+  targetRules['no-descending-specificity'] = null;
+  targetRules['plugin/no-low-performance-animation-properties'] = null;
   targetRules['plugin/no-unsupported-browser-features'] = null;
+  targetRules['selector-max-type'] = null;
+  targetRules['selector-no-qualifying-type'] = null;
+  targetRules['time-min-milliseconds'] = null;
+
   targetRules['property-disallowed-list'] = copyArrayExceptValue(propertyDisallowedList, 'float');
   targetRules['selector-pseudo-element-allowed-list'] = getPseudoElementAllowedList(true);
+  targetRules['declaration-property-value-allowed-list'] = getDeclarationPropertyValueAllowedList(true, false);
 }
 
 function applyCompatibilityRules (targetRules) {
