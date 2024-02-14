@@ -1,6 +1,6 @@
 {
   "name": "stylelint-config-ccb",
-  "version": "3.4.0",
+  "version": "3.5.0",
   "description": "Stylelint config which extends stylelint-config-standard",
   "keywords": [
     "stylelint",
@@ -17,7 +17,8 @@
   "files": [
     "dist/main.cjs",
     "dist/compat.cjs",
-    "dist/contentscript.cjs"
+    "dist/contentscript.cjs",
+    "dist/essentials.cjs"
   ],
   "scripts": {
     "build": "pnpm node index.js",

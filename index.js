@@ -6,6 +6,99 @@ import selectorDisallowedList from './data/selector-disallowed-list.js';
 import propertyOrderList from './data/property-order-list.js';
 import unsupportedBrowserFeatures from './data/unsupported-browser-features.js';
 
+function removeItemOnce (arr, value) {
+  const index = arr.indexOf(value);
+  if (index > -1) {
+    arr.splice(index, 1);
+  }
+  return arr;
+}
+
+function cloneJson (input) {
+  return JSON.parse(JSON.stringify(input));
+}
+
+function copyArrayExceptValue (array, value) {
+  const copy = cloneJson(array);
+  removeItemOnce(copy, value);
+  return copy;
+}
+
+function getPseudoElementAllowedList (additional) {
+  const mainList = [
+    'first-letter',
+    'first-line',
+    'file-selector-button',
+    'before',
+    'after',
+    'backdrop',
+    'placeholder',
+
+    '-moz-focus-inner',
+
+    '-webkit-search-decoration',
+    '-webkit-search-cancel-button',
+    '-webkit-search-results-button',
+    '-webkit-search-results-decoration',
+  ];
+
+  if (additional) {
+    mainList.push(
+      '-webkit-scrollbar',
+      '-webkit-scrollbar-corner',
+      '-webkit-scrollbar-thumb',
+      '-webkit-scrollbar-track',
+      '-webkit-scrollbar-track-piece',
+    );
+  }
+
+  return mainList;
+}
+
+function getPseudoClassDisallowedList (contentScript) {
+  const mainList = [
+    '-webkit-any',
+    '-moz-any',
+    'any',
+    'matches', // use is instead
+    'root',
+    'scope',
+    'modal',
+    'host',
+    'host-contex',
+  ];
+  if (!contentScript) {
+    mainList.push('has');
+  }
+  return mainList;
+}
+
+function getFunctionDisallowedList (compatibility) {
+  return [
+    // rgb vs rgba
+    compatibility ? 'rgb' : 'rgba',
+
+    // deprecated colors
+    'gray', 'color-mod', 'hsla',
+    // not preferred colors
+    'hwb', 'hsl',
+    'lab', 'oklab', 'lch', 'oklch',
+    'color', 'color-mix', 'color-contrast',
+    // stepped value functions
+    'round', 'mod', 'rem',
+    // trigonometric functions
+    'tan', 'sin', 'cos',
+    'atan', 'asin', 'acos',
+    'atan2',
+    // future
+    'anchor', 'toggle',
+    // ancient
+    'expression',
+    // bad coding pattern, use srcset or media queries
+    'image-set', '-webkit-image-set',
+  ];
+}
+
 const mainPlugins = [
   '@carlosjeurissen/stylelint-csstree-validator', // see https://github.com/csstree/stylelint-validator/pull/59
   '@double-great/stylelint-a11y',
@@ -159,26 +252,7 @@ const mainRules = {
   'function-url-scheme-allowed-list': ['data', 'https'],
   'function-url-scheme-disallowed-list': ['ftp', 'http'],
 
-  'function-disallowed-list': [
-    // deprecated colors
-    'gray', 'color-mod', 'rgba', 'hsla',
-    // not preferred colors
-    'hwb', 'hsl',
-    'lab', 'oklab', 'lch', 'oklch',
-    'color', 'color-mix', 'color-contrast',
-    // stepped value functions
-    'round', 'mod', 'rem',
-    // trigonometric functions
-    'tan', 'sin', 'cos',
-    'atan', 'asin', 'acos',
-    'atan2',
-    // future
-    'anchor', 'toggle',
-    // ancient
-    'expression',
-    // bad coding pattern, use srcset or media queries
-    'image-set', '-webkit-image-set',
-  ],
+  'function-disallowed-list': getFunctionDisallowedList(false),
   'property-disallowed-list': propertyDisallowedList,
   'selector-disallowed-list': selectorDisallowedList,
   'selector-max-attribute': 1,
@@ -195,32 +269,8 @@ const mainRules = {
     ignoreAfterCombinators: ['+', '>'],
   }],
   'selector-no-qualifying-type': true,
-  'selector-pseudo-class-disallowed-list': [
-    'any',
-    'has',
-    'matches',
-    'root',
-    'scope',
-    'modal',
-    'host',
-    'host-contex',
-  ],
-  'selector-pseudo-element-allowed-list': [
-    'first-letter',
-    'first-line',
-    'file-selector-button',
-    'before',
-    'after',
-    'backdrop',
-    'placeholder',
-
-    '-moz-focus-inner',
-
-    '-webkit-search-decoration',
-    '-webkit-search-cancel-button',
-    '-webkit-search-results-button',
-    '-webkit-search-results-decoration',
-  ],
+  'selector-pseudo-class-disallowed-list': getPseudoClassDisallowedList(false),
+  'selector-pseudo-element-allowed-list': getPseudoElementAllowedList(false),
 
   'selector-nested-pattern': ['^&', {
     splitList: true,
@@ -481,24 +531,6 @@ const mainRules = {
   */
 };
 
-function removeItemOnce (arr, value) {
-  const index = arr.indexOf(value);
-  if (index > -1) {
-    arr.splice(index, 1);
-  }
-  return arr;
-}
-
-function cloneJson (input) {
-  return JSON.parse(JSON.stringify(input));
-}
-
-function copyArrayExceptValue (array, value) {
-  const copy = cloneJson(array);
-  removeItemOnce(copy, value);
-  return copy;
-}
-
 function applyContentScriptRules (targetRules) {
   targetRules['declaration-no-important'] = null;
   targetRules['no-descending-specificity'] = null;
@@ -510,20 +542,9 @@ function applyContentScriptRules (targetRules) {
   targetRules['selector-max-type'] = null;
   targetRules['selector-max-universal'] = null;
   targetRules['selector-no-qualifying-type'] = null;
-  targetRules['selector-pseudo-class-disallowed-list'] = copyArrayExceptValue(
-    mainRules['selector-pseudo-class-disallowed-list'],
-    'has',
-  );
-
-  if (targetRules['selector-pseudo-element-allowed-list']) {
-    targetRules['selector-pseudo-element-allowed-list'].push(
-      '-webkit-scrollbar',
-      '-webkit-scrollbar-corner',
-      '-webkit-scrollbar-thumb',
-      '-webkit-scrollbar-track',
-      '-webkit-scrollbar-track-piece',
-    );
-  }
+  targetRules['selector-pseudo-class-disallowed-list'] = getPseudoClassDisallowedList(true);
+  targetRules['selector-pseudo-element-allowed-list'] = getPseudoElementAllowedList(true);
+  targetRules['property-disallowed-list'] = copyArrayExceptValue(propertyDisallowedList, 'container');
 }
 
 function applyEssentialRules (targetRules) {
@@ -532,24 +553,17 @@ function applyEssentialRules (targetRules) {
   targetRules['selector-max-type'] = null;
   targetRules['selector-no-qualifying-type'] = null;
   targetRules['plugin/no-low-performance-animation-properties'] = null;
-  targetRules['selector-pseudo-element-allowed-list'].push(
-    '-webkit-scrollbar',
-    '-webkit-scrollbar-corner',
-    '-webkit-scrollbar-thumb',
-    '-webkit-scrollbar-track',
-    '-webkit-scrollbar-track-piece',
-  );
+  targetRules['@stylistic/max-line-length'] = null;
+  targetRules['a11y/font-size-is-readable'] = null;
+  targetRules['property-disallowed-list'] = copyArrayExceptValue(propertyDisallowedList, 'float');
+  targetRules['selector-pseudo-element-allowed-list'] = getPseudoElementAllowedList(true);
 }
 
 function applyCompatibilityRules (targetRules) {
   /* use hex and rgba instead of rgb */
   targetRules['color-function-notation'] = 'legacy';
   targetRules['color-no-hex'] = null;
-  targetRules['function-disallowed-list'] = copyArrayExceptValue(
-    mainRules['function-disallowed-list'],
-    'rgba',
-  );
-  targetRules['function-disallowed-list'].push('rgb');
+  targetRules['function-disallowed-list'] = getFunctionDisallowedList(true);
   targetRules['color-format/format'] = null;
 
   /* use float instead of percentage for alpha */
@@ -570,7 +584,6 @@ function generateConfig (options) {
   const rules = cloneJson(mainRules);
 
   if (options.compatibility) {
-    removeItemOnce(plugins, 'stylelint-color-format');
     applyCompatibilityRules(rules);
   }
 
@@ -625,8 +638,8 @@ writeConfig('./dist/main.cjs', {
 });
 
 writeConfig('./dist/essentials.cjs', {
-  essentials: true,
   contentscriptOverrides: true,
+  essentials: true,
 });
 
 writeConfig('./dist/compat.cjs', {
