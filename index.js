@@ -104,7 +104,7 @@ function getFunctionDisallowedList (compatibility) {
   ];
 }
 
-function getDeclarationPropertyValueAllowedList (compatibility, contentScript) {
+function getDeclarationPropertyValueAllowedList (essentials, contentScript) {
   const mainList = {
     all: ['initial', 'revert'],
     appearance: ['none', 'auto'],
@@ -123,12 +123,45 @@ function getDeclarationPropertyValueAllowedList (compatibility, contentScript) {
     '/^overflow(?:-block|-inline|-x|-y|)$/': ['initial', 'hidden', 'clip', 'auto'],
   };
 
-  if (compatibility || contentScript) {
+  if (essentials || contentScript) {
     delete mainList['z-index'];
   }
 
-  if (compatibility) {
+  if (essentials) {
     delete mainList.content;
+    delete mainList.fill;
+  }
+
+  return mainList;
+}
+
+function getDeclarationPropertyValueDisallowedList (essentials, contentScript) {
+  const mainList = {
+    all: ['inherit'], // see https://github.com/WICG/view-transitions/blob/main/debugging_overflow_on_images.md
+    'background-color': ['none', 'rebeccapurple'],
+    font: ['0'],
+    'font-size': ['0'],
+    outline: ['none', '0'],
+    'scrollbar-width': ['none', '0'],
+    'text-align': ['justify'],
+    'word-break': ['break-word'],
+
+    transition: ['/all|-webkit-|-moz-|-ms-|-o-/'],
+    'transition-property': ['/all|-webkit-|-moz-|-ms-|-o-/'],
+
+    '/^border(-block|-inline)?(-top|-right|-bottom|-left|-end|-start)?$/': ['0'],
+    '/^overflow(?:-block|-inline|-x|-y|)$/': ['overlay'],
+    '/^padding/': ['auto'],
+
+    '/.*/': ['rebeccapurple', 'unset'],
+  };
+
+  if (contentScript) {
+    delete mainList['font-size'];
+  }
+
+  if (contentScript) {
+    delete mainList['font-size'];
   }
 
   return mainList;
@@ -249,24 +282,7 @@ const mainRules = {
     'z-index': [],
   },
   'declaration-property-value-allowed-list': getDeclarationPropertyValueAllowedList(false, false),
-  'declaration-property-value-disallowed-list': {
-    all: ['inherit'], // see https://github.com/WICG/view-transitions/blob/main/debugging_overflow_on_images.md
-    'background-color': ['none', 'rebeccapurple'],
-    'font-size': ['0'],
-    outline: ['none', '0'],
-    'scrollbar-width': ['none', '0'],
-    'text-align': ['justify'],
-    'word-break': ['break-word'],
-
-    transition: ['/all|-webkit-|-moz-|-ms-|-o-/'],
-    'transition-property': ['/all|-webkit-|-moz-|-ms-|-o-/'],
-
-    '/^border(-block|-inline)?(-top|-right|-bottom|-left|-end|-start)?$/': ['0'],
-    '/^overflow(?:-block|-inline|-x|-y|)$/': ['overlay'],
-    '/^padding/': ['auto'],
-
-    '/.*/': ['rebeccapurple', 'unset'],
-  },
+  'declaration-property-value-disallowed-list': getDeclarationPropertyValueDisallowedList(false, false),
   'function-url-no-scheme-relative': true,
   'function-url-scheme-allowed-list': ['data', 'https'],
   'function-url-scheme-disallowed-list': ['ftp', 'http'],
@@ -566,6 +582,7 @@ function applyContentScriptRules (targetRules) {
   targetRules['selector-pseudo-class-disallowed-list'] = getPseudoClassDisallowedList(true);
   targetRules['selector-pseudo-element-allowed-list'] = getPseudoElementAllowedList(true);
   targetRules['declaration-property-value-allowed-list'] = getDeclarationPropertyValueAllowedList(false, true);
+  targetRules['declaration-property-value-disallowed-list'] = getDeclarationPropertyValueDisallowedList(false, true);
 }
 
 function applyEssentialRules (targetRules) {
@@ -582,6 +599,7 @@ function applyEssentialRules (targetRules) {
   targetRules['property-disallowed-list'] = copyArrayExceptValue(propertyDisallowedList, 'float');
   targetRules['selector-pseudo-element-allowed-list'] = getPseudoElementAllowedList(true);
   targetRules['declaration-property-value-allowed-list'] = getDeclarationPropertyValueAllowedList(true, false);
+  targetRules['declaration-property-value-disallowed-list'] = getDeclarationPropertyValueDisallowedList(true, false);
 }
 
 function applyCompatibilityRules (targetRules) {
