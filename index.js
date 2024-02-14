@@ -535,6 +535,10 @@ function applyCompatibilityRules (targetRules) {
   targetRules['plugin/no-unsupported-browser-features'] = true;
 }
 
+function applyEssentialRules (targetRules) {
+  targetRules['no-descending-specificity'] = null;
+}
+
 function generateConfig (options) {
   const plugins = cloneJson(mainPlugins);
   const rules = cloneJson(mainRules);
@@ -548,6 +552,10 @@ function generateConfig (options) {
     applyContentScriptRules(rules);
   }
 
+  if (options.essentials) {
+    applyEssentialRules(rules);
+  }
+
   const overrides = [];
 
   if (options.contentscriptOverrides) {
@@ -556,6 +564,7 @@ function generateConfig (options) {
 
     overrides.push({
       files: [
+        '**/*-cs.css',
         '**/cs-*.css',
         '**/content-script.css',
         '**/contentscript.css',
@@ -586,6 +595,11 @@ function writeConfig (path, options) {
 }
 
 writeConfig('./dist/main.cjs', {
+  contentscriptOverrides: true,
+});
+
+writeConfig('./dist/essentials.cjs', {
+  essentials: true,
   contentscriptOverrides: true,
 });
 
