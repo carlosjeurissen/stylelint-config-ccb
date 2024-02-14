@@ -24,6 +24,11 @@ function copyArrayExceptValue (array, value) {
   return copy;
 }
 
+function cleanAndNoPseudo (value) {
+  // required as otherwise stylelint will not allow-list it.
+  return [value, value.replace(/^-(moz|webkit)-/, '')];
+}
+
 function getPseudoElementAllowedList (additional) {
   const mainList = [
     'first-letter',
@@ -34,21 +39,21 @@ function getPseudoElementAllowedList (additional) {
     'backdrop',
     'placeholder',
 
-    '-moz-focus-inner',
+    ...cleanAndNoPseudo('-moz-focus-inner'),
 
-    '-webkit-search-decoration',
-    '-webkit-search-cancel-button',
-    '-webkit-search-results-button',
-    '-webkit-search-results-decoration',
+    ...cleanAndNoPseudo('-webkit-search-decoration'),
+    ...cleanAndNoPseudo('-webkit-search-cancel-button'),
+    ...cleanAndNoPseudo('-webkit-search-results-button'),
+    ...cleanAndNoPseudo('-webkit-search-results-decoration'),
   ];
 
   if (additional) {
     mainList.push(
-      '-webkit-scrollbar',
-      '-webkit-scrollbar-corner',
-      '-webkit-scrollbar-thumb',
-      '-webkit-scrollbar-track',
-      '-webkit-scrollbar-track-piece',
+      ...cleanAndNoPseudo('-webkit-scrollbar'),
+      ...cleanAndNoPseudo('-webkit-scrollbar-corner'),
+      ...cleanAndNoPseudo('-webkit-scrollbar-thumb'),
+      ...cleanAndNoPseudo('-webkit-scrollbar-track'),
+      ...cleanAndNoPseudo('-webkit-scrollbar-track-piece'),
     );
   }
 
@@ -555,6 +560,7 @@ function applyEssentialRules (targetRules) {
   targetRules['plugin/no-low-performance-animation-properties'] = null;
   targetRules['@stylistic/max-line-length'] = null;
   targetRules['a11y/font-size-is-readable'] = null;
+  targetRules['plugin/no-unsupported-browser-features'] = null;
   targetRules['property-disallowed-list'] = copyArrayExceptValue(propertyDisallowedList, 'float');
   targetRules['selector-pseudo-element-allowed-list'] = getPseudoElementAllowedList(true);
 }
