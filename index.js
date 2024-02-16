@@ -26,7 +26,7 @@ function removeValuesFromArray (source, ...itemsToRemove) {
 
 function cleanAndNoPseudo (value) {
   // required as otherwise stylelint will not allow-list it.
-  return [value, value.replace(/^-(moz|webkit)-/, '')];
+  return [value, value.replace(/^-(ms|moz|webkit)-/, '')];
 }
 
 function getPseudoElementAllowedList ({ contentScript, essentials } = {}) {
