@@ -29,7 +29,11 @@ function cleanAndNoPseudo (value) {
   return [value, value.replace(/^-(moz|webkit)-/, '')];
 }
 
-function getPseudoElementAllowedList (additional) {
+function getPseudoElementAllowedList ({ contentScript, essentials } = {}) {
+  const allowInputTypeSearch = true;
+  const allowWebkitScrollbar = contentScript || essentials;
+  const allowRange = essentials;
+
   const mainList = [
     'first-letter',
     'first-line',
@@ -40,20 +44,37 @@ function getPseudoElementAllowedList (additional) {
     'placeholder',
 
     ...cleanAndNoPseudo('-moz-focus-inner'),
-
-    ...cleanAndNoPseudo('-webkit-search-decoration'),
-    ...cleanAndNoPseudo('-webkit-search-cancel-button'),
-    ...cleanAndNoPseudo('-webkit-search-results-button'),
-    ...cleanAndNoPseudo('-webkit-search-results-decoration'),
   ];
 
-  if (additional) {
+  if (allowInputTypeSearch) {
+    mainList.push(
+      ...cleanAndNoPseudo('-webkit-search-decoration'),
+      ...cleanAndNoPseudo('-webkit-search-cancel-button'),
+      ...cleanAndNoPseudo('-webkit-search-results-button'),
+      ...cleanAndNoPseudo('-webkit-search-results-decoration'),
+    );
+  }
+
+  if (allowWebkitScrollbar) {
     mainList.push(
       ...cleanAndNoPseudo('-webkit-scrollbar'),
       ...cleanAndNoPseudo('-webkit-scrollbar-corner'),
       ...cleanAndNoPseudo('-webkit-scrollbar-thumb'),
       ...cleanAndNoPseudo('-webkit-scrollbar-track'),
       ...cleanAndNoPseudo('-webkit-scrollbar-track-piece'),
+    );
+  }
+
+  if (allowRange) {
+    mainList.push(
+      ...cleanAndNoPseudo('-moz-range-progress'),
+      ...cleanAndNoPseudo('-moz-range-thumb'),
+      ...cleanAndNoPseudo('-moz-range-track'),
+      ...cleanAndNoPseudo('-ms-fill-lower'),
+      ...cleanAndNoPseudo('-ms-thumb'),
+      ...cleanAndNoPseudo('-ms-track'),
+      ...cleanAndNoPseudo('-webkit-slider-runnable-track'),
+      ...cleanAndNoPseudo('-webkit-slider-thumb'),
     );
   }
 
@@ -104,7 +125,12 @@ function getFunctionDisallowedList ({ compatibility } = {}) {
   ];
 }
 
-function getDeclarationPropertyValueAllowedList ({ essentials, contentScript } = {}) {
+function getDeclarationPropertyValueAllowedList ({ contentScript, essentials } = {}) {
+  const positionValues = ['fixed', 'absolute', 'relative', 'sticky'];
+  if (essentials) {
+    positionValues.push('static');
+  }
+
   const mainList = {
     all: ['initial', 'revert'],
     appearance: ['none', 'auto'],
@@ -115,7 +141,7 @@ function getDeclarationPropertyValueAllowedList ({ essentials, contentScript } =
     ],
     fill: ['currentColor', 'inherit', 'none'],
     font: ['inherit'],
-    position: ['fixed', 'absolute', 'relative', 'sticky'],
+    position: positionValues,
     'text-decoration': ['inherit', 'underline', 'none'],
     'user-select': ['none', 'text'],
     'z-index': ['/^[1-9]\\d{0,3}$/', '-1', 'initial'], // only allow z-index 1 up to 9999
@@ -123,7 +149,7 @@ function getDeclarationPropertyValueAllowedList ({ essentials, contentScript } =
     '/^overflow(?:-block|-inline|-x|-y|)$/': ['initial', 'hidden', 'clip', 'auto'],
   };
 
-  if (essentials || contentScript) {
+  if (contentScript || essentials) {
     delete mainList['z-index'];
   }
 
@@ -135,7 +161,7 @@ function getDeclarationPropertyValueAllowedList ({ essentials, contentScript } =
   return mainList;
 }
 
-function getDeclarationPropertyValueDisallowedList ({ contentScript } = {}) {
+function getDeclarationPropertyValueDisallowedList ({ contentScript, essentials } = {}) {
   const mainList = {
     all: ['inherit'], // see https://github.com/WICG/view-transitions/blob/main/debugging_overflow_on_images.md
     'background-color': ['none', 'rebeccapurple'],
@@ -158,6 +184,10 @@ function getDeclarationPropertyValueDisallowedList ({ contentScript } = {}) {
 
   if (contentScript) {
     delete mainList['font-size'];
+  }
+
+  if (essentials) {
+    delete mainList.transition;
   }
 
   return mainList;
@@ -300,8 +330,8 @@ const mainRules = {
     ignoreAfterCombinators: ['+', '>'],
   }],
   'selector-no-qualifying-type': true,
-  'selector-pseudo-class-disallowed-list': getPseudoClassDisallowedList(false),
-  'selector-pseudo-element-allowed-list': getPseudoElementAllowedList(false),
+  'selector-pseudo-class-disallowed-list': getPseudoClassDisallowedList(),
+  'selector-pseudo-element-allowed-list': getPseudoElementAllowedList(),
 
   'selector-nested-pattern': ['^&', {
     splitList: true,
@@ -592,6 +622,8 @@ function applyEssentialRules (targetRules, options) {
   targetRules['selector-max-type'] = null;
   targetRules['selector-no-qualifying-type'] = null;
   targetRules['time-min-milliseconds'] = null;
+  targetRules['no-unknown-custom-properties'] = null;
+  targetRules['csstools/value-no-unknown-custom-properties'] = null;
 
   targetRules['property-disallowed-list'] = removeValuesFromArray(propertyDisallowedList, 'float');
   targetRules['selector-pseudo-element-allowed-list'] = getPseudoElementAllowedList(options);
