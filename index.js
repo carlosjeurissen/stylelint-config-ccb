@@ -207,6 +207,7 @@ const mainPlugins = [
   'stylelint-prettier',
   'stylelint-require-units',
   'stylelint-selector-no-empty',
+  'stylelint-selector-pseudo-class-lvhfa',
   'stylelint-value-no-unknown-custom-properties',
   // 'stylelint-no-browser-hacks/lib',
 
@@ -437,6 +438,7 @@ const mainRules = {
   /* additional stylistic */
   '@stylistic/at-rule-semicolon-space-before': 'never',
   '@stylistic/max-line-length': 160,
+  '@stylistic/named-grid-areas-alignment': true,
 
   /* prettier-overlap */
   '@stylistic/linebreaks': 'unix',
@@ -473,6 +475,8 @@ const mainRules = {
     blacklistedProperties: ['line-height'],
     checkUnknownUnits: true,
   }],
+
+  'plugin/selector-pseudo-class-lvhfa': true,
 
   'plugin/stylelint-selector-no-empty': true,
 

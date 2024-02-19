@@ -1,6 +1,6 @@
 {
   "name": "stylelint-config-ccb",
-  "version": "3.10.1",
+  "version": "3.11.0",
   "description": "Stylelint config which extends stylelint-config-standard",
   "keywords": [
     "stylelint",
@@ -30,7 +30,7 @@
   "dependencies": {
     "@carlosjeurissen/stylelint-csstree-validator": "^3.1.0",
     "@double-great/stylelint-a11y": "^3.0.2",
-    "@stylistic/stylelint-plugin": "^2.0.0",
+    "@stylistic/stylelint-plugin": "^2.1.0",
     "prettier": "^3.2.5",
     "stylelint-color-format": "^1.1.0",
     "stylelint-config-standard": "^36.0.0",
@@ -44,6 +44,7 @@
     "stylelint-prettier": "^5.0.0",
     "stylelint-require-units": "^1.0.2",
     "stylelint-selector-no-empty": "^1.0.9",
+    "stylelint-selector-pseudo-class-lvhfa": "^3.1.0",
     "stylelint-value-no-unknown-custom-properties": "^6.0.1"
   },
   "devDependencies": {
