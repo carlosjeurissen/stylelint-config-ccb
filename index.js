@@ -472,7 +472,6 @@ const mainRules = {
   },
 
   'matterialize/stylelint-require-units': [true, {
-    blacklistedProperties: ['line-height'],
     checkUnknownUnits: true,
   }],
 
