@@ -209,13 +209,13 @@ const mainPlugins = [
   'stylelint-selector-no-empty',
   'stylelint-selector-pseudo-class-lvhfa',
   'stylelint-value-no-unknown-custom-properties',
-  'stylelint-no-browser-hacks/lib',
 
   /* TODO 16
   'stylelint-plugin-import', // see https://github.com/electrovir/stylelint-plugin-import/issues/22
   */
 
   /* TODO
+  'stylelint-no-browser-hacks/lib',
   'stylelint-scss',
   */
 ];
@@ -534,8 +534,6 @@ const mainRules = {
     syntaxExtensions: false,
   },
 
-  'plugin/no-browser-hacks': true,
-
   'plugin/no-unsupported-browser-features': [true, {
     ignore: unsupportedBrowserFeatures,
     ignorePartialSupport: false,
@@ -551,6 +549,8 @@ const mainRules = {
     mode: 'block', // prevent any imports use (reference)
   },
   */
+
+  // TODO 'plugin/no-browser-hacks': true,
 
   /* OBSOLETE
   // both already handled by selector-disallowed-list

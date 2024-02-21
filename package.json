@@ -1,6 +1,6 @@
 {
   "name": "stylelint-config-ccb",
-  "version": "3.12.2",
+  "version": "3.13.0",
   "description": "Stylelint config which extends stylelint-config-standard",
   "keywords": [
     "stylelint",
@@ -64,6 +64,19 @@
       "node": true
     }
   },
+  "browserslist": [
+    "Firefox ESR",
+    "FirefoxAndroid >= 48",
+    "Firefox >= 52",
+    "Chrome >= 50",
+    "Samsung >= 11",
+    "Opera >= 15",
+    "Edge >= 79",
+    "unreleased Firefox versions",
+    "unreleased Chrome versions",
+    "unreleased Opera versions",
+    "unreleased Edge versions"
+  ],
   "stylelint": {
     "extends": "stylelint-config-ccb"
   },
