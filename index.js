@@ -24,11 +24,6 @@ function removeValuesFromArray (source, ...itemsToRemove) {
   return removeValuesFromArray(newSource, ...itemsToRemove);
 }
 
-function cleanAndNoPseudo (value) {
-  // required as otherwise stylelint will not allow-list it.
-  return [value, value.replace(/^-(ms|moz|webkit)-/, '')];
-}
-
 function getPseudoElementAllowedList ({ contentScript, essentials } = {}) {
   const allowInputTypeSearch = true;
   const allowWebkitScrollbar = contentScript || essentials;
@@ -42,39 +37,38 @@ function getPseudoElementAllowedList ({ contentScript, essentials } = {}) {
     'after',
     'backdrop',
     'placeholder',
-
-    ...cleanAndNoPseudo('-moz-focus-inner'),
+    '-moz-focus-inner',
   ];
 
   if (allowInputTypeSearch) {
     mainList.push(
-      ...cleanAndNoPseudo('-webkit-search-decoration'),
-      ...cleanAndNoPseudo('-webkit-search-cancel-button'),
-      ...cleanAndNoPseudo('-webkit-search-results-button'),
-      ...cleanAndNoPseudo('-webkit-search-results-decoration'),
+      '-webkit-search-decoration',
+      '-webkit-search-cancel-button',
+      '-webkit-search-results-button',
+      '-webkit-search-results-decoration',
     );
   }
 
   if (allowWebkitScrollbar) {
     mainList.push(
-      ...cleanAndNoPseudo('-webkit-scrollbar'),
-      ...cleanAndNoPseudo('-webkit-scrollbar-corner'),
-      ...cleanAndNoPseudo('-webkit-scrollbar-thumb'),
-      ...cleanAndNoPseudo('-webkit-scrollbar-track'),
-      ...cleanAndNoPseudo('-webkit-scrollbar-track-piece'),
+      '-webkit-scrollbar',
+      '-webkit-scrollbar-corner',
+      '-webkit-scrollbar-thumb',
+      '-webkit-scrollbar-track',
+      '-webkit-scrollbar-track-piece',
     );
   }
 
   if (allowRange) {
     mainList.push(
-      ...cleanAndNoPseudo('-moz-range-progress'),
-      ...cleanAndNoPseudo('-moz-range-thumb'),
-      ...cleanAndNoPseudo('-moz-range-track'),
-      ...cleanAndNoPseudo('-ms-fill-lower'),
-      ...cleanAndNoPseudo('-ms-thumb'),
-      ...cleanAndNoPseudo('-ms-track'),
-      ...cleanAndNoPseudo('-webkit-slider-runnable-track'),
-      ...cleanAndNoPseudo('-webkit-slider-thumb'),
+      '-moz-range-progress',
+      '-moz-range-thumb',
+      '-moz-range-track',
+      '-ms-fill-lower',
+      '-ms-thumb',
+      '-ms-track',
+      '-webkit-slider-runnable-track',
+      '-webkit-slider-thumb',
     );
   }
 
