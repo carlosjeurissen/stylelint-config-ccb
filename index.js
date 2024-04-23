@@ -1,4 +1,3 @@
-/* eslint-disable import/extensions */
 import fs from 'node:fs';
 import commentWordDisallowedList from './data/comment-word-disallowed-list.js';
 import propertyDisallowedList from './data/property-disallowed-list.js';
@@ -252,6 +251,7 @@ const mainRules = {
   /* stylelint-config-ccb */
   'keyframe-block-no-duplicate-selectors': true,
   'media-feature-name-value-no-unknown': true,
+  'no-unknown-custom-media': true,
   'no-unknown-custom-properties': true,
 
   'declaration-property-max-values': {

@@ -1,14 +1,13 @@
-/* eslint-env node, es2022 */
-/* eslint-disable
-  global-require,
-  no-autofix/strict,
-*/
-
 import fs from 'node:fs';
 import stylelint from 'stylelint';
+
 import {
-  beforeEach, describe, expect, test,
+  beforeEach,
+  describe,
+  expect,
+  test,
 } from 'vitest';
+
 import config from '../dist/main.cjs';
 
 const validCss = fs.readFileSync('./__tests__/valid.css', 'utf8');
