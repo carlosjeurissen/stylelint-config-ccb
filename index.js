@@ -129,7 +129,7 @@ function getDeclarationPropertyValueAllowedList ({ contentScript, essentials } =
     appearance: ['none', 'auto'],
     content: [
       'none', '""',
-      '"*"', '":"', '"ǀ"',
+      '"*"', '":"', '"ǀ"', '"#"',
       '/^var\\(/', '/^attr\\(aria-/', '/^attr\\(data-/',
     ],
     fill: ['currentColor', 'inherit', 'none'],
