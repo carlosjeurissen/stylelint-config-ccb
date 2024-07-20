@@ -1,6 +1,6 @@
 {
   "name": "stylelint-config-ccb",
-  "version": "3.16.0",
+  "version": "3.16.1",
   "description": "Stylelint config which extends stylelint-config-standard",
   "keywords": [
     "stylelint",
@@ -31,7 +31,7 @@
     "@carlosjeurissen/stylelint-csstree-validator": "^3.1.0",
     "@double-great/stylelint-a11y": "^3.0.2",
     "@stylistic/stylelint-plugin": "^2.1.2",
-    "prettier": "^3.3.2",
+    "prettier": "^3.3.3",
     "stylelint-color-format": "^1.1.0",
     "stylelint-config-standard": "^36.0.1",
     "stylelint-declaration-block-no-ignored-properties": "^2.8.0",
@@ -42,17 +42,17 @@
     "stylelint-no-unsupported-browser-features": "^8.0.1",
     "stylelint-order": "^6.0.4",
     "stylelint-plugin-import": "^1.0.13",
-    "stylelint-prettier": "^5.0.0",
+    "stylelint-prettier": "^5.0.2",
     "stylelint-require-units": "^2.0.0",
     "stylelint-selector-no-empty": "^1.0.9",
     "stylelint-selector-pseudo-class-lvhfa": "^3.1.1",
     "stylelint-value-no-unknown-custom-properties": "^6.0.1"
   },
   "devDependencies": {
-    "eslint": "^9.5.0",
-    "eslint-config-ccb": "^0.26.0",
-    "stylelint": "^16.6.1",
-    "vitest": "^1.6.0"
+    "eslint": "^9.7.0",
+    "eslint-config-ccb": "^0.26.1",
+    "stylelint": "^16.7.0",
+    "vitest": "^2.0.3"
   },
   "peerDependencies": {
     "stylelint": ">=16.0.0"
