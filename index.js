@@ -269,7 +269,7 @@ const mainRules = {
 
     '/::-webkit-scrollbar$/': ['display', 'visibility'],
 
-    '/:(hover|focus|focus-visible|active)/': ['cursor'],
+    '/:(hover|focus|focus-visible)/': ['cursor'],
     a: ['/^margin/'],
   },
 
