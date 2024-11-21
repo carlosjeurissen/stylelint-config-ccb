@@ -7,7 +7,7 @@ import unsupportedBrowserFeatures from './data/unsupported-browser-features.js';
 
 function removeItemOnce (arr, value) {
   const index = arr.indexOf(value);
-  if (index > -1) {
+  if (index !== -1) {
     arr.splice(index, 1);
   }
   return arr;
@@ -218,6 +218,12 @@ const mainRules = {
   'alpha-value-notation': 'percentage',
   'color-hex-length': 'long',
   'declaration-block-no-redundant-longhand-properties': null,
+  'font-family-no-duplicate-names': [
+    true,
+    {
+      ignoreFontFamilyNames: ['monospace'],
+    },
+  ],
   'function-url-quotes': [
     'always',
     {
