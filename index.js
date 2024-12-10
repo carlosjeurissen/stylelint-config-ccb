@@ -138,6 +138,7 @@ function getDeclarationPropertyValueAllowedList ({ contentScript, essentials } =
     'text-decoration': ['inherit', 'underline', 'none'],
     'user-select': ['none', 'text'],
     'z-index': ['/^[1-9]\\d{0,3}$/', '-1', 'initial'], // only allow z-index 1 up to 9999
+    'animation': ['/^[0-9]/', 'initial', 'none'], // only allow z-index 1 up to 9999
 
     '/^overflow(?:-block|-inline|-x|-y|)$/': ['initial', 'hidden', 'clip', 'auto'],
   };
@@ -299,6 +300,8 @@ const mainRules = {
   'declaration-no-important': true,
   'declaration-property-unit-allowed-list': {
     animation: ['ms'],
+    'animation-delay': ['ms'],
+    'animation-duration': ['ms'],
     'transition-delay': ['ms'],
 
     'font-size': ['rem', 'em'],
