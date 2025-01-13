@@ -126,6 +126,7 @@ function getDeclarationPropertyValueAllowedList ({ contentScript, essentials } =
 
   const mainList = {
     all: ['initial', 'revert'],
+    animation: ['/^[0-9]/', 'initial', 'none'], // only allow z-index 1 up to 9999
     appearance: ['none', 'auto'],
     content: [
       'none', '""',
@@ -138,7 +139,6 @@ function getDeclarationPropertyValueAllowedList ({ contentScript, essentials } =
     'text-decoration': ['inherit', 'underline', 'none'],
     'user-select': ['none', 'text'],
     'z-index': ['/^[1-9]\\d{0,3}$/', '-1', 'initial'], // only allow z-index 1 up to 9999
-    'animation': ['/^[0-9]/', 'initial', 'none'], // only allow z-index 1 up to 9999
 
     '/^overflow(?:-block|-inline|-x|-y|)$/': ['initial', 'hidden', 'clip', 'auto'],
   };
@@ -256,10 +256,15 @@ const mainRules = {
   'selector-id-pattern': '[a-z-_]{2,40}',
 
   /* stylelint-config-ccb */
+  'declaration-property-value-no-unknown': true,
+  'function-linear-gradient-no-nonstandard-direction': true,
+  'function-no-unknown': true,
   'keyframe-block-no-duplicate-selectors': true,
   'media-feature-name-value-no-unknown': true,
+  'no-unknown-animations': true,
   'no-unknown-custom-media': true,
   'no-unknown-custom-properties': true,
+  'unit-no-unknown': true,
 
   'declaration-property-max-values': {
     border: 3,
@@ -296,6 +301,7 @@ const mainRules = {
   'color-hex-alpha': 'never',
   'color-named': 'never',
   'color-no-hex': true,
+  'color-no-invalid-hex': true,
   'comment-word-disallowed-list': commentWordDisallowedList,
   'declaration-no-important': true,
   'declaration-property-unit-allowed-list': {
@@ -369,7 +375,6 @@ const mainRules = {
       ignore: ['pseudo-classes', 'blockless-at-rules'],
     },
   ],
-  'no-unknown-animations': true,
 
   /* Stylistic rules */
 
@@ -490,8 +495,6 @@ const mainRules = {
 
   'csstools/value-no-unknown-custom-properties': true,
 
-  'declaration-property-value-no-unknown': true,
-
   'plugin/no-low-performance-animation-properties': [true, {
     // ignore: 'paint-properties',
     ignoreProperties: [
@@ -529,9 +532,6 @@ const mainRules = {
     },
   ],
 
-  'a11y/font-size-is-readable': true,
-  'a11y/no-spread-text': true,
-
   'csstree/validator': {
     ignoreValue: 'env\\(',
     syntaxExtensions: false,
@@ -541,6 +541,9 @@ const mainRules = {
     ignore: unsupportedBrowserFeatures,
     ignorePartialSupport: false,
   }],
+
+  // TODO 16.13 'a11y/font-size-is-readable': true,
+  // TODO 16.13 'a11y/no-spread-text': true,
 
   /* TODO 16
 
@@ -645,7 +648,9 @@ function applyCompatibilityRules (targetRules, options) {
   targetRules['color-format/format'] = null;
 
   /* use float instead of percentage for alpha */
-  targetRules['declaration-property-unit-allowed-list'].opacity = [];
+  if (targetRules['declaration-property-unit-allowed-list']) {
+    targetRules['declaration-property-unit-allowed-list'].opacity = [];
+  }
   targetRules['alpha-value-notation'] = 'number';
 
   /* prevent merge of :not() selectors */
