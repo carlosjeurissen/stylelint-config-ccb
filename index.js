@@ -542,8 +542,8 @@ const mainRules = {
     ignorePartialSupport: false,
   }],
 
-  // TODO 16.13 'a11y/font-size-is-readable': true,
-  // TODO 16.13 'a11y/no-spread-text': true,
+  'a11y/font-size-is-readable': true,
+  'a11y/no-spread-text': true,
 
   /* TODO 16
 
