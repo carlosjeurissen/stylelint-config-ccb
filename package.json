@@ -1,6 +1,6 @@
 {
   "name": "stylelint-config-ccb",
-  "version": "3.21.3",
+  "version": "3.21.4",
   "description": "Stylelint config which extends stylelint-config-standard",
   "keywords": [
     "stylelint",
@@ -32,7 +32,7 @@
     "@carlosjeurissen/stylelint-csstree-validator": "^3.1.0",
     "@double-great/stylelint-a11y": "^3.0.4",
     "@stylistic/stylelint-plugin": "^3.1.2",
-    "caniuse-lite": "1.0.30001699",
+    "caniuse-lite": "1.0.30001700",
     "doiuse": "6.0.5",
     "prettier": "^3.5.1",
     "stylelint-color-format": "^1.1.0",
@@ -53,9 +53,9 @@
   },
   "devDependencies": {
     "eslint": "^9.20.1",
-    "eslint-config-ccb": "^0.31.2",
+    "eslint-config-ccb": "^0.35.0",
     "stylelint": "^16.14.1",
-    "vitest": "^3.0.5"
+    "vitest": "^3.0.6"
   },
   "peerDependencies": {
     "stylelint": ">=16.13.0"
@@ -79,7 +79,8 @@
   "pnpm": {
     "overrides": {
       "postcss@<7.0.36": ">=7.0.36",
-      "postcss@<8.4.31": ">=8.4.31"
+      "postcss@<8.4.31": ">=8.4.31",
+      "esbuild@<=0.24.2": ">=0.25.0"
     }
   }
 }
