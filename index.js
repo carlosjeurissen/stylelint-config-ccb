@@ -264,6 +264,7 @@ const mainRules = {
   'no-unknown-animations': true,
   'no-unknown-custom-media': true,
   'no-unknown-custom-properties': true,
+  'syntax-string-no-invalid': true,
   'unit-no-unknown': true,
 
   'declaration-property-max-values': {

@@ -1,6 +1,6 @@
 {
   "name": "stylelint-config-ccb",
-  "version": "3.21.4",
+  "version": "3.22.0",
   "description": "Stylelint config which extends stylelint-config-standard",
   "keywords": [
     "stylelint",
@@ -32,13 +32,13 @@
     "@carlosjeurissen/stylelint-csstree-validator": "^3.1.0",
     "@double-great/stylelint-a11y": "^3.0.4",
     "@stylistic/stylelint-plugin": "^3.1.2",
-    "caniuse-lite": "1.0.30001700",
+    "caniuse-lite": "1.0.30001701",
     "doiuse": "6.0.5",
-    "prettier": "^3.5.1",
+    "prettier": "^3.5.3",
     "stylelint-color-format": "^1.1.0",
     "stylelint-config-standard": "^37.0.0",
     "stylelint-declaration-block-no-ignored-properties": "^2.8.0",
-    "stylelint-high-performance-animation": "^1.10.0",
+    "stylelint-high-performance-animation": "^1.11.0",
     "stylelint-no-browser-hacks": "^1.3.0",
     "stylelint-no-indistinguishable-colors": "^2.3.0",
     "stylelint-no-nested-media": "^0.1.0",
@@ -52,10 +52,10 @@
     "stylelint-value-no-unknown-custom-properties": "^6.0.1"
   },
   "devDependencies": {
-    "eslint": "^9.20.1",
+    "eslint": "^9.21.0",
     "eslint-config-ccb": "^0.35.0",
-    "stylelint": "^16.14.1",
-    "vitest": "^3.0.6"
+    "stylelint": "^16.15.0",
+    "vitest": "^3.0.7"
   },
   "peerDependencies": {
     "stylelint": ">=16.13.0"
@@ -79,8 +79,7 @@
   "pnpm": {
     "overrides": {
       "postcss@<7.0.36": ">=7.0.36",
-      "postcss@<8.4.31": ">=8.4.31",
-      "esbuild@<=0.24.2": ">=0.25.0"
+      "postcss@<8.4.31": ">=8.4.31"
     }
   }
 }
