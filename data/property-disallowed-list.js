@@ -121,7 +121,6 @@ export default [
 
   /* other webkit-only */
   '-webkit-animation-trigger',
-  '-webkit-app-region',
   '-webkit-aspect-ratio',
   '-webkit-backdrop-filter',
   '-webkit-border-fit',
@@ -186,13 +185,13 @@ export default [
   '-webkit-transform-origin-x',
   '-webkit-transform-origin-y',
   '-webkit-transform-origin-z',
-  '-webkit-user-drag',
+  '-webkit-user-drag', // use html[draggable="true"]
   '-webkit-user-modify',
 
   /* webkit-only allowed
-  '-webkit-text-fill-color',
+  '-webkit-app-region', // for now, see https://github.com/w3c/csswg-drafts/issues/7017
   '-webkit-tap-highlight-color',
-  '-webkit-user-drag', // for now, html[draggable="true"] is preferred
+  '-webkit-text-fill-color',
   '-webkit-touch-callout', // see https://developer.mozilla.org/en-US/docs/Web/CSS/-webkit-touch-callout
   */
 
