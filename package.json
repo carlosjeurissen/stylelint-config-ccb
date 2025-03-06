@@ -1,6 +1,6 @@
 {
   "name": "stylelint-config-ccb",
-  "version": "3.23.0",
+  "version": "3.23.1",
   "description": "Stylelint config which extends stylelint-config-standard",
   "keywords": [
     "stylelint",
@@ -29,7 +29,7 @@
     "watch": "vitest watch"
   },
   "dependencies": {
-    "@carlosjeurissen/stylelint-csstree-validator": "^3.1.0",
+    "@carlosjeurissen/stylelint-csstree-validator": "^3.2.0",
     "@double-great/stylelint-a11y": "^3.0.4",
     "@stylistic/stylelint-plugin": "^3.1.2",
     "caniuse-lite": "1.0.30001702",
