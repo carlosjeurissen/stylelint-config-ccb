@@ -252,6 +252,7 @@ const mainRules = {
   'custom-media-pattern': '[a-z-]{4,40}',
   'custom-property-pattern': '[a-z-]{4,40}',
   'keyframes-name-pattern': '[a-z-]{4,40}',
+  'layer-name-pattern': '[a-z-_]{2,40}',
   'selector-class-pattern': '[a-z-_]{3,40}',
   'selector-id-pattern': '[a-z-_]{2,40}',
 
