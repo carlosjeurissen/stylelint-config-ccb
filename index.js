@@ -242,20 +242,6 @@ const mainRules = {
     },
   ],
 
-  /* todo update these based on 'selector-id-pattern': [
-      '^([a-z][a-z0-9]*)(-[a-z0-9]+)*$',
-      {
-        message: 'Expected id selector to be kebab-case'
-      }
-    ], */
-
-  'custom-media-pattern': '[a-z-]{4,40}',
-  'custom-property-pattern': '[a-z-]{4,40}',
-  'keyframes-name-pattern': '[a-z-]{4,40}',
-  'layer-name-pattern': '[a-z-_]{2,40}',
-  'selector-class-pattern': '[a-z-_]{3,40}',
-  'selector-id-pattern': '[a-z-_]{2,40}',
-
   /* stylelint-config-ccb */
   'declaration-property-value-no-unknown': true,
   'function-linear-gradient-no-nonstandard-direction': true,
@@ -265,7 +251,6 @@ const mainRules = {
   'no-unknown-animations': true,
   'no-unknown-custom-media': true,
   'no-unknown-custom-properties': true,
-  'syntax-string-no-invalid': true,
   'unit-no-unknown': true,
 
   'declaration-property-max-values': {
@@ -645,6 +630,7 @@ function applyEssentialRules (targetRules, options) {
 function applyCompatibilityRules (targetRules, options) {
   /* use hex and rgba instead of rgb */
   targetRules['color-function-notation'] = 'legacy';
+  targetRules['color-function-alias-notation'] = null;
   targetRules['color-no-hex'] = null;
   targetRules['function-disallowed-list'] = getFunctionDisallowedList(options);
   targetRules['color-format/format'] = null;

@@ -1,6 +1,6 @@
 {
   "name": "stylelint-config-ccb",
-  "version": "3.24.0",
+  "version": "3.25.0",
   "description": "Stylelint config which extends stylelint-config-standard",
   "keywords": [
     "stylelint",
@@ -32,11 +32,11 @@
     "@carlosjeurissen/stylelint-csstree-validator": "^3.2.1",
     "@double-great/stylelint-a11y": "^3.0.4",
     "@stylistic/stylelint-plugin": "^3.1.2",
-    "caniuse-lite": "1.0.30001707",
+    "caniuse-lite": "1.0.30001712",
     "doiuse": "6.0.5",
     "prettier": "^3.5.3",
     "stylelint-color-format": "^1.1.0",
-    "stylelint-config-standard": "^37.0.0",
+    "stylelint-config-standard": "^38.0.0",
     "stylelint-declaration-block-no-ignored-properties": "^2.8.0",
     "stylelint-high-performance-animation": "^1.11.0",
     "stylelint-no-browser-hacks": "^1.3.0",
@@ -52,13 +52,13 @@
     "stylelint-value-no-unknown-custom-properties": "^6.0.1"
   },
   "devDependencies": {
-    "eslint": "^9.23.0",
+    "eslint": "^9.24.0",
     "eslint-config-ccb": "^0.35.0",
-    "stylelint": "^16.17.0",
-    "vitest": "^3.0.9"
+    "stylelint": "^16.18.0",
+    "vitest": "^3.1.1"
   },
   "peerDependencies": {
-    "stylelint": ">=16.17.0"
+    "stylelint": ">=16.18.0"
   },
   "browserslist": [
     "Firefox ESR",
