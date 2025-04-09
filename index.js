@@ -242,6 +242,20 @@ const mainRules = {
     },
   ],
 
+  'selector-class-pattern': [
+    '^[a-z][a-z0-9-]*(?:(?:--|__)[-a-z0-9]+)*[a-z0-9]$',
+    {
+      message: 'Expected class selector to be kebab-case or bem modifier (button--variation)',
+    },
+  ],
+
+  'keyframes-name-pattern': [
+    '^[a-z][a-z0-9-]*(?:(?:--|__)[-a-z0-9]+)*[a-z0-9]$',
+    {
+      message: 'Expected keyframes name to be kebab-case or bem modifier (button--variation)',
+    },
+  ],
+
   /* stylelint-config-ccb */
   'declaration-property-value-no-unknown': true,
   'function-linear-gradient-no-nonstandard-direction': true,
