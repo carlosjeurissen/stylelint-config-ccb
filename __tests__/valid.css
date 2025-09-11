@@ -67,7 +67,7 @@ html {
   }
 }
 
-@media (orientation: portrait), projection and (color) {
+@media (orientation: portrait), screen and (color) {
   .selector-i + .selector-ii {
     background: rgb(128 128 128);
     font-family: Helvetica, Arial, sans-serif;
