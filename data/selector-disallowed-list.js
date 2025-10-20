@@ -4,6 +4,8 @@ export default [
   'span',
   // disallow nth-child(n) and nth-child(1n)
   '/:nth(-last)?(-child|-of-type)\\([\\s]{0,}1?n[\\s]{0,}\\)/',
+  // disallow :not(:hover
+  '/:not\\(:hover/',
   // should not be styled
   'head',
   'link',

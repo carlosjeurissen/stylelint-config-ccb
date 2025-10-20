@@ -1,6 +1,6 @@
 {
   "name": "stylelint-config-ccb",
-  "version": "3.27.0",
+  "version": "3.28.0",
   "description": "Stylelint config which extends stylelint-config-standard",
   "keywords": [
     "stylelint",
@@ -32,17 +32,17 @@
     "@carlosjeurissen/stylelint-csstree-validator": "^3.2.1",
     "@double-great/stylelint-a11y": "^3.4.0",
     "@stylistic/stylelint-plugin": "^4.0.0",
-    "caniuse-lite": "1.0.30001741",
+    "caniuse-lite": "1.0.30001751",
     "doiuse": "6.0.5",
     "prettier": "^3.6.2",
     "stylelint-color-format": "^1.1.0",
-    "stylelint-config-standard": "^39.0.0",
+    "stylelint-config-standard": "^39.0.1",
     "stylelint-declaration-block-no-ignored-properties": "^2.8.0",
     "stylelint-high-performance-animation": "^1.11.0",
     "stylelint-no-browser-hacks": "^2.0.0",
     "stylelint-no-indistinguishable-colors": "^2.3.1",
     "stylelint-no-nested-media": "^0.1.0",
-    "stylelint-no-unsupported-browser-features": "^8.0.4",
+    "stylelint-no-unsupported-browser-features": "^8.0.5",
     "stylelint-order": "^7.0.0",
     "stylelint-plugin-import": "^1.0.13",
     "stylelint-prettier": "^5.0.3",
@@ -52,9 +52,9 @@
     "stylelint-value-no-unknown-custom-properties": "^6.0.1"
   },
   "devDependencies": {
-    "eslint": "^9.35.0",
+    "eslint": "^9.38.0",
     "eslint-config-ccb": "^0.36.1",
-    "stylelint": "^16.24.0",
+    "stylelint": "^16.25.0",
     "vitest": "^3.2.4"
   },
   "peerDependencies": {

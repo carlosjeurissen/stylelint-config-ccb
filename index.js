@@ -216,12 +216,6 @@ const mainPlugins = [
 
 const mainRules = {
   /* stylelint-config-standard overwrites */
-  'property-no-deprecated': [
-    true,
-    {
-      disableFix: true,
-    },
-  ],
   'alpha-value-notation': 'percentage',
   'color-hex-length': 'long',
   'declaration-block-no-redundant-longhand-properties': null,
@@ -240,6 +234,12 @@ const mainRules = {
     },
   ],
   'number-max-precision': 5,
+  'property-no-deprecated': [
+    true,
+    {
+      disableFix: true,
+    },
+  ],
   'value-keyword-case': [
     'lower',
     {
