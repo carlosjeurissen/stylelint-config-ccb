@@ -1,3 +1,6 @@
+ignoredBuiltDependencies:
+  - esbuild
+
 overrides:
   '@eslint/plugin-kit@<0.3.4': '>=0.3.4'
   postcss@<7.0.36: '>=7.0.36'

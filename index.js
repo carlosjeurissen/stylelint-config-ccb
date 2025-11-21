@@ -215,10 +215,12 @@ const mainPlugins = [
 ];
 
 const mainRules = {
-  /* stylelint-config-standard overwrites */
+  /* stylelint-config-standard overrides */
   'alpha-value-notation': 'percentage',
   'color-hex-length': 'long',
   'declaration-block-no-redundant-longhand-properties': null,
+  'number-max-precision': 5,
+
   'font-family-no-duplicate-names': [
     true,
     {
@@ -233,7 +235,6 @@ const mainRules = {
       ],
     },
   ],
-  'number-max-precision': 5,
   'property-no-deprecated': [
     true,
     {
@@ -248,17 +249,22 @@ const mainRules = {
     },
   ],
 
-  'selector-class-pattern': [
+  'custom-property-pattern': [
     '^[a-z][a-z0-9-]*(?:(?:--|__)[-a-z0-9]+)*[a-z0-9]$',
     {
-      message: 'Expected class selector to be kebab-case or bem modifier (button--variation)',
+      message: (name) => `Expected custom property name "${name}" to be kebab-case or bem modifier (button--variation)`,
     },
   ],
-
   'keyframes-name-pattern': [
     '^[a-z][a-z0-9-]*(?:(?:--|__)[-a-z0-9]+)*[a-z0-9]$',
     {
-      message: 'Expected keyframes name to be kebab-case or bem modifier (button--variation)',
+      message: (name) => `Expected keyframes name "${name}" to be kebab-case or bem modifier (button--variation)`,
+    },
+  ],
+  'selector-class-pattern': [
+    '^[a-z][a-z0-9-]*(?:(?:--|__)[-a-z0-9]+)*[a-z0-9]$',
+    {
+      message: (name) => `Expected class selector "${name}" to be kebab-case or bem modifier (button--variation)`,
     },
   ],
 

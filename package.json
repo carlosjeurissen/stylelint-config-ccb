@@ -1,6 +1,6 @@
 {
   "name": "stylelint-config-ccb",
-  "version": "3.28.1",
+  "version": "3.29.0",
   "description": "Stylelint config which extends stylelint-config-standard",
   "keywords": [
     "stylelint",
@@ -30,9 +30,9 @@
   },
   "dependencies": {
     "@carlosjeurissen/stylelint-csstree-validator": "^3.2.1",
-    "@double-great/stylelint-a11y": "^3.4.0",
+    "@double-great/stylelint-a11y": "^3.4.1",
     "@stylistic/stylelint-plugin": "^4.0.0",
-    "caniuse-lite": "1.0.30001751",
+    "caniuse-lite": "1.0.30001756",
     "doiuse": "6.0.5",
     "prettier": "^3.6.2",
     "stylelint-color-format": "^1.1.0",
@@ -52,10 +52,10 @@
     "stylelint-value-no-unknown-custom-properties": "^6.0.1"
   },
   "devDependencies": {
-    "eslint": "^9.38.0",
-    "eslint-config-ccb": "^0.36.2",
+    "eslint": "^9.39.1",
+    "eslint-config-ccb": "^0.37.2",
     "stylelint": "^16.25.0",
-    "vitest": "^3.2.4"
+    "vitest": "^4.0.12"
   },
   "peerDependencies": {
     "stylelint": ">=16.18.0"

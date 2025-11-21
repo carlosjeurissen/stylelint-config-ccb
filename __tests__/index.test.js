@@ -10,8 +10,8 @@ import {
 
 import config from '../dist/main.cjs';
 
-const validCss = fs.readFileSync('./__tests__/valid.css', 'utf8');
-const invalidCss = fs.readFileSync('./__tests__/invalid.css', 'utf8');
+const validCss = fs.readFileSync('./__tests__/valid.css', 'utf-8');
+const invalidCss = fs.readFileSync('./__tests__/invalid.css', 'utf-8');
 
 describe('flags no warnings with valid css', () => {
   let result;
