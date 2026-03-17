@@ -1,2 +1,7 @@
-ignoredBuiltDependencies:
-  - esbuild
+onlyBuiltDependencies: null
+
+overrides:
+  eslint@>=10: '^9.0.0'
+  postcss@<7.0.36: '>=7.0.36'
+  postcss@<8.4.31: '>=8.4.31'
+  yauzl@<3.2.1: '>=3.2.1'

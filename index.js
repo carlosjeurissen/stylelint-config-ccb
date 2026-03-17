@@ -705,6 +705,7 @@ function generateConfig (options) {
         '**/contentscript.css',
         '**/user-script.css',
         '**/userscript.css',
+        '**/*.content/*.css', // WTX
       ],
       rules: csRules,
     });
